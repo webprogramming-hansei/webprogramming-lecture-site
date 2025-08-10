@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1주차: 웹프로그래밍 & 역사 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="index.html#curriculum" class="nav-link">커리큘럼</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>1주차: 웹프로그래밍 & 역사</h1>
+                    <p>웹의 기초 개념과 발전 과정을 이해하고 HTML의 기본을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="index.html" class="btn btn-secondary">← 홈으로</a>
+                        <a href="week2.html" class="btn btn-primary">2주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🌐</div>
+                        <h3>웹의 역사 이해</h3>
+                        <p>인터넷의 기원부터 현재까지의 웹 발전 과정을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📚</div>
+                        <h3>웹 버전별 특징</h3>
+                        <p>Web 1.0, 2.0, 3.0의 특징과 차이점을 이해합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">⚙️</div>
+                        <h3>개발 환경 구축</h3>
+                        <p>VS Code와 GitHub Copilot을 설정하고 사용법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🏷️</div>
+                        <h3>HTML 기초</h3>
+                        <p>HTML의 기본 태그와 구조를 이해합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 웹의 역사</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1989</div>
+                                <div class="timeline-content">
+                                    <h4>월드 와이드 웹 탄생</h4>
+                                    <p>팀 버너스리(Tim Berners-Lee)가 CERN에서 WWW를 창시했습니다. HTTP, HTML, URL의 기본 개념을 정립했습니다.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1991</div>
+                                <div class="timeline-content">
+                                    <h4>최초 웹사이트</h4>
+                                    <p>세계 최초의 웹사이트가 공개되었습니다. 정보 공유를 위한 정적인 페이지들로 구성되었습니다.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1995</div>
+                                <div class="timeline-content">
+                                    <h4>JavaScript 등장</h4>
+                                    <p>넷스케이프에서 JavaScript를 개발하여 웹페이지에 동적 기능이 추가되기 시작했습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 웹의 진화</h3>
+                        <div class="web-evolution">
+                            <div class="web-version">
+                                <h4>Web 1.0 (1990년대 - 2000년대 초)</h4>
+                                <div class="version-details">
+                                    <div class="features">
+                                        <h5>특징:</h5>
+                                        <ul>
+                                            <li>정적인 웹페이지</li>
+                                            <li>읽기 전용 콘텐츠</li>
+                                            <li>일방향 정보 제공</li>
+                                            <li>HTML과 CSS 중심</li>
+                                        </ul>
+                                    </div>
+                                    <div class="examples">
+                                        <h5>예시:</h5>
+                                        <ul>
+                                            <li>초기 기업 홈페이지</li>
+                                            <li>온라인 브로셔</li>
+                                            <li>개인 홈페이지</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="web-version">
+                                <h4>Web 2.0 (2000년대 - 2010년대)</h4>
+                                <div class="version-details">
+                                    <div class="features">
+                                        <h5>특징:</h5>
+                                        <ul>
+                                            <li>사용자 참여와 상호작용</li>
+                                            <li>소셜 미디어 등장</li>
+                                            <li>AJAX 기술 활용</li>
+                                            <li>사용자 생성 콘텐츠</li>
+                                        </ul>
+                                    </div>
+                                    <div class="examples">
+                                        <h5>예시:</h5>
+                                        <ul>
+                                            <li>YouTube, Facebook</li>
+                                            <li>블로그 플랫폼</li>
+                                            <li>위키피디아</li>
+                                            <li>온라인 쇼핑몰</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="web-version">
+                                <h4>Web 3.0 (2010년대 - 현재)</h4>
+                                <div class="version-details">
+                                    <div class="features">
+                                        <h5>특징:</h5>
+                                        <ul>
+                                            <li>분산화된 웹</li>
+                                            <li>블록체인 기술</li>
+                                            <li>AI와 개인화</li>
+                                            <li>IoT 연결성</li>
+                                        </ul>
+                                    </div>
+                                    <div class="examples">
+                                        <h5>예시:</h5>
+                                        <ul>
+                                            <li>DApps (분산 앱)</li>
+                                            <li>NFT 마켓플레이스</li>
+                                            <li>개인화 추천 시스템</li>
+                                            <li>스마트 홈</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. HTML 기초</h3>
+                        <p>HTML(HyperText Markup Language)은 웹페이지의 구조를 정의하는 마크업 언어입니다.</p>
+                        
+                        <h4>기본 HTML 구조</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;내 첫 번째 웹페이지&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;안녕하세요!&lt;/h1&gt;
+    &lt;p&gt;이것은 내 첫 번째 웹페이지입니다.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <h4>주요 HTML 태그</h4>
+                        <div class="tag-reference">
+                            <div class="tag-group">
+                                <h5>제목 태그</h5>
+                                <ul>
+                                    <li><code>&lt;h1&gt;</code> - 가장 큰 제목</li>
+                                    <li><code>&lt;h2&gt;</code> - 두 번째 제목</li>
+                                    <li><code>&lt;h3&gt;</code> - 세 번째 제목</li>
+                                    <li>... <code>&lt;h6&gt;</code>까지</li>
+                                </ul>
+                            </div>
+                            <div class="tag-group">
+                                <h5>텍스트 태그</h5>
+                                <ul>
+                                    <li><code>&lt;p&gt;</code> - 문단</li>
+                                    <li><code>&lt;strong&gt;</code> - 강조 (굵게)</li>
+                                    <li><code>&lt;em&gt;</code> - 기울임</li>
+                                    <li><code>&lt;br&gt;</code> - 줄바꿈</li>
+                                </ul>
+                            </div>
+                            <div class="tag-group">
+                                <h5>링크와 이미지</h5>
+                                <ul>
+                                    <li><code>&lt;a href="URL"&gt;</code> - 링크</li>
+                                    <li><code>&lt;img src="이미지경로" alt="설명"&gt;</code> - 이미지</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. VS Code와 GitHub Copilot 설정</h3>
+                        <div class="setup-steps">
+                            <div class="setup-step">
+                                <h4>1단계: VS Code 설치</h4>
+                                <p>Visual Studio Code를 공식 웹사이트에서 다운로드하여 설치합니다.</p>
+                            </div>
+                            <div class="setup-step">
+                                <h4>2단계: GitHub Copilot 확장 프로그램 설치</h4>
+                                <p>VS Code의 확장 프로그램 마켓플레이스에서 GitHub Copilot을 검색하여 설치합니다.</p>
+                            </div>
+                            <div class="setup-step">
+                                <h4>3단계: GitHub 계정 연동</h4>
+                                <p>GitHub 계정으로 로그인하여 Copilot을 활성화합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 첫 번째 HTML 페이지 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 기본 HTML 구조를 이용해 간단한 자기소개 페이지를 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>DOCTYPE, html, head, body 태그 사용</li>
+                                <li>제목(title)과 meta 태그 포함</li>
+                                <li>h1 태그로 이름 표시</li>
+                                <li>p 태그로 간단한 자기소개</li>
+                                <li>좋아하는 웹사이트로의 링크 추가</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;홍길동 - 자기소개&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;안녕하세요, 홍길동입니다!&lt;/h1&gt;
+    &lt;p&gt;저는 웹 프로그래밍을 배우고 있는 대학생입니다.&lt;/p&gt;
+    &lt;p&gt;좋아하는 사이트: &lt;a href="https://github.com"&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: Copilot을 활용한 HTML 템플릿 생성</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> GitHub Copilot의 도움을 받아 HTML 템플릿을 자동완성합니다.</p>
+                            
+                            <h4>Copilot 활용법:</h4>
+                            <ul>
+                                <li>주석으로 원하는 기능 설명하기</li>
+                                <li>태그 시작 부분 입력 후 자동완성 받기</li>
+                                <li>Ctrl+Space로 제안 보기</li>
+                                <li>Tab으로 제안 수락하기</li>
+                            </ul>
+
+                            <div class="copilot-tips">
+                                <h5>💡 Copilot 활용 팁:</h5>
+                                <ul>
+                                    <li>명확하고 구체적인 주석 작성하기</li>
+                                    <li>일관된 코딩 스타일 유지하기</li>
+                                    <li>제안된 코드 검토 후 수정하기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>토론 활동: Web 1.0/2.0/3.0 사례 분석</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 각 웹 버전의 특징을 실제 사례를 통해 이해합니다.</p>
+                            
+                            <div class="discussion-topics">
+                                <div class="topic">
+                                    <h4>토론 주제 1</h4>
+                                    <p>현재 사용하는 웹사이트들을 Web 2.0과 3.0으로 분류해보고 그 이유를 설명해보세요.</p>
+                                </div>
+                                <div class="topic">
+                                    <h4>토론 주제 2</h4>
+                                    <p>Web 3.0의 분산화 특성이 우리의 인터넷 사용에 어떤 변화를 가져올까요?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>웹의 발전 과정: Web 1.0 → 2.0 → 3.0</li>
+                            <li>HTML은 웹페이지의 구조를 정의하는 마크업 언어</li>
+                            <li>VS Code와 GitHub Copilot으로 효율적인 개발 환경 구축</li>
+                            <li>기본 HTML 태그와 문서 구조 이해</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>2주차에서는 HTML의 의미있는 구조 설계를 위한 시맨틱 태그들을 학습합니다. header, nav, footer 등의 태그와 접근성에 대해 다룰 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="index.html" class="btn btn-secondary">← 홈으로 돌아가기</a>
+                    <a href="week2.html" class="btn btn-primary">2주차: HTML 시맨틱 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4주차: CSS 레이아웃 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="index.html#curriculum" class="nav-link">커리큘럼</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>4주차: CSS 레이아웃</h1>
+                    <p>Flexbox를 활용한 효율적인 레이아웃 설계와 positioning을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week3.html" class="btn btn-secondary">← 3주차</a>
+                        <a href="week5.html" class="btn btn-primary">5주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📐</div>
+                        <h3>Flexbox 기초</h3>
+                        <p>Flexbox의 개념과 기본 속성들을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📍</div>
+                        <h3>Positioning</h3>
+                        <p>static, relative, absolute, fixed positioning을 이해합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📱</div>
+                        <h3>반응형 개념</h3>
+                        <p>반응형 웹 디자인의 기본 개념을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🍔</div>
+                        <h3>메뉴 레이아웃</h3>
+                        <p>Flexbox를 활용한 네비게이션 메뉴를 만듭니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. Flexbox 기초</h3>
+                        <p>Flexbox는 복잡한 레이아웃을 효율적으로 배치할 수 있는 CSS 레이아웃 모듈입니다.</p>
+                        
+                        <h4>Flex Container 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.flex-container {
+    display: flex;
+    
+    /* 주축 방향 설정 */
+    flex-direction: row;        /* row, row-reverse, column, column-reverse */
+    
+    /* 줄 바꿈 설정 */
+    flex-wrap: nowrap;          /* nowrap, wrap, wrap-reverse */
+    
+    /* 주축 정렬 */
+    justify-content: flex-start; /* flex-start, center, flex-end, space-between, space-around, space-evenly */
+    
+    /* 교차축 정렬 */
+    align-items: stretch;       /* stretch, flex-start, center, flex-end, baseline */
+    
+    /* 여러 줄일 때 교차축 정렬 */
+    align-content: stretch;     /* stretch, flex-start, center, flex-end, space-between, space-around */
+}</code></pre>
+                        </div>
+
+                        <h4>Flex Item 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.flex-item {
+    /* 남은 공간 분배 비율 */
+    flex-grow: 0;    /* 기본값 0 */
+    
+    /* 공간 부족시 축소 비율 */
+    flex-shrink: 1;  /* 기본값 1 */
+    
+    /* 기본 크기 */
+    flex-basis: auto; /* auto, 0, 픽셀값, 퍼센트 등 */
+    
+    /* 축약형 */
+    flex: 0 1 auto;  /* grow shrink basis */
+    flex: 1;         /* flex: 1 1 0과 같음 */
+    
+    /* 개별 아이템 정렬 */
+    align-self: auto; /* auto, flex-start, center, flex-end, stretch, baseline */
+    
+    /* 순서 변경 */
+    order: 0;        /* 정수값, 기본값 0 */
+}</code></pre>
+                        </div>
+
+                        <h4>실용적인 Flexbox 예제</h4>
+                        <div class="flex-examples">
+                            <div class="flex-example">
+                                <h5>가로 중앙 정렬</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.center-horizontal {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="flex-example">
+                                <h5>세로 중앙 정렬</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.center-vertical {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="flex-example">
+                                <h5>완전 중앙 정렬</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.center-both {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="flex-example">
+                                <h5>균등 분배</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.equal-columns {
+    display: flex;
+}
+
+.equal-columns > * {
+    flex: 1;
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. CSS Positioning</h3>
+                        <p>CSS positioning을 사용하여 요소의 위치를 정확하게 제어할 수 있습니다.</p>
+                        
+                        <div class="position-types">
+                            <div class="position-type">
+                                <h4>Static (기본값)</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.static {
+    position: static;
+    /* top, right, bottom, left 속성이 무시됨 */
+}</code></pre>
+                                </div>
+                                <p>일반적인 문서 흐름에 따라 배치됩니다.</p>
+                            </div>
+
+                            <div class="position-type">
+                                <h4>Relative</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.relative {
+    position: relative;
+    top: 10px;    /* 원래 위치에서 아래로 10px */
+    left: 20px;   /* 원래 위치에서 오른쪽으로 20px */
+}</code></pre>
+                                </div>
+                                <p>원래 위치를 기준으로 상대적 위치 조정. 다른 요소들은 영향받지 않음.</p>
+                            </div>
+
+                            <div class="position-type">
+                                <h4>Absolute</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 부모 요소에 상대적 위치 설정 */
+.parent {
+    position: relative;
+}</code></pre>
+                                </div>
+                                <p>position이 static이 아닌 가장 가까운 조상 요소를 기준으로 위치 설정.</p>
+                            </div>
+
+                            <div class="position-type">
+                                <h4>Fixed</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}</code></pre>
+                                </div>
+                                <p>뷰포트를 기준으로 위치 고정. 스크롤해도 위치가 변하지 않음.</p>
+                            </div>
+
+                            <div class="position-type">
+                                <h4>Sticky</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}</code></pre>
+                                </div>
+                                <p>스크롤에 따라 relative와 fixed 사이를 전환.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 실용적인 레이아웃 패턴</h3>
+                        <p>자주 사용되는 레이아웃 패턴들을 Flexbox로 구현해봅시다.</p>
+                        
+                        <h4>1. Holy Grail Layout</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;div class="holy-grail"&gt;
+    &lt;header&gt;Header&lt;/header&gt;
+    &lt;div class="content-wrapper"&gt;
+        &lt;nav&gt;Navigation&lt;/nav&gt;
+        &lt;main&gt;Main Content&lt;/main&gt;
+        &lt;aside&gt;Sidebar&lt;/aside&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+                            <pre><code class="language-css">.holy-grail {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+nav {
+    flex-basis: 200px;
+    background: #f8f9fa;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+aside {
+    flex-basis: 150px;
+    background: #e9ecef;
+}</code></pre>
+                        </div>
+
+                        <h4>2. Card Layout</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    flex: 1 1 300px; /* grow shrink basis */
+    min-height: 200px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* 마지막 줄 카드들 왼쪽 정렬 */
+.card:last-child {
+    margin-right: auto;
+}</code></pre>
+                        </div>
+
+                        <h4>3. 반응형 네비게이션</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #333;
+    color: white;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* 모바일에서 햄버거 메뉴 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 반응형 웹 디자인 개념</h3>
+                        <p>다양한 디바이스에 맞춰 레이아웃이 조정되는 반응형 웹의 기본 개념을 알아봅시다.</p>
+                        
+                        <h4>뷰포트 설정</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                        </div>
+
+                        <h4>기본 브레이크포인트</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* Mobile First 방식 */
+.container {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* 태블릿 */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
+/* 데스크톱 */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* 큰 화면 */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>Flexbox 반응형 패턴</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.responsive-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.grid-item {
+    /* 모바일: 전체 너비 */
+    flex: 1 1 100%;
+}
+
+/* 태블릿: 2열 */
+@media (min-width: 768px) {
+    .grid-item {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+}
+
+/* 데스크톱: 3열 */
+@media (min-width: 1024px) {
+    .grid-item {
+        flex: 1 1 calc(33.333% - 0.67rem);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: Flexbox 네비게이션 메뉴 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Flexbox를 활용하여 반응형 네비게이션 메뉴를 구현합니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>로고와 메뉴가 양 끝에 배치되는 네비게이션</li>
+                                <li>메뉴 항목들이 균등한 간격으로 배치</li>
+                                <li>모바일에서는 햄버거 메뉴로 변경</li>
+                                <li>hover 효과 추가</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-html">&lt;nav class="navbar"&gt;
+    &lt;div class="nav-brand"&gt;
+        &lt;h1&gt;Logo&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;ul class="nav-menu"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nav-toggle"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: Copilot과 함께 Flexbox 레이아웃 생성</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> GitHub Copilot의 도움을 받아 복잡한 Flexbox 레이아웃을 구현합니다.</p>
+                            
+                            <h4>Copilot 활용 팁:</h4>
+                            <ul>
+                                <li>레이아웃 설명을 주석으로 작성하기</li>
+                                <li>Flexbox 속성 자동완성 받기</li>
+                                <li>반응형 미디어 쿼리 생성하기</li>
+                            </ul>
+
+                            <div class="copilot-tips">
+                                <h5>💡 Copilot Flexbox 프롬프트 예시:</h5>
+                                <ul>
+                                    <li>"3열 카드 레이아웃, 반응형"</li>
+                                    <li>"중앙 정렬된 컨텐츠 영역"</li>
+                                    <li>"사이드바가 있는 메인 레이아웃"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 카드 기반 레이아웃</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Flexbox를 사용하여 반응형 카드 그리드를 만듭니다.</p>
+                            
+                            <h4>구현 사항:</h4>
+                            <ul>
+                                <li>최소 6개의 카드로 구성</li>
+                                <li>데스크톱: 3열, 태블릿: 2열, 모바일: 1열</li>
+                                <li>카드 간 균등한 간격</li>
+                                <li>hover 시 확대 효과</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-css">.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    flex: 1 1 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>Flexbox: display: flex, justify-content, align-items</li>
+                            <li>Flex 아이템: flex-grow, flex-shrink, flex-basis</li>
+                            <li>Positioning: static, relative, absolute, fixed</li>
+                            <li>반응형 디자인의 기본 개념</li>
+                            <li>실용적인 레이아웃 패턴 구현</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>5주차에서는 CSS의 고급 기능들을 학습합니다. 미디어 쿼리, CSS 애니메이션, 전환 효과, 그리고 고급 선택자들을 다룰 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week3.html" class="btn btn-secondary">← 3주차: CSS 기초</a>
+                    <a href="week5.html" class="btn btn-primary">5주차: 고급 CSS →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

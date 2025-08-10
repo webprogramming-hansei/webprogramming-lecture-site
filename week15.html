@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15주차: 최종 발표 & 과정 마무리 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>15주차: 최종 발표 & 과정 마무리</h1>
+                    <p>15주 동안의 웹프로그래밍 여정을 마무리하고 앞으로의 학습 방향을 설정합니다</p>
+                    <div class="week-navigation">
+                        <a href="week14.html" class="btn btn-secondary">← 14주차</a>
+                        <a href="index.html" class="btn btn-primary">홈으로 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🎤</div>
+                        <h3>최종 발표</h3>
+                        <p>개발한 프로젝트를 효과적으로 발표하고 기술적 성과를 공유합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📝</div>
+                        <h3>동료 평가</h3>
+                        <p>다른 학생들의 프로젝트를 평가하고 건설적인 피드백을 제공합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎓</div>
+                        <h3>학습 성찰</h3>
+                        <p>15주간의 학습 과정을 돌아보고 성장한 부분을 정리합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🚀</div>
+                        <h3>미래 계획</h3>
+                        <p>앞으로의 웹 개발 학습 로드맵과 목표를 수립합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 최종 발표 진행</h3>
+                        <p>15주 동안 개발한 프로젝트를 동료들 앞에서 발표하는 시간입니다.</p>
+                        
+                        <h4>발표 진행 방식</h4>
+                        <div class="presentation-format">
+                            <div class="timeline-container">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">1</div>
+                                    <div class="timeline-content">
+                                        <h4>발표 준비 (10분)</h4>
+                                        <p>발표 자료 점검, 데모 사이트 확인, 기술적 설정 완료</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">2</div>
+                                    <div class="timeline-content">
+                                        <h4>프로젝트 발표 (12분)</h4>
+                                        <p>프로젝트 소개, 기술적 구현, 개발 경험, 라이브 데모</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">3</div>
+                                    <div class="timeline-content">
+                                        <h4>질의응답 (3분)</h4>
+                                        <p>동료들과 교수님의 질문에 대한 답변 및 토론</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">4</div>
+                                    <div class="timeline-content">
+                                        <h4>피드백 수집 (5분)</h4>
+                                        <p>동료 평가서 작성 및 개선점 제안</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>발표 평가 기준</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 최종 발표 평가 기준
+
+## 기술적 구현 (40점)
+### 코드 품질 (15점)
+- [ ] 깔끔하고 가독성 있는 코드 구조
+- [ ] 적절한 주석과 문서화
+- [ ] 일관된 네이밍 규칙
+- [ ] 효율적인 알고리즘 활용
+
+### 기능 완성도 (15점)
+- [ ] 기획한 기능의 완전한 구현
+- [ ] 사용자 인터페이스의 완성도
+- [ ] 오류 처리 및 예외 상황 대응
+- [ ] 브라우저 호환성
+
+### 기술적 도전 (10점)
+- [ ] 새로운 기술이나 라이브러리 활용
+- [ ] 복잡한 문제 해결 과정
+- [ ] 창의적인 구현 방법
+- [ ] 성능 최적화 노력
+
+## 발표 능력 (30점)
+### 내용 전달 (15점)
+- [ ] 명확하고 논리적인 구조
+- [ ] 적절한 시간 배분
+- [ ] 핵심 내용의 효과적 전달
+- [ ] 청중과의 소통
+
+### 발표 기술 (15점)
+- [ ] 자신감 있는 발표 태도
+- [ ] 적절한 목소리와 제스처
+- [ ] 시각 자료의 효과적 활용
+- [ ] 질문에 대한 적절한 답변
+
+## 프로젝트 완성도 (20점)
+### 사용자 경험 (10점)
+- [ ] 직관적인 인터페이스 디자인
+- [ ] 반응형 웹 디자인
+- [ ] 접근성 고려
+- [ ] 사용의 편의성
+
+### 프로젝트 문서화 (10점)
+- [ ] 상세한 README 작성
+- [ ] 설치 및 실행 가이드
+- [ ] API 문서화 (해당시)
+- [ ] 프로젝트 구조 설명
+
+## 학습 성장 (10점)
+### 개발 과정 (5점)
+- [ ] 체계적인 개발 프로세스
+- [ ] 버전 관리 활용
+- [ ] 문제 해결 과정 문서화
+- [ ] 지속적인 개선 노력
+
+### 협업 도구 활용 (5점)
+- [ ] GitHub 효과적 활용
+- [ ] GitHub Copilot 활용 사례
+- [ ] 개발 도구 숙련도
+- [ ] 커뮤니티 참여 및 학습</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 동료 평가 및 피드백</h3>
+                        <p>서로의 프로젝트를 평가하고 건설적인 피드백을 나누는 시간입니다.</p>
+                        
+                        <h4>동료 평가서 양식</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 동료 평가서
+
+**발표자**: _________________ 
+**평가자**: _________________ 
+**평가일**: _________________
+
+## 프로젝트 정보
+- **프로젝트명**: _________________________________
+- **주요 기술**: _________________________________
+- **프로젝트 URL**: ______________________________
+
+## 평가 항목 (5점 만점)
+
+### 1. 기술적 구현 ⭐⭐⭐⭐⭐
+**점수**: ___/5점
+
+**우수한 점**:
+- 
+- 
+- 
+
+**개선점**:
+- 
+- 
+
+### 2. 창의성과 독창성 ⭐⭐⭐⭐⭐
+**점수**: ___/5점
+
+**인상적인 부분**:
+- 
+- 
+
+**추가 아이디어**:
+- 
+- 
+
+### 3. 사용자 경험 ⭐⭐⭐⭐⭐
+**점수**: ___/5점
+
+**장점**:
+- 
+- 
+
+**사용성 개선 제안**:
+- 
+- 
+
+### 4. 발표 능력 ⭐⭐⭐⭐⭐
+**점수**: ___/5점
+
+**발표의 강점**:
+- 
+- 
+
+**발표 개선점**:
+- 
+- 
+
+## 종합 의견
+### 가장 인상적이었던 부분:
+
+
+### 추가로 구현해보면 좋을 기능:
+
+
+### 발표자에게 하고 싶은 말:
+
+
+**총점**: ___/20점</code></pre>
+                        </div>
+
+                        <h4>피드백 가이드라인</h4>
+                        <div class="feedback-guidelines">
+                            <div class="guideline-card positive">
+                                <h4>✅ 건설적인 피드백</h4>
+                                <ul>
+                                    <li><strong>구체적이고 실행 가능한 제안</strong><br>
+                                    "모바일에서 버튼이 작아 클릭하기 어려워요. 최소 44px 크기로 늘리면 좋겠습니다."</li>
+                                    <li><strong>긍정적 측면 먼저 언급</strong><br>
+                                    "색상 조합이 매우 세련되네요. 접근성을 고려해 대비를 조금 더 높이면 완벽할 것 같아요."</li>
+                                    <li><strong>학습 관점에서 제안</strong><br>
+                                    "API 호출 부분에 로딩 스피너를 추가하면 사용자 경험이 더 좋아질 거예요."</li>
+                                </ul>
+                            </div>
+                            <div class="guideline-card negative">
+                                <h4>❌ 피해야 할 피드백</h4>
+                                <ul>
+                                    <li><strong>막연하거나 부정적인 표현</strong><br>
+                                    "디자인이 별로예요" → "어떤 부분을 어떻게 개선할지 구체적으로"</li>
+                                    <li><strong>개인 취향을 강요하는 피드백</strong><br>
+                                    "파란색보다 빨간색이 나아요" → "사용자 접근성 관점에서 제안"</li>
+                                    <li><strong>비교하여 깎아내리기</strong><br>
+                                    "다른 사람 것보다 부족해요" → "개선점에 집중하여 제안"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 15주간 학습 성찰</h3>
+                        <p>웹프로그래밍 과정을 통해 성장한 부분을 돌아보고 정리합니다.</p>
+                        
+                        <h4>학습 여정 타임라인</h4>
+                        <div class="learning-timeline">
+                            <div class="timeline-container">
+                                <div class="timeline-period">
+                                    <h4>1-4주차: 웹의 기초</h4>
+                                    <div class="period-content">
+                                        <h5>학습 내용</h5>
+                                        <ul>
+                                            <li>웹의 역사와 기본 개념</li>
+                                            <li>HTML5 시맨틱 태그</li>
+                                            <li>CSS 기본 문법과 선택자</li>
+                                            <li>박스 모델과 레이아웃</li>
+                                        </ul>
+                                        <h5>성장 포인트</h5>
+                                        <ul>
+                                            <li>웹 표준의 중요성 이해</li>
+                                            <li>구조와 표현의 분리</li>
+                                            <li>반응형 디자인 기초</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-period">
+                                    <h4>5-8주차: 고급 스타일링과 중간평가</h4>
+                                    <div class="period-content">
+                                        <h5>학습 내용</h5>
+                                        <ul>
+                                            <li>CSS Grid와 Flexbox</li>
+                                            <li>애니메이션과 변형</li>
+                                            <li>JavaScript 기초</li>
+                                            <li>이벤트 처리</li>
+                                        </ul>
+                                        <h5>성장 포인트</h5>
+                                        <ul>
+                                            <li>현대적인 레이아웃 기법 습득</li>
+                                            <li>인터랙티브 웹페이지 구현</li>
+                                            <li>중간 프로젝트 완성 경험</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-period">
+                                    <h4>9-11주차: JavaScript 심화</h4>
+                                    <div class="period-content">
+                                        <h5>학습 내용</h5>
+                                        <ul>
+                                            <li>DOM 조작과 고급 기법</li>
+                                            <li>배열과 객체 활용</li>
+                                            <li>비동기 프로그래밍</li>
+                                            <li>API 통신</li>
+                                        </ul>
+                                        <h5>성장 포인트</h5>
+                                        <ul>
+                                            <li>동적 웹 애플리케이션 개발</li>
+                                            <li>데이터 처리 능력 향상</li>
+                                            <li>외부 서비스 연동</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-period">
+                                    <h4>12-15주차: 프로젝트와 발표</h4>
+                                    <div class="period-content">
+                                        <h5>학습 내용</h5>
+                                        <ul>
+                                            <li>종합 프로젝트 개발</li>
+                                            <li>성능 최적화</li>
+                                            <li>배포와 운영</li>
+                                            <li>발표와 문서화</li>
+                                        </ul>
+                                        <h5>성장 포인트</h5>
+                                        <ul>
+                                            <li>완전한 웹 애플리케이션 구축</li>
+                                            <li>프로젝트 관리 능력</li>
+                                            <li>전문적 발표 스킬</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>성찰 질문과 답변</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 학습 성찰 질문지
+
+## 개인 성장 평가
+
+### 1. 가장 크게 성장했다고 느끼는 부분은 무엇인가요?
+**답변 예시**: 
+"처음에는 HTML 태그조차 헷갈렸는데, 지금은 복잡한 JavaScript 애플리케이션까지 만들 수 있게 되었습니다. 
+특히 문제 해결 능력이 크게 향상되었다고 느낍니다. 에러가 발생해도 당황하지 않고 
+개발자 도구를 활용해 체계적으로 디버깅하는 방법을 익혔습니다."
+
+### 2. 가장 어려웠던 순간과 그것을 극복한 방법은?
+**답변 예시**: 
+"9주차 DOM 조작 부분이 가장 어려웠습니다. 개념 자체는 이해했지만 실제로 구현할 때 
+예상과 다르게 동작해서 좌절했습니다. 하지만 GitHub Copilot의 도움을 받고, 
+MDN 문서를 꼼꼼히 읽으며 작은 예제부터 차근차근 만들어보니 감을 잡을 수 있었습니다."
+
+### 3. GitHub Copilot이 학습에 어떤 도움이 되었나요?
+**답변 예시**: 
+"단순한 자동완성을 넘어서 다양한 구현 방법을 학습할 수 있는 도구였습니다. 
+특히 비슷한 기능을 여러 방법으로 제안해주어서 각각의 장단점을 비교해볼 수 있었고, 
+이 과정에서 코딩 패턴에 대한 이해가 깊어졌습니다."
+
+### 4. 이 과정을 추천한다면 어떤 점을 강조하겠나요?
+**답변 예시**: 
+"체계적인 커리큘럼과 실습 중심의 학습이 가장 큰 장점입니다. 
+단순히 문법만 외우는 것이 아니라 실제 프로젝트를 만들어보면서 
+웹 개발의 전체 과정을 경험할 수 있었습니다."
+
+## 기술적 성장 측정
+
+### Before (1주차)
+- HTML: 태그의 기본 개념만 알고 있음
+- CSS: 색상과 폰트 변경 정도만 가능
+- JavaScript: 전혀 모름
+- 개발 도구: VS Code 사용법도 서툴렀음
+
+### After (15주차)  
+- HTML: 시맨틱 태그를 활용한 구조적 마크업
+- CSS: Grid, Flexbox를 활용한 반응형 디자인
+- JavaScript: DOM 조작, 비동기 프로그래밍, API 연동
+- 개발 도구: Git, GitHub, 브라우저 개발자 도구 능숙하게 사용
+
+### 완성한 프로젝트들
+1. **개인 소개 페이지** (4주차): HTML/CSS 기초
+2. **반응형 포트폴리오** (8주차): 고급 CSS와 기본 JavaScript
+3. **인터랙티브 웹앱** (최종): 완전한 JavaScript 애플리케이션</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 앞으로의 학습 로드맵</h3>
+                        <p>웹 개발자로서 계속 성장하기 위한 학습 계획을 수립합니다.</p>
+                        
+                        <h4>단계별 학습 로드맵</h4>
+                        <div class="roadmap-container">
+                            <div class="roadmap-stage">
+                                <div class="stage-header">
+                                    <h4>🎯 단기 목표 (3개월)</h4>
+                                    <p>기초 실력 다지기</p>
+                                </div>
+                                <div class="stage-content">
+                                    <h5>프론트엔드 심화</h5>
+                                    <ul>
+                                        <li><strong>JavaScript ES6+ 완전 정복</strong>
+                                            <br>→ 모던 JavaScript 문법과 패턴</li>
+                                        <li><strong>CSS 전처리기 학습</strong>
+                                            <br>→ Sass/SCSS 활용법</li>
+                                        <li><strong>웹 성능 최적화</strong>
+                                            <br>→ 번들링, 압축, 캐싱 전략</li>
+                                    </ul>
+                                    
+                                    <h5>개발 도구 숙련</h5>
+                                    <ul>
+                                        <li><strong>고급 Git 활용</strong>
+                                            <br>→ 브랜치 전략, 협업 워크플로우</li>
+                                        <li><strong>빌드 도구</strong>
+                                            <br>→ Webpack, Vite 등</li>
+                                        <li><strong>테스팅</strong>
+                                            <br>→ Jest를 활용한 단위 테스트</li>
+                                    </ul>
+                                    
+                                    <h5>실습 프로젝트</h5>
+                                    <ul>
+                                        <li>바닐라 JS로 SPA 구현해보기</li>
+                                        <li>웹 컴포넌트 만들어보기</li>
+                                        <li>PWA 기능 추가해보기</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="roadmap-stage">
+                                <div class="stage-header">
+                                    <h4>🚀 중기 목표 (6개월)</h4>
+                                    <p>현대적 프레임워크 습득</p>
+                                </div>
+                                <div class="stage-content">
+                                    <h5>React.js 마스터</h5>
+                                    <ul>
+                                        <li><strong>React 핵심 개념</strong>
+                                            <br>→ 컴포넌트, Props, State, Hooks</li>
+                                        <li><strong>상태 관리</strong>
+                                            <br>→ Context API, Redux Toolkit</li>
+                                        <li><strong>라우팅</strong>
+                                            <br>→ React Router</li>
+                                    </ul>
+                                    
+                                    <h5>백엔드 기초</h5>
+                                    <ul>
+                                        <li><strong>Node.js</strong>
+                                            <br>→ Express.js로 API 서버 구축</li>
+                                        <li><strong>데이터베이스</strong>
+                                            <br>→ MongoDB, MySQL 기초</li>
+                                        <li><strong>인증/인가</strong>
+                                            <br>→ JWT, OAuth</li>
+                                    </ul>
+                                    
+                                    <h5>실습 프로젝트</h5>
+                                    <ul>
+                                        <li>React로 Todo 앱 만들기</li>
+                                        <li>풀스택 블로그 플랫폼 구축</li>
+                                        <li>실시간 채팅 앱 개발</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="roadmap-stage">
+                                <div class="stage-header">
+                                    <h4>🎖️ 장기 목표 (1년)</h4>
+                                    <p>전문 개발자로 성장</p>
+                                </div>
+                                <div class="stage-content">
+                                    <h5>고급 프론트엔드</h5>
+                                    <ul>
+                                        <li><strong>Next.js</strong>
+                                            <br>→ SSR, SSG, API Routes</li>
+                                        <li><strong>TypeScript</strong>
+                                            <br>→ 타입 안전성 확보</li>
+                                        <li><strong>상태 관리 고도화</strong>
+                                            <br>→ Zustand, React Query</li>
+                                    </ul>
+                                    
+                                    <h5>DevOps 기초</h5>
+                                    <ul>
+                                        <li><strong>CI/CD</strong>
+                                            <br>→ GitHub Actions, Docker</li>
+                                        <li><strong>클라우드 서비스</strong>
+                                            <br>→ AWS, Vercel, Netlify</li>
+                                        <li><strong>모니터링</strong>
+                                            <br>→ 성능 추적, 에러 리포팅</li>
+                                    </ul>
+                                    
+                                    <h5>포트폴리오 완성</h5>
+                                    <ul>
+                                        <li>대규모 프로젝트 완성</li>
+                                        <li>오픈소스 기여</li>
+                                        <li>기술 블로그 운영</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>추천 학습 리소스</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 웹 개발 학습 리소스 가이드
+
+## 📚 온라인 강의 플랫폼
+### 프로그래밍 기초
+- **생활코딩**: 웹 개발 입문자를 위한 친절한 설명
+- **인프런**: 한국어 웹 개발 강의 다수 보유
+- **Udemy**: 해외 고품질 강의 (React, Node.js 등)
+
+### 실무 중심
+- **freeCodeCamp**: 무료 풀스택 개발 과정
+- **The Odin Project**: 체계적인 웹 개발 커리큘럼
+- **MDN Web Docs**: 웹 기술 공식 문서
+
+## 🛠️ 실습 플랫폼
+- **CodePen**: 프론트엔드 실험과 공유
+- **CodeSandbox**: React, Vue 등 프레임워크 실습
+- **GitHub**: 포트폴리오 관리 및 오픈소스 참여
+- **LeetCode/Programmers**: 알고리즘 문제 해결
+
+## 📰 최신 정보 습득
+- **JavaScript Weekly**: 주간 JavaScript 뉴스
+- **CSS-Tricks**: CSS 기법과 튜토리얼
+- **Dev.to**: 개발자 커뮤니티 블로그
+- **YouTube**: Traversy Media, Academind 등 채널
+
+## 👥 커뮤니티 참여
+- **Stack Overflow**: 기술적 질문과 답변
+- **Reddit r/webdev**: 웹 개발 토론
+- **Discord 개발 서버**: 실시간 소통
+- **지역 개발자 모임**: 오프라인 네트워킹
+
+## 📖 추천 도서
+### JavaScript
+- "모던 JavaScript 튜토리얼" - 온라인 무료
+- "You Don't Know JS" - 시리즈
+- "Eloquent JavaScript" - 심화 학습
+
+### 웹 개발 전반
+- "웹 성능 최적화 기법" - 실무 적용
+- "클린 코드" - 코드 품질 개선
+- "리팩터링" - 코드 개선 기법</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>마지막 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>활동 1: 최종 프로젝트 발표</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 15주간의 학습 성과를 종합한 프로젝트를 발표합니다.</p>
+                            
+                            <h4>발표 내용:</h4>
+                            <ul>
+                                <li>프로젝트 개요와 목표</li>
+                                <li>기술적 구현 과정</li>
+                                <li>어려웠던 점과 해결 방법</li>
+                                <li>라이브 데모 시연</li>
+                                <li>향후 개선 계획</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>활동 2: 동료 평가 및 피드백</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 다른 학생들의 발표를 듣고 건설적인 피드백을 제공합니다.</p>
+                            
+                            <h4>평가 요소:</h4>
+                            <ul>
+                                <li>기술적 구현의 완성도</li>
+                                <li>창의성과 독창성</li>
+                                <li>사용자 경험 품질</li>
+                                <li>발표 능력과 전달력</li>
+                                <li>개선 아이디어 제안</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>활동 3: 학습 성찰 및 계획 수립</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 15주간의 학습을 돌아보고 앞으로의 발전 계획을 세웁니다.</p>
+                            
+                            <h4>성찰 내용:</h4>
+                            <ul>
+                                <li>개인 성장 스토리 작성</li>
+                                <li>기술적 성취 정리</li>
+                                <li>GitHub Copilot 활용 경험</li>
+                                <li>단/중/장기 학습 로드맵</li>
+                                <li>웹 개발자로서의 목표</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-celebration">
+            <div class="container">
+                <h2>🎉 웹프로그래밍 과정 완주를 축하합니다!</h2>
+                <div class="celebration-content">
+                    <div class="achievement-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">주간 학습</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">45+</div>
+                            <div class="stat-label">실습 활동</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">완성 프로젝트</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">성장 가능성</div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-message">
+                        <p>15주간의 여정을 통해 여러분은 웹 개발의 기초부터 실무 프로젝트까지 완성할 수 있는 개발자로 성장했습니다.</p>
+                        <p>이것은 끝이 아니라 새로운 시작입니다. 계속해서 학습하고, 실험하고, 창조하며 더 나은 웹을 만들어가시기 바랍니다.</p>
+                        <p><strong>Keep coding, keep learning, keep growing! 🚀</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week14.html" class="btn btn-secondary">← 14주차: 최종 프로젝트 발표 준비</a>
+                    <a href="index.html" class="btn btn-primary">강의 홈으로 돌아가기 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+            <p>여러분의 웹 개발 여정을 응원합니다! 🌟</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

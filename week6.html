@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6주차: JavaScript 기초 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>6주차: JavaScript 기초</h1>
+                    <p>JavaScript의 기본 문법과 프로그래밍 개념을 학습하여 웹페이지에 동적 기능을 추가합니다</p>
+                    <div class="week-navigation">
+                        <a href="week5.html" class="btn btn-secondary">← 5주차</a>
+                        <a href="week7.html" class="btn btn-primary">7주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🔢</div>
+                        <h3>변수와 데이터 타입</h3>
+                        <p>JavaScript의 기본 데이터 타입과 변수 선언 방법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🤔</div>
+                        <h3>조건문</h3>
+                        <p>if, else, switch 문으로 조건부 로직을 구현합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔄</div>
+                        <h3>반복문</h3>
+                        <p>for, while 문으로 반복 작업을 처리합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">⚙️</div>
+                        <h3>함수</h3>
+                        <p>재사용 가능한 코드 블록인 함수를 작성합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 변수와 데이터 타입</h3>
+                        <p>JavaScript에서 데이터를 저장하고 관리하는 방법을 학습합니다.</p>
+                        
+                        <h4>변수 선언</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// let: 재할당 가능한 변수
+let name = "홍길동";
+let age = 25;
+
+// const: 재할당 불가능한 상수
+const PI = 3.14159;
+const birthYear = 1998;
+
+// var: 옛 방식 (사용 지양)
+var oldVariable = "과거 방식";
+
+// 변수 재할당
+name = "김철수";  // 가능
+age = 26;        // 가능
+// PI = 3.14;    // 오류! const는 재할당 불가</code></pre>
+                        </div>
+
+                        <h4>데이터 타입</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 원시 타입 (Primitive Types)
+let text = "Hello World";        // 문자열 (String)
+let number = 42;                 // 숫자 (Number)
+let isTrue = true;              // 불린 (Boolean)
+let nothing = null;             // null
+let undefined;                  // undefined
+let symbol = Symbol('id');      // 심볼 (Symbol)
+
+// 참조 타입 (Reference Types)
+let array = [1, 2, 3, 4, 5];           // 배열
+let object = {                         // 객체
+    name: "홍길동",
+    age: 25,
+    isStudent: true
+};
+
+// 타입 확인
+console.log(typeof text);       // "string"
+console.log(typeof number);     // "number"
+console.log(typeof isTrue);     // "boolean"
+console.log(typeof array);      // "object"
+console.log(Array.isArray(array)); // true</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 연산자</h3>
+                        <p>JavaScript의 다양한 연산자들을 알아봅시다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 산술 연산자
+let a = 10;
+let b = 3;
+
+console.log(a + b);    // 13 (덧셈)
+console.log(a - b);    // 7  (뺄셈)
+console.log(a * b);    // 30 (곱셈)
+console.log(a / b);    // 3.333... (나눗셈)
+console.log(a % b);    // 1  (나머지)
+console.log(a ** b);   // 1000 (거듭제곱)
+
+// 비교 연산자
+console.log(a > b);    // true
+console.log(a < b);    // false
+console.log(a >= b);   // true
+console.log(a === 10); // true  (값과 타입 모두 같음)
+console.log(a == "10"); // true  (값만 같음)
+console.log(a !== b);  // true
+
+// 논리 연산자
+let x = true;
+let y = false;
+
+console.log(x && y);   // false (AND)
+console.log(x || y);   // true  (OR)
+console.log(!x);       // false (NOT)
+
+// 할당 연산자
+let num = 10;
+num += 5;   // num = num + 5; (15)
+num -= 3;   // num = num - 3; (12)
+num *= 2;   // num = num * 2; (24)
+num /= 4;   // num = num / 4; (6)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 조건문</h3>
+                        <p>프로그램의 흐름을 제어하는 조건문을 학습합니다.</p>
+                        
+                        <h4>if 문</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">let score = 85;
+
+// 기본 if 문
+if (score >= 90) {
+    console.log("A학점");
+}
+
+// if-else 문
+if (score >= 90) {
+    console.log("A학점");
+} else {
+    console.log("A학점 아님");
+}
+
+// if-else if-else 문
+if (score >= 90) {
+    console.log("A학점");
+} else if (score >= 80) {
+    console.log("B학점");
+} else if (score >= 70) {
+    console.log("C학점");
+} else {
+    console.log("재수강 필요");
+}
+
+// 삼항 연산자
+let result = score >= 80 ? "합격" : "불합격";
+console.log(result); // "합격"</code></pre>
+                        </div>
+
+                        <h4>switch 문</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">let day = "월요일";
+
+switch (day) {
+    case "월요일":
+        console.log("새로운 주의 시작!");
+        break;
+    case "화요일":
+    case "수요일":
+    case "목요일":
+        console.log("평일입니다.");
+        break;
+    case "금요일":
+        console.log("불금!");
+        break;
+    case "토요일":
+    case "일요일":
+        console.log("주말입니다!");
+        break;
+    default:
+        console.log("올바르지 않은 요일입니다.");
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 반복문</h3>
+                        <p>반복적인 작업을 효율적으로 처리하는 반복문을 알아봅시다.</p>
+                        
+                        <h4>for 문</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 기본 for 문
+for (let i = 0; i < 5; i++) {
+    console.log("카운트:", i);
+}
+
+// 배열 반복
+let fruits = ["사과", "바나나", "오렌지"];
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+// for...of (배열의 값)
+for (let fruit of fruits) {
+    console.log("과일:", fruit);
+}
+
+// for...in (객체의 키)
+let person = { name: "홍길동", age: 25, city: "서울" };
+
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}</code></pre>
+                        </div>
+
+                        <h4>while 문</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// while 문
+let count = 0;
+while (count < 3) {
+    console.log("카운트:", count);
+    count++;
+}
+
+// do-while 문
+let input;
+do {
+    input = prompt("올바른 비밀번호를 입력하세요:");
+} while (input !== "1234");
+
+// break와 continue
+for (let i = 0; i < 10; i++) {
+    if (i === 3) {
+        continue; // 3일 때 건너뛰기
+    }
+    if (i === 7) {
+        break;    // 7일 때 반복 중단
+    }
+    console.log(i);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>5. 함수</h3>
+                        <p>코드를 재사용하고 구조화하기 위한 함수를 만들어봅시다.</p>
+                        
+                        <h4>함수 선언과 호출</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 함수 선언식
+function greet(name) {
+    return "안녕하세요, " + name + "님!";
+}
+
+// 함수 호출
+let message = greet("홍길동");
+console.log(message); // "안녕하세요, 홍길동님!"
+
+// 함수 표현식
+const add = function(a, b) {
+    return a + b;
+};
+
+console.log(add(5, 3)); // 8
+
+// 화살표 함수 (ES6)
+const multiply = (a, b) => {
+    return a * b;
+};
+
+// 간단한 화살표 함수
+const square = x => x * x;
+console.log(square(4)); // 16</code></pre>
+                        </div>
+
+                        <h4>실용적인 함수 예제</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 계산기 함수들
+function calculator(operation, a, b) {
+    switch (operation) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return b !== 0 ? a / b : "0으로 나눌 수 없습니다";
+        default:
+            return "올바르지 않은 연산자입니다";
+    }
+}
+
+// 배열 관련 함수
+function findMax(numbers) {
+    if (numbers.length === 0) return null;
+    
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+
+// 사용 예제
+console.log(calculator('+', 10, 5)); // 15
+console.log(findMax([3, 7, 2, 9, 1])); // 9</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 간단한 계산기 앱 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> JavaScript 기본 문법을 활용하여 계산기를 구현합니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>사칙연산 (더하기, 빼기, 곱하기, 나누기) 기능</li>
+                                <li>사용자 입력 받기 (prompt 사용)</li>
+                                <li>결과를 콘솔에 출력</li>
+                                <li>잘못된 입력에 대한 오류 처리</li>
+                                <li>반복해서 계산할 수 있는 기능</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: Copilot과 함께 함수 라이브러리 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot의 도움을 받아 유용한 JavaScript 함수들을 만듭니다.</p>
+                            
+                            <h4>구현할 함수들:</h4>
+                            <ul>
+                                <li>배열의 평균값 계산</li>
+                                <li>문자열 뒤집기</li>
+                                <li>소수 판별</li>
+                                <li>팩토리얼 계산</li>
+                                <li>피보나치 수열 생성</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 숫자 맞추기 게임</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 조건문과 반복문을 활용한 간단한 게임을 만듭니다.</p>
+                            
+                            <h4>게임 규칙:</h4>
+                            <ul>
+                                <li>1-100 사이의 랜덤 숫자 생성</li>
+                                <li>사용자가 숫자를 추측</li>
+                                <li>높다/낮다 힌트 제공</li>
+                                <li>정답을 맞출 때까지 반복</li>
+                                <li>시도 횟수 기록 및 출력</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>변수 선언: let, const 사용법</li>
+                            <li>데이터 타입: 문자열, 숫자, 불린, 배열, 객체</li>
+                            <li>조건문: if-else, switch 문 활용</li>
+                            <li>반복문: for, while 문으로 반복 처리</li>
+                            <li>함수: 재사용 가능한 코드 블록 작성</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>7주차에서는 JavaScript 이벤트를 학습합니다. 사용자의 클릭, 입력 등에 반응하는 대화형 웹페이지를 만드는 방법을 배울 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week5.html" class="btn btn-secondary">← 5주차: 고급 CSS</a>
+                    <a href="week7.html" class="btn btn-primary">7주차: JavaScript 이벤트 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>웹프로그래밍 강의</h1>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#overview" class="nav-link">강의 개요</a>
+                    <a href="#curriculum" class="nav-link">커리큘럼</a>
+                    <a href="#evaluation" class="nav-link">평가 방법</a>
+                    <a href="#tools" class="nav-link">사용 도구</a>
+                    <a href="#references" class="nav-link">참고 자료</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-background">
+                <canvas id="particle-canvas"></canvas>
+                <div id="d3-visualization"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">웹프로그래밍 강의</h1>
+                <p class="hero-subtitle">웹프로그래밍 강의 자료</p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="students-counter">0</div>
+                        <div class="stat-label">수강생</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="projects-counter">0</div>
+                        <div class="stat-label">프로젝트</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="hours-counter">0</div>
+                        <div class="stat-label">수업시간</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#curriculum" class="btn btn-primary pulse">강의 시작하기</a>
+                    <a href="#overview" class="btn btn-secondary">강의 개요 보기</a>
+                </div>
+            </div>
+            <div class="hero-visualization">
+                <div class="chart-container">
+                    <h3>학습 진도율</h3>
+                    <div id="progress-chart"></div>
+                </div>
+                <div class="chart-container">
+                    <h3>기술 스택 분포</h3>
+                    <div id="tech-chart"></div>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-icon html">HTML</div>
+                    <div class="floating-icon css">CSS</div>
+                    <div class="floating-icon js">JS</div>
+                    <div class="floating-icon react">React</div>
+                    <div class="floating-icon node">Node</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="overview">
+            <div class="container">
+                <h2>강의 개요</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>대상</h3>
+                        <p>기본적인 프로그래밍 지식을 가진 1학년 대학생 (복습 포함)</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>목표</h3>
+                        <p>HTML, CSS, JavaScript를 사용하여 정적 및 동적 웹 페이지를 제작하고, 프로젝트 기반 학습 경험을 제공</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>기간</h3>
+                        <p>15주 과정으로 체계적인 웹 개발 학습</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="evaluation" class="evaluation">
+            <div class="container">
+                <h2>평가 방법</h2>
+                <div class="evaluation-grid">
+                    <div class="evaluation-item">
+                        <div class="evaluation-percentage">20%</div>
+                        <div class="evaluation-details">
+                            <h3>출석</h3>
+                            <p>주간 참여도 및 수업 중 실습</p>
+                        </div>
+                    </div>
+                    <div class="evaluation-item">
+                        <div class="evaluation-percentage">20%</div>
+                        <div class="evaluation-details">
+                            <h3>중간고사</h3>
+                            <p>프로젝트 제안서 + HTML/CSS 프로토타입 (8주차 제출)</p>
+                        </div>
+                    </div>
+                    <div class="evaluation-item">
+                        <div class="evaluation-percentage">60%</div>
+                        <div class="evaluation-details">
+                            <h3>기말고사</h3>
+                            <p>완성된 웹 프로젝트 제출 및 발표 (13주차부터)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="tools">
+            <div class="container">
+                <h2>사용 도구</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>웹 브라우저</h3>
+                        <p>Chrome, Firefox, Safari 등 최신 브라우저</p>
+                    </div>
+                    <div class="tool-card">
+                        <h3>VS Code</h3>
+                        <p>GitHub Copilot 확장 프로그램 포함</p>
+                    </div>
+                    <div class="tool-card">
+                        <h3>GitHub</h3>
+                        <p>버전 관리 및 프로젝트 배포</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="references">
+            <div class="container">
+                <h2>📚 추천 학습 자료</h2>
+                <p class="section-description">웹 개발 학습에 도움이 되는 필수 참고 웹사이트들입니다. 강의와 함께 활용하여 더 깊이 있는 학습을 진행하세요.</p>
+                <div class="references-grid">
+                    <div class="reference-card featured">
+                        <div class="reference-icon">📖</div>
+                        <h3>MDN Web Docs</h3>
+                        <p class="reference-url">developer.mozilla.org</p>
+                        <p>웹 기술의 공식 문서. HTML, CSS, JavaScript의 모든 것을 정확하고 상세하게 설명합니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">공식문서</span>
+                            <span class="tag">레퍼런스</span>
+                        </div>
+                        <a href="https://developer.mozilla.org/ko/" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                    
+                    <div class="reference-card featured">
+                        <div class="reference-icon">🚀</div>
+                        <h3>freeCodeCamp</h3>
+                        <p class="reference-url">freecodecamp.org</p>
+                        <p>무료 코딩 교육 플랫폼. 실습 중심의 체계적인 웹 개발 과정을 제공합니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">무료</span>
+                            <span class="tag">실습</span>
+                        </div>
+                        <a href="https://www.freecodecamp.org/" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                    
+                    <div class="reference-card">
+                        <div class="reference-icon">💡</div>
+                        <h3>W3Schools</h3>
+                        <p class="reference-url">w3schools.com</p>
+                        <p>초보자 친화적인 웹 기술 튜토리얼과 예제 코드를 제공합니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">초보자</span>
+                            <span class="tag">예제</span>
+                        </div>
+                        <a href="https://www.w3schools.com/" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                    
+                    <div class="reference-card">
+                        <div class="reference-icon">🎨</div>
+                        <h3>CSS-Tricks</h3>
+                        <p class="reference-url">css-tricks.com</p>
+                        <p>CSS의 고급 기법과 최신 트렌드를 다루는 전문 블로그입니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">CSS</span>
+                            <span class="tag">고급</span>
+                        </div>
+                        <a href="https://css-tricks.com/" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                    
+                    <div class="reference-card">
+                        <div class="reference-icon">📝</div>
+                        <h3>생활코딩</h3>
+                        <p class="reference-url">opentutorials.org</p>
+                        <p>한국어로 된 친절한 프로그래밍 강의. 웹 개발 입문에 최적화되어 있습니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">한국어</span>
+                            <span class="tag">입문</span>
+                        </div>
+                        <a href="https://opentutorials.org/course/1" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                    
+                    <div class="reference-card">
+                        <div class="reference-icon">💻</div>
+                        <h3>CodePen</h3>
+                        <p class="reference-url">codepen.io</p>
+                        <p>HTML, CSS, JS 코드를 실시간으로 실행하고 공유할 수 있는 온라인 에디터입니다.</p>
+                        <div class="reference-tags">
+                            <span class="tag">실습</span>
+                            <span class="tag">공유</span>
+                        </div>
+                        <a href="https://codepen.io/" target="_blank" class="reference-link">바로가기</a>
+                    </div>
+                </div>
+                
+                <div class="reference-tips">
+                    <h3>💡 활용 팁</h3>
+                    <ul>
+                        <li><strong>MDN Web Docs</strong>는 정확한 문법과 브라우저 지원 현황을 확인할 때 사용하세요</li>
+                        <li><strong>freeCodeCamp</strong>의 실습 과제를 통해 배운 내용을 복습하세요</li>
+                        <li><strong>CodePen</strong>에서 작은 실험을 해보며 창의적인 아이디어를 테스트해보세요</li>
+                        <li>막힐 때는 <strong>Stack Overflow</strong>에서 비슷한 문제 해결 사례를 찾아보세요</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum" class="curriculum">
+            <div class="container">
+                <h2>15주차 커리큘럼</h2>
+                <div class="curriculum-table">
+                    <div class="table-header">
+                        <div class="col-week">주차</div>
+                        <div class="col-topic">주제</div>
+                        <div class="col-content">내용</div>
+                        <div class="col-link">강의 자료</div>
+                    </div>
+                    <div class="table-body">
+                        <div class="table-row" data-week="1">
+                            <div class="col-week">1주차</div>
+                            <div class="col-topic">웹프로그래밍 & 역사</div>
+                            <div class="col-content">웹 기초 이해 및 발전 과정</div>
+                            <div class="col-link"><a href="week1.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="2">
+                            <div class="col-week">2주차</div>
+                            <div class="col-topic">HTML 시맨틱</div>
+                            <div class="col-content">의미있는 HTML 구조 설계</div>
+                            <div class="col-link"><a href="week2.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="3">
+                            <div class="col-week">3주차</div>
+                            <div class="col-topic">CSS 기초</div>
+                            <div class="col-content">기본 스타일링 적용</div>
+                            <div class="col-link"><a href="week3.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="4">
+                            <div class="col-week">4주차</div>
+                            <div class="col-topic">CSS 레이아웃</div>
+                            <div class="col-content">레이아웃 설계</div>
+                            <div class="col-link"><a href="week4.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="5">
+                            <div class="col-week">5주차</div>
+                            <div class="col-topic">고급 CSS</div>
+                            <div class="col-content">고급 스타일링 구현</div>
+                            <div class="col-link"><a href="week5.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="6">
+                            <div class="col-week">6주차</div>
+                            <div class="col-topic">JavaScript 기초</div>
+                            <div class="col-content">프로그래밍 기초 학습</div>
+                            <div class="col-link"><a href="week6.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="7">
+                            <div class="col-week">7주차</div>
+                            <div class="col-topic">JavaScript 이벤트</div>
+                            <div class="col-content">사용자 상호작용 처리</div>
+                            <div class="col-link"><a href="week7.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="8">
+                            <div class="col-week">8주차</div>
+                            <div class="col-topic">중간고사 - 프로젝트 제안</div>
+                            <div class="col-content">최종 프로젝트 준비</div>
+                            <div class="col-link"><a href="week8.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="9">
+                            <div class="col-week">9주차</div>
+                            <div class="col-topic">고급 JavaScript DOM</div>
+                            <div class="col-content">동적 페이지 구축</div>
+                            <div class="col-link"><a href="week9.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="10">
+                            <div class="col-week">10주차</div>
+                            <div class="col-topic">JavaScript 배열 & 객체</div>
+                            <div class="col-content">데이터 관리</div>
+                            <div class="col-link"><a href="week10.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="11">
+                            <div class="col-week">11주차</div>
+                            <div class="col-topic">JavaScript 비동기</div>
+                            <div class="col-content">비동기 데이터 처리</div>
+                            <div class="col-link"><a href="week11.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="12">
+                            <div class="col-week">12주차</div>
+                            <div class="col-topic">JavaScript 애플리케이션</div>
+                            <div class="col-content">프로젝트 준비를 위한 기술 적용</div>
+                            <div class="col-link"><a href="week12.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="13">
+                            <div class="col-week">13주차</div>
+                            <div class="col-topic">프로젝트 개발 1</div>
+                            <div class="col-content">프로젝트 구현 시작</div>
+                            <div class="col-link"><a href="week13.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="14">
+                            <div class="col-week">14주차</div>
+                            <div class="col-topic">프로젝트 개발 2</div>
+                            <div class="col-content">동적 기능 구현</div>
+                            <div class="col-link"><a href="week14.html" class="btn btn-small">보기</a></div>
+                        </div>
+                        <div class="table-row" data-week="15">
+                            <div class="col-week">15주차</div>
+                            <div class="col-topic">기말고사 & 마무리</div>
+                            <div class="col-content">평가 및 정리</div>
+                            <div class="col-link"><a href="week15.html" class="btn btn-small">보기</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 파티클 애니메이션
+        function initParticleAnimation() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            const particles = [];
+            const particleCount = 150;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 2;
+                    this.vy = (Math.random() - 0.5) * 2;
+                    this.radius = Math.random() * 2 + 1;
+                    this.opacity = Math.random();
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(79, 172, 254, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // 파티클 간 연결선 그리기
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(79, 172, 254, ${0.3 - distance / 300})`;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        // 카운터 애니메이션
+        function animateCounters() {
+            const counters = [
+                { element: document.getElementById('students-counter'), target: 0, suffix: '+' },
+                { element: document.getElementById('projects-counter'), target: 0, suffix: '+' },
+                { element: document.getElementById('hours-counter'), target: 0, suffix: 'h' }
+            ];
+            
+            counters.forEach(({ element, target, suffix }) => {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + suffix;
+                }, 50);
+            });
+        }
+        
+        // D3.js 진도율 차트
+        function createProgressChart() {
+            const data = [
+                { week: 'Week 1', progress: 95 },
+                { week: 'Week 2', progress: 88 },
+                { week: 'Week 3', progress: 92 },
+                { week: 'Week 4', progress: 78 },
+                { week: 'Week 5', progress: 85 },
+                { week: 'Week 6', progress: 90 },
+                { week: 'Week 7', progress: 87 },
+                { week: 'Week 8', progress: 93 }
+            ];
+            
+            const container = d3.select('#progress-chart');
+            const svg = container.append('svg')
+                .attr('width', 300)
+                .attr('height', 200);
+            
+            const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+            const width = 300 - margin.left - margin.right;
+            const height = 200 - margin.top - margin.bottom;
+            
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.week))
+                .range([0, width])
+                .padding(0.1);
+            
+            const y = d3.scaleLinear()
+                .domain([0, 100])
+                .range([height, 0]);
+            
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+            
+            g.selectAll('.bar')
+                .data(data)
+                .enter().append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => x(d.week))
+                .attr('width', x.bandwidth())
+                .attr('y', height)
+                .attr('height', 0)
+                .attr('fill', '#4facfe')
+                .transition()
+                .duration(1000)
+                .delay((d, i) => i * 100)
+                .attr('y', d => y(d.progress))
+                .attr('height', d => height - y(d.progress));
+                
+            // X축
+            g.append('g')
+                .attr('transform', `translate(0,${height})`)
+                .call(d3.axisBottom(x))
+                .selectAll('text')
+                .style('font-size', '10px');
+                
+            // Y축
+            g.append('g')
+                .call(d3.axisLeft(y))
+                .selectAll('text')
+                .style('font-size', '10px');
+        }
+        
+        // D3.js 기술 스택 원형 차트
+        function createTechChart() {
+            const data = [
+                { name: 'HTML', value: 30, color: '#e34c26' },
+                { name: 'CSS', value: 25, color: '#1572b6' },
+                { name: 'JavaScript', value: 35, color: '#f1e05a' },
+                { name: 'Tools', value: 10, color: '#00d084' }
+            ];
+            
+            const width = 200;
+            const height = 200;
+            const radius = Math.min(width, height) / 2;
+            
+            const svg = d3.select('#tech-chart')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', `translate(${width/2},${height/2})`);
+            
+            const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+            
+            const arc = d3.arc()
+                .innerRadius(30)
+                .outerRadius(radius - 10);
+            
+            const arcs = svg.selectAll('.arc')
+                .data(pie(data))
+                .enter().append('g')
+                .attr('class', 'arc');
+            
+            arcs.append('path')
+                .attr('d', arc)
+                .attr('fill', d => d.data.color)
+                .style('opacity', 0)
+                .transition()
+                .duration(1000)
+                .delay((d, i) => i * 200)
+                .style('opacity', 1)
+                .attrTween('d', function(d) {
+                    const interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                });
+            
+            arcs.append('text')
+                .attr('transform', d => `translate(${arc.centroid(d)})`)
+                .style('text-anchor', 'middle')
+                .style('font-size', '10px')
+                .style('fill', 'white')
+                .style('font-weight', 'bold')
+                .text(d => d.data.name)
+                .style('opacity', 0)
+                .transition()
+                .duration(500)
+                .delay(1200)
+                .style('opacity', 1);
+        }
+        
+        // 플로팅 아이콘 애니메이션
+        function animateFloatingIcons() {
+            gsap.set('.floating-icon', { y: 50, opacity: 0 });
+            
+            gsap.to('.floating-icon', {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'back.out(1.7)',
+                delay: 0.5
+            });
+            
+            // 지속적인 플로팅 애니메이션
+            gsap.to('.floating-icon', {
+                y: -10,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'power2.inOut',
+                stagger: 0.3,
+                delay: 2
+            });
+        }
+        
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            initParticleAnimation();
+            animateCounters();
+            createProgressChart();
+            createTechChart();
+            animateFloatingIcons();
+        });
+    </script>
+</body>
+</html>

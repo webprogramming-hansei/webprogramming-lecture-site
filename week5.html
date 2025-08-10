@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5주차: 고급 CSS - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>5주차: 고급 CSS</h1>
+                    <p>미디어 쿼리, CSS 애니메이션, 전환 효과를 학습하여 고급 스타일링을 구현합니다</p>
+                    <div class="week-navigation">
+                        <a href="week4.html" class="btn btn-secondary">← 4주차</a>
+                        <a href="week6.html" class="btn btn-primary">6주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📱</div>
+                        <h3>미디어 쿼리</h3>
+                        <p>@media를 활용한 반응형 웹 디자인을 구현합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">✨</div>
+                        <h3>CSS 애니메이션</h3>
+                        <p>@keyframes를 사용한 애니메이션 효과를 만듭니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎭</div>
+                        <h3>전환 효과</h3>
+                        <p>transition과 transform으로 부드러운 효과를 구현합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎨</div>
+                        <h3>고급 선택자</h3>
+                        <p>pseudo-class와 pseudo-element를 활용합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 미디어 쿼리 (@media)</h3>
+                        <p>다양한 디바이스와 화면 크기에 맞춰 스타일을 조정하는 방법을 학습합니다.</p>
+                        
+                        <h4>기본 미디어 쿼리</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 모바일 우선 (Mobile First) */
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+/* 태블릿 이상 */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+}
+
+/* 데스크톱 이상 */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* 인쇄용 */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: black;
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>반응형 네비게이션</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 데스크톱 네비게이션 */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* 모바일 네비게이션 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        transition: left 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. CSS 애니메이션</h3>
+                        <p>@keyframes를 사용하여 복잡한 애니메이션을 만들어봅시다.</p>
+                        
+                        <h4>기본 애니메이션</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 키프레임 정의 */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 애니메이션 적용 */
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* 복잡한 애니메이션 */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-20px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.bounce-animation {
+    animation: bounce 1s infinite;
+}</code></pre>
+                        </div>
+
+                        <h4>실용적인 로딩 애니메이션</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 스피너 로딩 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* 펄스 효과 */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 전환 효과 (Transitions)</h3>
+                        <p>사용자 상호작용에 반응하는 부드러운 전환 효과를 만들어봅시다.</p>
+                        
+                        <h4>기본 전환 효과</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    /* 전환 효과 설정 */
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 카드 호버 효과 */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}</code></pre>
+                        </div>
+
+                        <h4>Transform 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 이동 */
+.translate { transform: translate(50px, 100px); }
+.translateX { transform: translateX(50px); }
+.translateY { transform: translateY(100px); }
+
+/* 회전 */
+.rotate { transform: rotate(45deg); }
+
+/* 크기 조절 */
+.scale { transform: scale(1.5); }
+.scaleX { transform: scaleX(2); }
+.scaleY { transform: scaleY(0.5); }
+
+/* 기울이기 */
+.skew { transform: skew(20deg, 10deg); }
+
+/* 조합 */
+.combined {
+    transform: translate(50px, 100px) rotate(45deg) scale(1.2);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 고급 선택자</h3>
+                        <p>더 정확하고 효율적인 스타일링을 위한 고급 선택자들을 알아봅시다.</p>
+                        
+                        <h4>의사 클래스 (Pseudo-classes)</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 상태 기반 선택자 */
+a:hover { color: #3498db; }
+a:active { color: #2980b9; }
+a:visited { color: #9b59b6; }
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 구조 기반 선택자 */
+li:first-child { font-weight: bold; }
+li:last-child { margin-bottom: 0; }
+li:nth-child(odd) { background-color: #f8f9fa; }
+li:nth-child(even) { background-color: white; }
+
+/* nth-child 고급 사용법 */
+li:nth-child(3n+1) { color: red; }    /* 1, 4, 7, 10... */
+li:nth-child(-n+3) { font-size: 18px; } /* 처음 3개 */</code></pre>
+                        </div>
+
+                        <h4>의사 요소 (Pseudo-elements)</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 장식 요소 추가 */
+.quote::before {
+    content: """;
+    font-size: 2em;
+    color: #3498db;
+}
+
+.quote::after {
+    content: """;
+    font-size: 2em;
+    color: #3498db;
+}
+
+/* 툴팁 만들기 */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 완전 반응형 웹페이지 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 미디어 쿼리를 활용하여 모든 디바이스에 최적화된 웹페이지를 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>모바일, 태블릿, 데스크톱 3가지 레이아웃</li>
+                                <li>반응형 네비게이션 (햄버거 메뉴)</li>
+                                <li>반응형 이미지 및 텍스트</li>
+                                <li>적절한 브레이크포인트 설정</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 애니메이션 효과 라이브러리 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 재사용 가능한 CSS 애니메이션 클래스들을 만듭니다.</p>
+                            
+                            <h4>구현할 애니메이션:</h4>
+                            <ul>
+                                <li>페이드 인/아웃</li>
+                                <li>슬라이드 효과</li>
+                                <li>회전 및 확대/축소</li>
+                                <li>바운스 효과</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 인터랙티브 카드 컴포넌트</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 호버 효과와 전환 애니메이션이 적용된 카드를 만듭니다.</p>
+                            
+                            <h4>포함할 효과:</h4>
+                            <ul>
+                                <li>마우스 호버 시 카드 확대</li>
+                                <li>그림자 효과 변화</li>
+                                <li>버튼 호버 애니메이션</li>
+                                <li>이미지 오버레이 효과</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>미디어 쿼리로 반응형 디자인 구현</li>
+                            <li>@keyframes를 활용한 CSS 애니메이션</li>
+                            <li>transition과 transform으로 부드러운 효과</li>
+                            <li>고급 선택자로 정밀한 스타일링</li>
+                            <li>실용적인 UI 컴포넌트 제작</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>6주차에서는 JavaScript의 기초를 학습합니다. 변수, 데이터 타입, 조건문, 반복문 등 프로그래밍의 기본 개념들을 다룰 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week4.html" class="btn btn-secondary">← 4주차: CSS 레이아웃</a>
+                    <a href="week6.html" class="btn btn-primary">6주차: JavaScript 기초 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

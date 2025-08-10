@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12주차: 웹 애플리케이션 개발 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>12주차: 웹 애플리케이션 개발</h1>
+                    <p>종합 프로젝트 시작 - 실제 웹 애플리케이션을 설계하고 구현합니다</p>
+                    <div class="week-navigation">
+                        <a href="week11.html" class="btn btn-secondary">← 11주차</a>
+                        <a href="week13.html" class="btn btn-primary">13주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🏗️</div>
+                        <h3>프로젝트 설계</h3>
+                        <p>웹 애플리케이션의 구조를 설계하고 기능을 정의합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔧</div>
+                        <h3>기술 통합</h3>
+                        <p>HTML, CSS, JavaScript를 통합하여 완전한 애플리케이션을 구축합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📱</div>
+                        <h3>반응형 디자인</h3>
+                        <p>모든 디바이스에서 동작하는 반응형 웹 애플리케이션을 개발합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">⚡</div>
+                        <h3>성능 최적화</h3>
+                        <p>웹 애플리케이션의 성능을 측정하고 최적화하는 방법을 학습합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 프로젝트 기획과 설계</h3>
+                        <p>성공적인 웹 애플리케이션 개발을 위한 체계적인 접근 방법을 학습합니다.</p>
+                        
+                        <h4>요구사항 분석</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 개인 포트폴리오 웹사이트 기획서
+
+## 1. 프로젝트 개요
+- **목적**: 개인 포트폴리오를 효과적으로 보여주는 반응형 웹사이트
+- **대상**: 잠재적 고용주, 클라이언트, 동료 개발자
+- **기간**: 3주 (설계 1주 + 개발 2주)
+
+## 2. 기능 요구사항
+### 필수 기능 (Must Have)
+- 개인 소개 섹션
+- 프로젝트 포트폴리오 갤러리
+- 연락처 양식
+- 반응형 디자인
+- 네비게이션 메뉴
+
+### 선택 기능 (Should Have)
+- 다크/라이트 테마 전환
+- 애니메이션 효과
+- 프로젝트 필터링
+- 블로그 섹션
+
+### 고려사항 (Could Have)
+- 다국어 지원
+- PWA 기능
+- 소셜 미디어 연동
+
+## 3. 기술 스택
+- **프론트엔드**: HTML5, CSS3, JavaScript (ES6+)
+- **라이브러리**: 없음 (바닐라 JavaScript)
+- **도구**: GitHub, VS Code, GitHub Copilot
+- **배포**: GitHub Pages 또는 Netlify</code></pre>
+                        </div>
+
+                        <h4>와이어프레임과 프로토타입</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- 기본 HTML 구조 설계 --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;김철수 - 프론트엔드 개발자&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="header"&gt;
+        &lt;nav class="navbar"&gt;
+            &lt;div class="nav-brand"&gt;김철수&lt;/div&gt;
+            &lt;ul class="nav-menu"&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;소개&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#projects"&gt;프로젝트&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;연락처&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id="hero" class="hero"&gt;
+            &lt;h1&gt;안녕하세요, 프론트엔드 개발자 김철수입니다&lt;/h1&gt;
+            &lt;p&gt;사용자 중심의 웹 경험을 만들어갑니다&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id="about" class="about"&gt;
+            &lt;h2&gt;소개&lt;/h2&gt;
+            &lt;p&gt;개발자로서의 경험과 기술을 소개합니다&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id="projects" class="projects"&gt;
+            &lt;h2&gt;프로젝트&lt;/h2&gt;
+            &lt;div class="project-grid"&gt;
+                &lt;!-- 프로젝트 카드들 --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section id="contact" class="contact"&gt;
+            &lt;h2&gt;연락처&lt;/h2&gt;
+            &lt;form class="contact-form"&gt;
+                &lt;!-- 연락처 양식 --&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer class="footer"&gt;
+        &lt;p&gt;&amp;copy; 2025 김철수. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 모듈화와 컴포넌트 설계</h3>
+                        <p>유지보수하기 쉽고 재사용 가능한 코드 구조를 만드는 방법을 학습합니다.</p>
+                        
+                        <h4>JavaScript 모듈 시스템</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// utils.js - 유틸리티 함수들
+export const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+export const throttle = (func, wait) => {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, wait);
+        }
+    };
+};
+
+export const formatDate = (date) => {
+    return new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }).format(new Date(date));
+};
+
+// api.js - API 관련 함수들
+export class ApiClient {
+    constructor(baseURL) {
+        this.baseURL = baseURL;
+    }
+    
+    async request(endpoint, options = {}) {
+        const url = `${this.baseURL}${endpoint}`;
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                ...options.headers
+            },
+            ...options
+        };
+        
+        try {
+            const response = await fetch(url, config);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('API 요청 실패:', error);
+            throw error;
+        }
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>컴포넌트 기반 개발</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// components/ProjectCard.js
+export class ProjectCard {
+    constructor(project) {
+        this.project = project;
+        this.element = this.createElement();
+    }
+    
+    createElement() {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${this.project.image}" alt="${this.project.title}" loading="lazy">
+                <div class="project-overlay">
+                    <button class="btn-demo" data-url="${this.project.demoUrl}">데모</button>
+                    <button class="btn-source" data-url="${this.project.sourceUrl}">소스</button>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>${this.project.title}</h3>
+                <p>${this.project.description}</p>
+                <div class="project-technologies">
+                    ${this.project.technologies.map(tech => 
+                        `<span class="tech-tag">${tech}</span>`
+                    ).join('')}
+                </div>
+            </div>
+        `;
+        
+        this.setupEventListeners(card);
+        return card;
+    }
+    
+    setupEventListeners(card) {
+        card.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-demo')) {
+                window.open(e.target.dataset.url, '_blank');
+            } else if (e.target.classList.contains('btn-source')) {
+                window.open(e.target.dataset.url, '_blank');
+            }
+        });
+    }
+    
+    render(container) {
+        container.appendChild(this.element);
+    }
+}
+
+// components/ContactForm.js
+export class ContactForm {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.form = null;
+        this.init();
+    }
+    
+    init() {
+        this.createForm();
+        this.setupEventListeners();
+    }
+    
+    createForm() {
+        this.form = document.createElement('form');
+        this.form.className = 'contact-form';
+        this.form.innerHTML = `
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">메시지</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">전송</button>
+        `;
+        
+        this.container.appendChild(this.form);
+    }
+    
+    setupEventListeners() {
+        this.form.addEventListener('submit', this.handleSubmit.bind(this));
+    }
+    
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this.form);
+        const data = Object.fromEntries(formData.entries());
+        
+        try {
+            this.setLoading(true);
+            await this.submitForm(data);
+            this.showSuccess('메시지가 성공적으로 전송되었습니다!');
+            this.form.reset();
+        } catch (error) {
+            this.showError('전송 중 오류가 발생했습니다: ' + error.message);
+        } finally {
+            this.setLoading(false);
+        }
+    }
+    
+    async submitForm(data) {
+        // 실제 구현에서는 서버로 데이터 전송
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('전송된 데이터:', data);
+                resolve();
+            }, 1000);
+        });
+    }
+    
+    setLoading(loading) {
+        const submitBtn = this.form.querySelector('.btn-submit');
+        submitBtn.disabled = loading;
+        submitBtn.textContent = loading ? '전송 중...' : '전송';
+    }
+    
+    showSuccess(message) {
+        this.showMessage(message, 'success');
+    }
+    
+    showError(message) {
+        this.showMessage(message, 'error');
+    }
+    
+    showMessage(message, type) {
+        const existingMessage = this.container.querySelector('.form-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        const messageEl = document.createElement('div');
+        messageEl.className = `form-message ${type}`;
+        messageEl.textContent = message;
+        this.container.appendChild(messageEl);
+        
+        setTimeout(() => messageEl.remove(), 5000);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 성능 최적화 기법</h3>
+                        <p>웹 애플리케이션의 로딩 속도와 사용자 경험을 개선하는 방법을 학습합니다.</p>
+                        
+                        <h4>이미지 최적화와 지연 로딩</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// ImageLoader.js - 지연 로딩 구현
+export class ImageLoader {
+    constructor() {
+        this.observer = this.createIntersectionObserver();
+        this.loadedImages = new Set();
+    }
+    
+    createIntersectionObserver() {
+        return new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.loadImage(entry.target);
+                    this.observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+    }
+    
+    observe(img) {
+        if (this.loadedImages.has(img)) return;
+        this.observer.observe(img);
+    }
+    
+    async loadImage(img) {
+        const src = img.dataset.src;
+        if (!src) return;
+        
+        try {
+            // 이미지 미리 로드
+            const image = new Image();
+            await this.preloadImage(image, src);
+            
+            // 페이드 인 효과
+            img.style.opacity = '0';
+            img.src = src;
+            img.onload = () => {
+                img.style.transition = 'opacity 0.3s';
+                img.style.opacity = '1';
+                this.loadedImages.add(img);
+            };
+        } catch (error) {
+            console.error('이미지 로딩 실패:', error);
+            img.src = 'images/placeholder.jpg'; // 플레이스홀더 이미지
+        }
+    }
+    
+    preloadImage(img, src) {
+        return new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = src;
+        });
+    }
+    
+    // 반응형 이미지 처리
+    static getResponsiveImageSrc(baseSrc, width) {
+        const breakpoints = {
+            320: 'small',
+            768: 'medium',
+            1024: 'large',
+            1920: 'xlarge'
+        };
+        
+        const size = Object.keys(breakpoints)
+            .reverse()
+            .find(bp => width >= bp) || 'small';
+        
+        const extension = baseSrc.split('.').pop();
+        const name = baseSrc.replace(`.${extension}`, '');
+        
+        return `${name}-${breakpoints[size]}.${extension}`;
+    }
+}
+
+// 사용 예제
+const imageLoader = new ImageLoader();
+
+// 모든 지연 로딩 이미지 관찰
+document.querySelectorAll('img[data-src]').forEach(img => {
+    imageLoader.observe(img);
+});</code></pre>
+                        </div>
+
+                        <h4>코드 분할과 번들링</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 동적 import를 사용한 코드 분할
+class ModuleLoader {
+    constructor() {
+        this.loadedModules = new Map();
+    }
+    
+    async loadModule(moduleName) {
+        if (this.loadedModules.has(moduleName)) {
+            return this.loadedModules.get(moduleName);
+        }
+        
+        try {
+            let module;
+            switch (moduleName) {
+                case 'chart':
+                    module = await import('./components/Chart.js');
+                    break;
+                case 'gallery':
+                    module = await import('./components/Gallery.js');
+                    break;
+                case 'contact':
+                    module = await import('./components/ContactForm.js');
+                    break;
+                default:
+                    throw new Error(`Unknown module: ${moduleName}`);
+            }
+            
+            this.loadedModules.set(moduleName, module);
+            return module;
+        } catch (error) {
+            console.error(`Failed to load module ${moduleName}:`, error);
+            throw error;
+        }
+    }
+    
+    async loadModuleWhenNeeded(moduleName, trigger) {
+        trigger.addEventListener('click', async () => {
+            try {
+                const module = await this.loadModule(moduleName);
+                // 모듈 사용
+                this.useModule(module, trigger);
+            } catch (error) {
+                console.error('Module loading failed:', error);
+            }
+        }, { once: true });
+    }
+    
+    useModule(module, context) {
+        // 로드된 모듈을 실제로 사용
+        if (module.default) {
+            new module.default(context);
+        }
+    }
+}
+
+// 리소스 프리로딩
+class ResourcePreloader {
+    constructor() {
+        this.preloadQueue = [];
+        this.loaded = new Set();
+    }
+    
+    preloadImage(src) {
+        if (this.loaded.has(src)) return Promise.resolve();
+        
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                this.loaded.add(src);
+                resolve();
+            };
+            img.onerror = reject;
+            img.src = src;
+        });
+    }
+    
+    preloadFont(fontFamily, fontWeight = 'normal') {
+        const font = new FontFace(fontFamily, `url(/fonts/${fontFamily}.woff2)`, {
+            weight: fontWeight
+        });
+        
+        return font.load().then(() => {
+            document.fonts.add(font);
+            this.loaded.add(fontFamily);
+        });
+    }
+    
+    async preloadCriticalResources() {
+        const criticalImages = [
+            'images/hero-bg.jpg',
+            'images/profile.jpg'
+        ];
+        
+        const criticalFonts = [
+            { family: 'NotoSansKR', weight: '400' },
+            { family: 'NotoSansKR', weight: '700' }
+        ];
+        
+        const imagePromises = criticalImages.map(src => this.preloadImage(src));
+        const fontPromises = criticalFonts.map(font => 
+            this.preloadFont(font.family, font.weight)
+        );
+        
+        try {
+            await Promise.all([...imagePromises, ...fontPromises]);
+            console.log('Critical resources preloaded');
+        } catch (error) {
+            console.error('Preloading failed:', error);
+        }
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>성능 모니터링</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 성능 측정 클래스
+class PerformanceMonitor {
+    constructor() {
+        this.metrics = {};
+        this.observer = this.createPerformanceObserver();
+    }
+    
+    createPerformanceObserver() {
+        if (!window.PerformanceObserver) return null;
+        
+        const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach(entry => {
+                this.processEntry(entry);
+            });
+        });
+        
+        try {
+            observer.observe({ entryTypes: ['navigation', 'paint', 'largest-contentful-paint'] });
+        } catch (error) {
+            console.warn('PerformanceObserver not fully supported');
+        }
+        
+        return observer;
+    }
+    
+    processEntry(entry) {
+        switch (entry.entryType) {
+            case 'navigation':
+                this.metrics.loadTime = entry.loadEventEnd - entry.loadEventStart;
+                this.metrics.domContentLoaded = entry.domContentLoadedEventEnd - entry.domContentLoadedEventStart;
+                break;
+            case 'paint':
+                if (entry.name === 'first-contentful-paint') {
+                    this.metrics.fcp = entry.startTime;
+                }
+                break;
+            case 'largest-contentful-paint':
+                this.metrics.lcp = entry.startTime;
+                break;
+        }
+    }
+    
+    measureCustomMetric(name, fn) {
+        const start = performance.now();
+        const result = fn();
+        const end = performance.now();
+        
+        this.metrics[name] = end - start;
+        console.log(`${name}: ${this.metrics[name].toFixed(2)}ms`);
+        
+        return result;
+    }
+    
+    async measureAsyncMetric(name, asyncFn) {
+        const start = performance.now();
+        const result = await asyncFn();
+        const end = performance.now();
+        
+        this.metrics[name] = end - start;
+        console.log(`${name}: ${this.metrics[name].toFixed(2)}ms`);
+        
+        return result;
+    }
+    
+    getWebVitals() {
+        return {
+            fcp: this.metrics.fcp,
+            lcp: this.metrics.lcp,
+            loadTime: this.metrics.loadTime,
+            domContentLoaded: this.metrics.domContentLoaded
+        };
+    }
+    
+    reportMetrics() {
+        console.table(this.metrics);
+        
+        // Google Analytics 또는 다른 분석 도구로 전송
+        if (typeof gtag !== 'undefined') {
+            Object.entries(this.metrics).forEach(([name, value]) => {
+                gtag('event', 'performance_metric', {
+                    metric_name: name,
+                    value: Math.round(value),
+                    custom_parameter: window.location.pathname
+                });
+            });
+        }
+    }
+}
+
+// 사용 예제
+const performanceMonitor = new PerformanceMonitor();
+
+// 페이지 로드 완료 후 메트릭 리포트
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        performanceMonitor.reportMetrics();
+    }, 1000);
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 프로젝트 구조와 베스트 프랙티스</h3>
+                        <p>확장 가능하고 유지보수하기 쉬운 프로젝트 구조를 설계하는 방법을 학습합니다.</p>
+                        
+                        <h4>프로젝트 폴더 구조</h4>
+                        <div class="code-example">
+                            <pre><code class="language-text">portfolio-website/
+├── index.html
+├── css/
+│   ├── styles.css
+│   ├── components/
+│   │   ├── header.css
+│   │   ├── hero.css
+│   │   ├── projects.css
+│   │   └── contact.css
+│   └── utilities/
+│       ├── variables.css
+│       ├── mixins.css
+│       └── reset.css
+├── js/
+│   ├── main.js
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── ProjectCard.js
+│   │   ├── ContactForm.js
+│   │   └── ThemeToggle.js
+│   ├── utils/
+│   │   ├── helpers.js
+│   │   ├── api.js
+│   │   └── storage.js
+│   └── services/
+│       ├── ProjectService.js
+│       └── ContactService.js
+├── images/
+│   ├── projects/
+│   ├── icons/
+│   └── optimized/
+├── fonts/
+├── data/
+│   └── projects.json
+├── docs/
+│   ├── README.md
+│   └── DEPLOYMENT.md
+└── tests/
+    ├── unit/
+    └── integration/</code></pre>
+                        </div>
+
+                        <h4>메인 애플리케이션 클래스</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// main.js - 애플리케이션 진입점
+import { Header } from './components/Header.js';
+import { ProjectGallery } from './components/ProjectGallery.js';
+import { ContactForm } from './components/ContactForm.js';
+import { ThemeToggle } from './components/ThemeToggle.js';
+import { PerformanceMonitor } from './utils/PerformanceMonitor.js';
+import { ModuleLoader } from './utils/ModuleLoader.js';
+
+class Portfolio {
+    constructor() {
+        this.components = new Map();
+        this.performanceMonitor = new PerformanceMonitor();
+        this.moduleLoader = new ModuleLoader();
+        
+        this.init();
+    }
+    
+    async init() {
+        try {
+            // 성능 모니터링 시작
+            this.performanceMonitor.measureCustomMetric('app-init', () => {
+                this.setupComponents();
+                this.setupEventListeners();
+                this.loadInitialData();
+            });
+            
+            // 컴포넌트 초기화
+            await this.initializeComponents();
+            
+            // 테마 설정 복원
+            this.restoreUserPreferences();
+            
+            console.log('Portfolio application initialized');
+        } catch (error) {
+            console.error('Application initialization failed:', error);
+            this.handleInitError(error);
+        }
+    }
+    
+    setupComponents() {
+        // 컴포넌트 인스턴스 생성
+        this.components.set('header', new Header());
+        this.components.set('themeToggle', new ThemeToggle());
+        
+        // 지연 로딩 컴포넌트들
+        this.setupLazyComponents();
+    }
+    
+    setupLazyComponents() {
+        // 프로젝트 섹션이 뷰포트에 들어올 때 로드
+        const projectSection = document.getElementById('projects');
+        if (projectSection) {
+            this.observeSection(projectSection, () => {
+                this.loadProjectGallery();
+            });
+        }
+        
+        // 연락처 섹션이 뷰포트에 들어올 때 로드
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            this.observeSection(contactSection, () => {
+                this.loadContactForm();
+            });
+        }
+    }
+    
+    observeSection(section, callback) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    callback();
+                    observer.unobserve(section);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(section);
+    }
+    
+    async loadProjectGallery() {
+        if (this.components.has('projectGallery')) return;
+        
+        try {
+            const projectData = await this.loadProjectData();
+            const gallery = new ProjectGallery(projectData);
+            this.components.set('projectGallery', gallery);
+        } catch (error) {
+            console.error('Failed to load project gallery:', error);
+        }
+    }
+    
+    async loadContactForm() {
+        if (this.components.has('contactForm')) return;
+        
+        const form = new ContactForm('contact-form-container');
+        this.components.set('contactForm', form);
+    }
+    
+    async loadProjectData() {
+        try {
+            const response = await fetch('./data/projects.json');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Failed to load project data:', error);
+            // 폴백 데이터 반환
+            return this.getFallbackProjects();
+        }
+    }
+    
+    getFallbackProjects() {
+        return [
+            {
+                id: 1,
+                title: '샘플 프로젝트',
+                description: '데이터 로딩 실패 시 표시되는 샘플입니다.',
+                image: 'images/placeholder.jpg',
+                technologies: ['HTML', 'CSS', 'JavaScript'],
+                demoUrl: '#',
+                sourceUrl: '#'
+            }
+        ];
+    }
+    
+    setupEventListeners() {
+        // 전역 에러 처리
+        window.addEventListener('error', this.handleError.bind(this));
+        window.addEventListener('unhandledrejection', this.handleError.bind(this));
+        
+        // 네트워크 상태 모니터링
+        window.addEventListener('online', this.handleNetworkChange.bind(this));
+        window.addEventListener('offline', this.handleNetworkChange.bind(this));
+        
+        // 페이지 가시성 변경
+        document.addEventListener('visibilitychange', this.handleVisibilityChange.bind(this));
+    }
+    
+    handleError(event) {
+        console.error('Global error:', event.error || event.reason);
+        
+        // 에러 리포팅 서비스에 전송
+        this.reportError(event.error || event.reason);
+    }
+    
+    handleNetworkChange(event) {
+        const isOnline = event.type === 'online';
+        console.log(`Network status: ${isOnline ? 'online' : 'offline'}`);
+        
+        // UI에 네트워크 상태 표시
+        this.updateNetworkStatus(isOnline);
+    }
+    
+    handleVisibilityChange() {
+        if (document.hidden) {
+            // 페이지가 숨겨졌을 때 (탭 전환 등)
+            this.pauseAnimations();
+        } else {
+            // 페이지가 다시 보일 때
+            this.resumeAnimations();
+        }
+    }
+    
+    restoreUserPreferences() {
+        const preferences = JSON.parse(localStorage.getItem('portfolio-preferences')) || {};
+        
+        // 테마 설정 복원
+        if (preferences.theme) {
+            const themeToggle = this.components.get('themeToggle');
+            themeToggle?.setTheme(preferences.theme);
+        }
+        
+        // 기타 사용자 설정 복원
+        if (preferences.reducedMotion) {
+            document.documentElement.classList.add('reduced-motion');
+        }
+    }
+    
+    saveUserPreferences() {
+        const preferences = {
+            theme: document.documentElement.dataset.theme || 'light',
+            reducedMotion: document.documentElement.classList.contains('reduced-motion'),
+            lastVisit: new Date().toISOString()
+        };
+        
+        localStorage.setItem('portfolio-preferences', JSON.stringify(preferences));
+    }
+}
+
+// 애플리케이션 시작
+document.addEventListener('DOMContentLoaded', () => {
+    new Portfolio();
+});
+
+// 페이지 언로드 시 사용자 설정 저장
+window.addEventListener('beforeunload', () => {
+    if (window.portfolioApp) {
+        window.portfolioApp.saveUserPreferences();
+    }
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 개인 포트폴리오 사이트 구축</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 개인 포트폴리오를 효과적으로 보여주는 반응형 웹사이트를 제작합니다.</p>
+                            
+                            <h4>구현 기능:</h4>
+                            <ul>
+                                <li>개인 소개 및 경력 섹션</li>
+                                <li>프로젝트 갤러리 (필터링 기능)</li>
+                                <li>기술 스택 시각화</li>
+                                <li>연락처 양식</li>
+                                <li>다크/라이트 테마 토글</li>
+                                <li>반응형 디자인</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 온라인 쇼핑몰 프론트엔드</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 전자상거래 사이트의 핵심 기능을 구현합니다.</p>
+                            
+                            <h4>주요 페이지:</h4>
+                            <ul>
+                                <li>상품 목록 페이지 (필터링, 정렬)</li>
+                                <li>상품 상세 페이지</li>
+                                <li>장바구니 기능</li>
+                                <li>사용자 인증 (로그인/회원가입)</li>
+                                <li>주문 과정 시뮬레이션</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 팀 프로젝트 대시보드</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 데이터 시각화를 포함한 프로젝트 관리 대시보드를 구현합니다.</p>
+                            
+                            <h4>핵심 기능:</h4>
+                            <ul>
+                                <li>실시간 프로젝트 상태 모니터링</li>
+                                <li>차트와 그래프를 통한 데이터 시각화</li>
+                                <li>팀원별 작업 현황</li>
+                                <li>일정 관리 캘린더</li>
+                                <li>알림 시스템</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>체계적인 프로젝트 기획과 설계</li>
+                            <li>모듈화와 컴포넌트 기반 개발</li>
+                            <li>성능 최적화와 모니터링</li>
+                            <li>확장 가능한 프로젝트 구조</li>
+                            <li>사용자 경험 개선 기법</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>13주차에서는 개발한 웹 애플리케이션을 완성하고 배포합니다. Git을 활용한 버전 관리, GitHub Pages나 Netlify를 통한 배포 과정을 실습합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week11.html" class="btn btn-secondary">← 11주차: 비동기 JavaScript</a>
+                    <a href="week13.html" class="btn btn-primary">13주차: 프로젝트 완성 & 배포 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

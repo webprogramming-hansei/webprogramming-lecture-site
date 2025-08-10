@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11주차: 비동기 JavaScript - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>11주차: 비동기 JavaScript</h1>
+                    <p>Promise, async/await, Fetch API를 학습하여 비동기 프로그래밍을 마스터합니다</p>
+                    <div class="week-navigation">
+                        <a href="week10.html" class="btn btn-secondary">← 10주차</a>
+                        <a href="week12.html" class="btn btn-primary">12주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">⏱️</div>
+                        <h3>비동기 개념</h3>
+                        <p>동기와 비동기 프로그래밍의 차이점과 필요성을 이해합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🤝</div>
+                        <h3>Promise</h3>
+                        <p>Promise 객체와 then/catch 체이닝을 활용한 비동기 처리를 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔄</div>
+                        <h3>async/await</h3>
+                        <p>현대적인 async/await 문법으로 깔끔한 비동기 코드를 작성합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🌐</div>
+                        <h3>API 통신</h3>
+                        <p>Fetch API로 서버와 통신하는 웹 애플리케이션을 구현합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 비동기 프로그래밍 개념</h3>
+                        <p>JavaScript의 비동기 처리 방식과 그 필요성을 이해해봅시다.</p>
+                        
+                        <h4>동기 vs 비동기</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 동기 코드 - 순차적 실행
+console.log('첫 번째');
+console.log('두 번째');
+console.log('세 번째');
+
+// 비동기 코드 - 나중에 실행
+console.log('시작');
+setTimeout(() => {
+    console.log('2초 후 실행');
+}, 2000);
+console.log('끝');
+
+// 실행 순서: 시작 → 끝 → 2초 후 실행
+
+// 파일을 읽는 예제 (Node.js 환경)
+const fs = require('fs');
+
+// 동기적 파일 읽기 (블로킹)
+console.log('파일 읽기 시작');
+const data = fs.readFileSync('data.txt', 'utf8');
+console.log('파일 내용:', data);
+console.log('파일 읽기 완료');
+
+// 비동기적 파일 읽기 (논블로킹)
+console.log('비동기 파일 읽기 시작');
+fs.readFile('data.txt', 'utf8', (err, data) => {
+    if (err) {
+        console.error('에러:', err);
+        return;
+    }
+    console.log('파일 내용:', data);
+});
+console.log('다른 작업 계속 진행');</code></pre>
+                        </div>
+
+                        <h4>콜백 함수의 문제점 - Callback Hell</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 콜백 헬의 예제
+getUserData(userId, (userData) => {
+    getOrderHistory(userData.id, (orders) => {
+        getOrderDetails(orders[0].id, (details) => {
+            getShippingInfo(details.shippingId, (shipping) => {
+                updateUI(userData, orders, details, shipping);
+            });
+        });
+    });
+});
+
+// 에러 처리도 복잡해짐
+getUserData(userId, (err, userData) => {
+    if (err) {
+        handleError(err);
+        return;
+    }
+    
+    getOrderHistory(userData.id, (err, orders) => {
+        if (err) {
+            handleError(err);
+            return;
+        }
+        
+        // 더 깊어지는 중첩...
+    });
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. Promise 객체</h3>
+                        <p>Promise를 사용하여 비동기 코드를 더 깔끔하게 작성하는 방법을 학습합니다.</p>
+                        
+                        <h4>Promise 기본 사용법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// Promise 생성
+const myPromise = new Promise((resolve, reject) => {
+    // 비동기 작업 시뮬레이션
+    const success = Math.random() > 0.5;
+    
+    setTimeout(() => {
+        if (success) {
+            resolve('작업이 성공했습니다!');
+        } else {
+            reject(new Error('작업이 실패했습니다.'));
+        }
+    }, 1000);
+});
+
+// Promise 사용
+myPromise
+    .then(result => {
+        console.log('성공:', result);
+        return '다음 작업 준비 완료';
+    })
+    .then(nextResult => {
+        console.log('두 번째 then:', nextResult);
+    })
+    .catch(error => {
+        console.error('에러 처리:', error.message);
+    })
+    .finally(() => {
+        console.log('작업 완료 (성공/실패 관계없이 실행)');
+    });
+
+// 실용적인 Promise 예제 - API 요청 시뮬레이션
+function fetchUserData(userId) {
+    return new Promise((resolve, reject) => {
+        // 실제로는 fetch API 또는 XMLHttpRequest 사용
+        setTimeout(() => {
+            const users = {
+                1: { id: 1, name: '김철수', email: 'kim@example.com' },
+                2: { id: 2, name: '이영희', email: 'lee@example.com' }
+            };
+            
+            const user = users[userId];
+            if (user) {
+                resolve(user);
+            } else {
+                reject(new Error('사용자를 찾을 수 없습니다'));
+            }
+        }, 500);
+    });
+}</code></pre>
+                        </div>
+
+                        <h4>Promise 체이닝과 에러 처리</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// Promise 체이닝으로 콜백 헬 해결
+fetchUserData(1)
+    .then(user => {
+        console.log('사용자 정보:', user);
+        return fetchOrderHistory(user.id);
+    })
+    .then(orders => {
+        console.log('주문 내역:', orders);
+        return fetchOrderDetails(orders[0].id);
+    })
+    .then(details => {
+        console.log('주문 상세:', details);
+        return fetchShippingInfo(details.shippingId);
+    })
+    .then(shipping => {
+        console.log('배송 정보:', shipping);
+        updateUI(shipping);
+    })
+    .catch(error => {
+        console.error('전체 프로세스 에러:', error);
+        showErrorMessage(error.message);
+    });
+
+// 여러 Promise 동시 실행
+const promise1 = fetchUserData(1);
+const promise2 = fetchUserData(2);
+const promise3 = fetchUserData(3);
+
+// 모든 Promise가 완료될 때까지 기다림
+Promise.all([promise1, promise2, promise3])
+    .then(users => {
+        console.log('모든 사용자 데이터:', users);
+    })
+    .catch(error => {
+        console.error('하나라도 실패하면 전체 실패:', error);
+    });
+
+// 가장 빨리 완료되는 Promise 반환
+Promise.race([promise1, promise2, promise3])
+    .then(firstUser => {
+        console.log('가장 빠른 응답:', firstUser);
+    });
+
+// 모든 Promise 완료 기다림 (실패해도 계속)
+Promise.allSettled([promise1, promise2, promise3])
+    .then(results => {
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled') {
+                console.log(`사용자 ${index + 1}:`, result.value);
+            } else {
+                console.error(`사용자 ${index + 1} 에러:`, result.reason);
+            }
+        });
+    });</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. async/await 문법</h3>
+                        <p>더욱 직관적이고 읽기 쉬운 비동기 코드를 작성할 수 있는 async/await를 학습합니다.</p>
+                        
+                        <h4>기본 async/await 사용법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// async 함수 정의
+async function getUserInfo(userId) {
+    try {
+        // await는 Promise가 완료될 때까지 기다림
+        const user = await fetchUserData(userId);
+        console.log('사용자 정보:', user);
+        
+        const orders = await fetchOrderHistory(user.id);
+        console.log('주문 내역:', orders);
+        
+        const details = await fetchOrderDetails(orders[0].id);
+        console.log('주문 상세:', details);
+        
+        return {
+            user,
+            orders,
+            details
+        };
+    } catch (error) {
+        console.error('에러 발생:', error);
+        throw error; // 에러를 다시 던져서 호출자가 처리할 수 있도록
+    }
+}
+
+// async 함수 호출
+getUserInfo(1)
+    .then(result => {
+        console.log('최종 결과:', result);
+        updateUI(result);
+    })
+    .catch(error => {
+        showErrorMessage(error.message);
+    });
+
+// 또는 다른 async 함수 내에서 await 사용
+async function processUserData() {
+    try {
+        const userInfo = await getUserInfo(1);
+        console.log('처리된 사용자 정보:', userInfo);
+        
+        // 추가 처리...
+        const processedData = await processData(userInfo);
+        return processedData;
+    } catch (error) {
+        console.error('데이터 처리 실패:', error);
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>병렬 실행과 순차 실행</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 순차 실행 (각각 1초씩 총 3초)
+async function sequentialExecution() {
+    console.time('순차 실행');
+    
+    const user1 = await fetchUserData(1);
+    const user2 = await fetchUserData(2);
+    const user3 = await fetchUserData(3);
+    
+    console.timeEnd('순차 실행');
+    return [user1, user2, user3];
+}
+
+// 병렬 실행 (동시에 시작하여 총 1초)
+async function parallelExecution() {
+    console.time('병렬 실행');
+    
+    // Promise를 먼저 생성하여 동시에 시작
+    const promise1 = fetchUserData(1);
+    const promise2 = fetchUserData(2);
+    const promise3 = fetchUserData(3);
+    
+    // 모든 Promise 완료 기다림
+    const users = await Promise.all([promise1, promise2, promise3]);
+    
+    console.timeEnd('병렬 실행');
+    return users;
+}
+
+// 조건부 병렬 실행
+async function conditionalParallel(userIds) {
+    const promises = userIds.map(id => fetchUserData(id));
+    
+    try {
+        const users = await Promise.all(promises);
+        return users.filter(user => user !== null);
+    } catch (error) {
+        // 하나라도 실패하면 전체 실패
+        console.error('사용자 데이터 로딩 실패:', error);
+        
+        // 개별적으로 다시 시도
+        const results = await Promise.allSettled(promises);
+        return results
+            .filter(result => result.status === 'fulfilled')
+            .map(result => result.value);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. Fetch API와 실제 웹 통신</h3>
+                        <p>Fetch API를 사용하여 실제 서버와 통신하는 웹 애플리케이션을 구현해봅시다.</p>
+                        
+                        <h4>Fetch API 기본 사용법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 기본 GET 요청
+async function fetchData() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        
+        // 응답 상태 확인
+        if (!response.ok) {
+            throw new Error(`HTTP 에러! 상태: ${response.status}`);
+        }
+        
+        const users = await response.json();
+        console.log('사용자 목록:', users);
+        return users;
+    } catch (error) {
+        console.error('데이터 가져오기 실패:', error);
+        throw error;
+    }
+}
+
+// POST 요청으로 데이터 전송
+async function createUser(userData) {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`사용자 생성 실패: ${response.status}`);
+        }
+        
+        const newUser = await response.json();
+        console.log('새 사용자 생성:', newUser);
+        return newUser;
+    } catch (error) {
+        console.error('사용자 생성 에러:', error);
+        throw error;
+    }
+}
+
+// PUT 요청으로 데이터 수정
+async function updateUser(userId, updates) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updates)
+    });
+    
+    return await response.json();
+}
+
+// DELETE 요청
+async function deleteUser(userId) {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+        method: 'DELETE'
+    });
+    
+    return response.ok;
+}</code></pre>
+                        </div>
+
+                        <h4>실용적인 API 클라이언트 클래스</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">class ApiClient {
+    constructor(baseURL) {
+        this.baseURL = baseURL;
+        this.defaultHeaders = {
+            'Content-Type': 'application/json'
+        };
+    }
+    
+    async request(endpoint, options = {}) {
+        const url = `${this.baseURL}${endpoint}`;
+        const config = {
+            headers: { ...this.defaultHeaders, ...options.headers },
+            ...options
+        };
+        
+        try {
+            const response = await fetch(url, config);
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            // Content-Type 확인
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                return await response.json();
+            }
+            
+            return await response.text();
+        } catch (error) {
+            console.error('API 요청 실패:', error);
+            throw error;
+        }
+    }
+    
+    get(endpoint, params = {}) {
+        const queryString = new URLSearchParams(params).toString();
+        const url = queryString ? `${endpoint}?${queryString}` : endpoint;
+        return this.request(url);
+    }
+    
+    post(endpoint, data) {
+        return this.request(endpoint, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+    }
+    
+    put(endpoint, data) {
+        return this.request(endpoint, {
+            method: 'PUT',
+            body: JSON.stringify(data)
+        });
+    }
+    
+    delete(endpoint) {
+        return this.request(endpoint, {
+            method: 'DELETE'
+        });
+    }
+}
+
+// API 클라이언트 사용 예제
+const api = new ApiClient('https://jsonplaceholder.typicode.com');
+
+// 사용자 서비스 클래스
+class UserService {
+    constructor(apiClient) {
+        this.api = apiClient;
+    }
+    
+    async getAllUsers() {
+        return await this.api.get('/users');
+    }
+    
+    async getUserById(id) {
+        return await this.api.get(`/users/${id}`);
+    }
+    
+    async createUser(userData) {
+        return await this.api.post('/users', userData);
+    }
+    
+    async updateUser(id, userData) {
+        return await this.api.put(`/users/${id}`, userData);
+    }
+    
+    async deleteUser(id) {
+        return await this.api.delete(`/users/${id}`);
+    }
+    
+    async searchUsers(query) {
+        const users = await this.getAllUsers();
+        return users.filter(user => 
+            user.name.toLowerCase().includes(query.toLowerCase()) ||
+            user.email.toLowerCase().includes(query.toLowerCase())
+        );
+    }
+}
+
+// 사용 예제
+const userService = new UserService(api);
+
+async function demonstrateUserService() {
+    try {
+        // 모든 사용자 가져오기
+        const users = await userService.getAllUsers();
+        console.log('사용자 목록:', users);
+        
+        // 특정 사용자 검색
+        const searchResults = await userService.searchUsers('Leanne');
+        console.log('검색 결과:', searchResults);
+        
+        // 새 사용자 생성
+        const newUser = await userService.createUser({
+            name: '김철수',
+            email: 'kim@example.com',
+            phone: '010-1234-5678'
+        });
+        console.log('생성된 사용자:', newUser);
+        
+    } catch (error) {
+        console.error('사용자 서비스 에러:', error);
+    }
+}</code></pre>
+                        </div>
+
+                        <h4>로딩 상태와 에러 처리가 있는 UI</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">class UserListComponent {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.userService = new UserService(api);
+        this.users = [];
+        this.loading = false;
+        this.error = null;
+        
+        this.init();
+    }
+    
+    async init() {
+        await this.loadUsers();
+        this.setupEventListeners();
+    }
+    
+    async loadUsers() {
+        this.setLoading(true);
+        this.setError(null);
+        
+        try {
+            this.users = await this.userService.getAllUsers();
+            this.render();
+        } catch (error) {
+            this.setError('사용자 데이터를 불러오는데 실패했습니다: ' + error.message);
+        } finally {
+            this.setLoading(false);
+        }
+    }
+    
+    setLoading(loading) {
+        this.loading = loading;
+        this.updateLoadingState();
+    }
+    
+    setError(error) {
+        this.error = error;
+        this.updateErrorState();
+    }
+    
+    updateLoadingState() {
+        const loadingEl = this.container.querySelector('.loading');
+        if (this.loading) {
+            if (!loadingEl) {
+                const loading = document.createElement('div');
+                loading.className = 'loading';
+                loading.textContent = '로딩 중...';
+                this.container.appendChild(loading);
+            }
+        } else if (loadingEl) {
+            loadingEl.remove();
+        }
+    }
+    
+    updateErrorState() {
+        const errorEl = this.container.querySelector('.error');
+        if (this.error) {
+            if (!errorEl) {
+                const error = document.createElement('div');
+                error.className = 'error';
+                error.textContent = this.error;
+                this.container.appendChild(error);
+            }
+        } else if (errorEl) {
+            errorEl.remove();
+        }
+    }
+    
+    render() {
+        if (this.loading || this.error) return;
+        
+        const userListHTML = this.users.map(user => `
+            <div class="user-card" data-user-id="${user.id}">
+                <h3>${user.name}</h3>
+                <p>이메일: ${user.email}</p>
+                <p>전화번호: ${user.phone}</p>
+                <button class="btn-edit">수정</button>
+                <button class="btn-delete">삭제</button>
+            </div>
+        `).join('');
+        
+        this.container.innerHTML = userListHTML;
+    }
+    
+    setupEventListeners() {
+        this.container.addEventListener('click', async (e) => {
+            const userCard = e.target.closest('.user-card');
+            if (!userCard) return;
+            
+            const userId = userCard.dataset.userId;
+            
+            if (e.target.classList.contains('btn-delete')) {
+                await this.deleteUser(userId);
+            } else if (e.target.classList.contains('btn-edit')) {
+                this.editUser(userId);
+            }
+        });
+    }
+    
+    async deleteUser(userId) {
+        if (!confirm('정말로 삭제하시겠습니까?')) return;
+        
+        try {
+            await this.userService.deleteUser(userId);
+            this.users = this.users.filter(user => user.id !== parseInt(userId));
+            this.render();
+        } catch (error) {
+            alert('삭제 실패: ' + error.message);
+        }
+    }
+}
+
+// 컴포넌트 사용
+const userList = new UserListComponent('user-list-container');</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 날씨 정보 앱</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 실제 날씨 API를 사용하여 현재 날씨와 예보를 보여주는 앱을 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>OpenWeatherMap API 사용</li>
+                                <li>현재 위치 기반 날씨 정보</li>
+                                <li>도시 검색 기능</li>
+                                <li>5일 예보 표시</li>
+                                <li>로딩 상태 및 에러 처리</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 할 일 관리 API 서비스</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 RESTful API를 활용한 할 일 관리 시스템을 구축합니다.</p>
+                            
+                            <h4>구현 기능:</h4>
+                            <ul>
+                                <li>JSONPlaceholder API 활용</li>
+                                <li>CRUD 작업 구현</li>
+                                <li>실시간 동기화</li>
+                                <li>오프라인 모드 지원</li>
+                                <li>낙관적 업데이트</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 실시간 채팅 인터페이스</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> WebSocket을 시뮬레이션한 실시간 메시징 인터페이스를 구현합니다.</p>
+                            
+                            <h4>주요 기능:</h4>
+                            <ul>
+                                <li>메시지 실시간 전송/수신</li>
+                                <li>사용자 온라인 상태</li>
+                                <li>메시지 히스토리</li>
+                                <li>타이핑 인디케이터</li>
+                                <li>이미지 업로드</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>비동기 프로그래밍의 필요성과 개념</li>
+                            <li>Promise: then/catch 체이닝과 에러 처리</li>
+                            <li>async/await: 직관적인 비동기 코드 작성</li>
+                            <li>Fetch API: 현대적인 HTTP 통신</li>
+                            <li>병렬 실행과 에러 처리 패턴</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>12주차에서는 완전한 웹 애플리케이션 개발을 시작합니다. 지금까지 학습한 모든 기술을 통합하여 실제 프로젝트를 구축하고 배포하는 과정을 경험합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week10.html" class="btn btn-secondary">← 10주차: JavaScript 배열 & 객체</a>
+                    <a href="week12.html" class="btn btn-primary">12주차: 웹 애플리케이션 개발 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

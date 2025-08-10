@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10주차: JavaScript 배열 & 객체 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>10주차: JavaScript 배열 & 객체</h1>
+                    <p>배열과 객체를 심화 학습하여 데이터 구조를 효율적으로 다루는 방법을 익힙니다</p>
+                    <div class="week-navigation">
+                        <a href="week9.html" class="btn btn-secondary">← 9주차</a>
+                        <a href="week11.html" class="btn btn-primary">11주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🔢</div>
+                        <h3>배열 메서드</h3>
+                        <p>forEach, map, filter, reduce 등 고급 배열 메서드를 마스터합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📦</div>
+                        <h3>객체 조작</h3>
+                        <p>객체 생성, 속성 접근, 메서드 정의 방법을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔄</div>
+                        <h3>JSON 처리</h3>
+                        <p>JSON 데이터 형식의 변환과 처리 방법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📊</div>
+                        <h3>데이터 관리</h3>
+                        <p>복잡한 데이터 구조를 효율적으로 관리하는 패턴을 학습합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 고급 배열 메서드</h3>
+                        <p>JavaScript 배열의 강력한 내장 메서드들을 활용하여 데이터를 효율적으로 처리하는 방법을 학습합니다.</p>
+                        
+                        <h4>forEach - 배열 순회</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+const fruits = ['apple', 'banana', 'orange'];
+
+// 기본 forEach 사용
+numbers.forEach(function(number, index) {
+    console.log(`인덱스 ${index}: ${number}`);
+});
+
+// 화살표 함수로 간단하게
+fruits.forEach(fruit => {
+    console.log(fruit.toUpperCase());
+});
+
+// 실용적인 예: DOM 요소들에 이벤트 추가
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        console.log(`버튼 ${index + 1}이 클릭됨`);
+    });
+});</code></pre>
+                        </div>
+
+                        <h4>map - 배열 변형</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// 각 숫자를 제곱
+const squared = numbers.map(num => num ** 2);
+console.log(squared); // [1, 4, 9, 16, 25]
+
+// 문자열 배열을 객체 배열로 변형
+const names = ['김철수', '이영희', '박민수'];
+const users = names.map((name, index) => ({
+    id: index + 1,
+    name: name,
+    email: `${name.toLowerCase()}@example.com`
+}));
+
+// HTML 요소 생성
+const listItems = fruits.map(fruit => 
+    `<li class="fruit-item">${fruit}</li>`
+).join('');
+
+// 실용적인 예: 가격 계산
+const products = [
+    { name: '노트북', price: 1000000 },
+    { name: '마우스', price: 30000 },
+    { name: '키보드', price: 50000 }
+];
+
+const withTax = products.map(product => ({
+    ...product,
+    priceWithTax: product.price * 1.1
+}));</code></pre>
+                        </div>
+
+                        <h4>filter - 배열 필터링</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// 짝수만 필터링
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+// 조건이 복잡한 경우
+const people = [
+    { name: '김철수', age: 25, city: '서울' },
+    { name: '이영희', age: 30, city: '부산' },
+    { name: '박민수', age: 20, city: '서울' },
+    { name: '최지현', age: 35, city: '대구' }
+];
+
+// 서울에 거주하는 25세 이상
+const seoulAdults = people.filter(person => 
+    person.city === '서울' && person.age >= 25
+);
+
+// 검색 기능 구현
+function searchProducts(products, searchTerm) {
+    return products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+}</code></pre>
+                        </div>
+
+                        <h4>reduce - 배열 축소</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// 합계 계산
+const sum = numbers.reduce((accumulator, current) => 
+    accumulator + current, 0
+);
+
+// 최댓값 찾기
+const max = numbers.reduce((max, current) => 
+    current > max ? current : max
+);
+
+// 객체로 그룹핑
+const people = [
+    { name: '김철수', age: 25, department: 'IT' },
+    { name: '이영희', age: 30, department: 'HR' },
+    { name: '박민수', age: 20, department: 'IT' },
+    { name: '최지현', age: 35, department: 'Finance' }
+];
+
+const groupByDepartment = people.reduce((groups, person) => {
+    const dept = person.department;
+    if (!groups[dept]) {
+        groups[dept] = [];
+    }
+    groups[dept].push(person);
+    return groups;
+}, {});
+
+// 장바구니 총액 계산
+const cart = [
+    { name: '노트북', price: 1000000, quantity: 1 },
+    { name: '마우스', price: 30000, quantity: 2 }
+];
+
+const totalPrice = cart.reduce((total, item) => 
+    total + (item.price * item.quantity), 0
+);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 객체 심화 다루기</h3>
+                        <p>JavaScript 객체의 고급 기능과 ES6+ 문법을 활용한 효율적인 객체 조작 방법을 학습합니다.</p>
+                        
+                        <h4>객체 생성과 속성 접근</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 다양한 객체 생성 방법
+const person1 = {
+    name: '김철수',
+    age: 25,
+    city: '서울'
+};
+
+const person2 = new Object();
+person2.name = '이영희';
+person2.age = 30;
+
+// 동적 속성명
+const propertyName = 'occupation';
+const person3 = {
+    name: '박민수',
+    [propertyName]: '개발자', // 계산된 속성명
+    ['is' + 'Student']: false
+};
+
+// 속성 접근 방법
+console.log(person1.name);           // 점 표기법
+console.log(person1['name']);        // 괄호 표기법
+console.log(person1[propertyName]);  // 변수로 접근
+
+// 속성 존재 확인
+if ('age' in person1) {
+    console.log('나이 정보가 있습니다');
+}
+
+if (person1.hasOwnProperty('name')) {
+    console.log('이름 속성이 있습니다');
+}</code></pre>
+                        </div>
+
+                        <h4>구조 분해 할당과 전개 연산자</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const person = {
+    name: '김철수',
+    age: 25,
+    city: '서울',
+    hobbies: ['독서', '영화감상']
+};
+
+// 구조 분해 할당
+const { name, age, city } = person;
+const { hobbies: interests } = person; // 다른 이름으로 할당
+
+// 기본값 설정
+const { occupation = '미정' } = person;
+
+// 함수 매개변수에서 구조 분해
+function introducePerson({ name, age, city = '미정' }) {
+    return `안녕하세요, ${name}입니다. ${age}세이고 ${city}에 살고 있습니다.`;
+}
+
+// 전개 연산자로 객체 복사
+const personCopy = { ...person };
+
+// 객체 병합
+const additionalInfo = {
+    occupation: '개발자',
+    company: '테크회사'
+};
+
+const fullProfile = { ...person, ...additionalInfo };
+
+// 속성 수정
+const updatedPerson = {
+    ...person,
+    age: person.age + 1,
+    city: '부산'
+};</code></pre>
+                        </div>
+
+                        <h4>객체 메서드와 this</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const calculator = {
+    result: 0,
+    
+    add(value) {
+        this.result += value;
+        return this; // 메서드 체이닝을 위해
+    },
+    
+    subtract(value) {
+        this.result -= value;
+        return this;
+    },
+    
+    multiply(value) {
+        this.result *= value;
+        return this;
+    },
+    
+    reset() {
+        this.result = 0;
+        return this;
+    },
+    
+    getValue() {
+        return this.result;
+    }
+};
+
+// 메서드 체이닝 사용
+const result = calculator
+    .add(10)
+    .multiply(2)
+    .subtract(5)
+    .getValue(); // 15
+
+// ES6 클래스 문법
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    greet() {
+        return `안녕하세요, ${this.name}입니다.`;
+    }
+    
+    haveBirthday() {
+        this.age++;
+        return `생일 축하합니다! 이제 ${this.age}세입니다.`;
+    }
+}
+
+const person = new Person('김철수', 25);
+console.log(person.greet());</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. JSON 데이터 처리</h3>
+                        <p>웹 애플리케이션에서 중요한 JSON 형식의 데이터를 다루는 방법을 학습합니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// JavaScript 객체를 JSON으로 변환
+const user = {
+    id: 1,
+    name: '김철수',
+    email: 'kim@example.com',
+    preferences: {
+        theme: 'dark',
+        notifications: true
+    },
+    hobbies: ['독서', '영화감상']
+};
+
+// JSON 문자열로 변환
+const jsonString = JSON.stringify(user);
+console.log(jsonString);
+
+// 예쁘게 포맷팅
+const prettyJson = JSON.stringify(user, null, 2);
+console.log(prettyJson);
+
+// JSON을 JavaScript 객체로 변환
+const parsedUser = JSON.parse(jsonString);
+console.log(parsedUser);
+
+// API 응답 처리 예제
+async function fetchUserData(userId) {
+    try {
+        const response = await fetch(`/api/users/${userId}`);
+        const userData = await response.json();
+        
+        // 데이터 검증
+        if (!userData.id || !userData.name) {
+            throw new Error('잘못된 사용자 데이터');
+        }
+        
+        return userData;
+    } catch (error) {
+        console.error('사용자 데이터 로딩 실패:', error);
+        return null;
+    }
+}
+
+// JSON 데이터 검증 함수
+function validateUserData(userData) {
+    const requiredFields = ['id', 'name', 'email'];
+    
+    for (const field of requiredFields) {
+        if (!userData[field]) {
+            return { valid: false, message: `${field}는 필수 항목입니다.` };
+        }
+    }
+    
+    return { valid: true };
+}</code></pre>
+                        </div>
+
+                        <h4>로컬 스토리지와 JSON</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 데이터 저장 클래스
+class DataStorage {
+    static save(key, data) {
+        try {
+            const jsonData = JSON.stringify(data);
+            localStorage.setItem(key, jsonData);
+            return true;
+        } catch (error) {
+            console.error('저장 실패:', error);
+            return false;
+        }
+    }
+    
+    static load(key, defaultValue = null) {
+        try {
+            const jsonData = localStorage.getItem(key);
+            return jsonData ? JSON.parse(jsonData) : defaultValue;
+        } catch (error) {
+            console.error('로딩 실패:', error);
+            return defaultValue;
+        }
+    }
+    
+    static remove(key) {
+        localStorage.removeItem(key);
+    }
+    
+    static clear() {
+        localStorage.clear();
+    }
+}
+
+// 사용 예제
+const userSettings = {
+    theme: 'dark',
+    language: 'ko',
+    notifications: true
+};
+
+// 설정 저장
+DataStorage.save('userSettings', userSettings);
+
+// 설정 로드
+const loadedSettings = DataStorage.load('userSettings', {
+    theme: 'light',
+    language: 'en',
+    notifications: false
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 실용적인 데이터 관리 패턴</h3>
+                        <p>실제 웹 애플리케이션에서 사용되는 데이터 관리 패턴과 모범 사례를 학습합니다.</p>
+                        
+                        <h4>데이터 매니저 클래스</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">class TaskManager {
+    constructor() {
+        this.tasks = this.loadTasks();
+        this.listeners = [];
+    }
+    
+    loadTasks() {
+        return DataStorage.load('tasks', []);
+    }
+    
+    saveTasks() {
+        DataStorage.save('tasks', this.tasks);
+        this.notifyListeners();
+    }
+    
+    addTask(task) {
+        const newTask = {
+            id: Date.now(),
+            text: task.text,
+            completed: false,
+            createdAt: new Date().toISOString(),
+            priority: task.priority || 'medium'
+        };
+        
+        this.tasks.push(newTask);
+        this.saveTasks();
+        return newTask;
+    }
+    
+    updateTask(id, updates) {
+        const taskIndex = this.tasks.findIndex(task => task.id === id);
+        if (taskIndex !== -1) {
+            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updates };
+            this.saveTasks();
+            return true;
+        }
+        return false;
+    }
+    
+    deleteTask(id) {
+        const taskIndex = this.tasks.findIndex(task => task.id === id);
+        if (taskIndex !== -1) {
+            this.tasks.splice(taskIndex, 1);
+            this.saveTasks();
+            return true;
+        }
+        return false;
+    }
+    
+    getTasks(filter = 'all') {
+        switch (filter) {
+            case 'completed':
+                return this.tasks.filter(task => task.completed);
+            case 'active':
+                return this.tasks.filter(task => !task.completed);
+            case 'high-priority':
+                return this.tasks.filter(task => task.priority === 'high');
+            default:
+                return [...this.tasks];
+        }
+    }
+    
+    getStatistics() {
+        const total = this.tasks.length;
+        const completed = this.tasks.filter(task => task.completed).length;
+        const active = total - completed;
+        
+        return {
+            total,
+            completed,
+            active,
+            completionRate: total > 0 ? Math.round((completed / total) * 100) : 0
+        };
+    }
+    
+    // 이벤트 시스템
+    addEventListener(listener) {
+        this.listeners.push(listener);
+    }
+    
+    removeEventListener(listener) {
+        const index = this.listeners.indexOf(listener);
+        if (index > -1) {
+            this.listeners.splice(index, 1);
+        }
+    }
+    
+    notifyListeners() {
+        this.listeners.forEach(listener => listener(this.tasks));
+    }
+}
+
+// 사용 예제
+const taskManager = new TaskManager();
+
+// 이벤트 리스너 등록
+taskManager.addEventListener((tasks) => {
+    console.log('할 일 목록이 업데이트됨:', tasks.length);
+    updateUI();
+});
+
+// 할 일 추가
+taskManager.addTask({
+    text: '프로젝트 완료하기',
+    priority: 'high'
+});
+
+// 통계 정보 가져오기
+const stats = taskManager.getStatistics();
+console.log(`완료율: ${stats.completionRate}%`);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 학생 성적 관리 시스템</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 배열과 객체를 활용하여 학생들의 성적을 관리하는 시스템을 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>학생 정보 추가/수정/삭제</li>
+                                <li>과목별 성적 입력 및 관리</li>
+                                <li>평균 계산 및 등급 산출</li>
+                                <li>성적순 정렬 기능</li>
+                                <li>검색 및 필터링</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 상품 목록 관리 앱</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 전자상거래 상품 관리 기능을 구현합니다.</p>
+                            
+                            <h4>구현 기능:</h4>
+                            <ul>
+                                <li>상품 데이터 CRUD 작업</li>
+                                <li>카테고리별 필터링</li>
+                                <li>가격대별 검색</li>
+                                <li>정렬 기능 (가격, 이름, 등록일)</li>
+                                <li>JSON 데이터 import/export</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 개인 일기장 앱</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 로컬 스토리지를 활용한 개인 일기장 애플리케이션을 제작합니다.</p>
+                            
+                            <h4>주요 기능:</h4>
+                            <ul>
+                                <li>일기 작성/수정/삭제</li>
+                                <li>날짜별 일기 관리</li>
+                                <li>태그 시스템</li>
+                                <li>감정 상태 기록</li>
+                                <li>통계 및 분석 기능</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>배열 메서드: forEach, map, filter, reduce</li>
+                            <li>객체 구조 분해 할당과 전개 연산자</li>
+                            <li>JSON 직렬화와 역직렬화</li>
+                            <li>로컬 스토리지를 활용한 데이터 영속성</li>
+                            <li>클래스를 활용한 데이터 관리 패턴</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>11주차에서는 비동기 JavaScript를 학습합니다. Promise, async/await, Fetch API를 통해 서버와 통신하는 방법을 익히고 실시간 데이터 처리를 구현합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week9.html" class="btn btn-secondary">← 9주차: 고급 JavaScript DOM</a>
+                    <a href="week11.html" class="btn btn-primary">11주차: 비동기 JavaScript →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

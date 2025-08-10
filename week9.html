@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9주차: 고급 JavaScript DOM - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>9주차: 고급 JavaScript DOM</h1>
+                    <p>DOM 트리 탐색, 동적 요소 생성/삭제, 고급 스타일 조작으로 동적 웹페이지를 구축합니다</p>
+                    <div class="week-navigation">
+                        <a href="week8.html" class="btn btn-secondary">← 8주차</a>
+                        <a href="week10.html" class="btn btn-primary">10주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🌳</div>
+                        <h3>DOM 트리 탐색</h3>
+                        <p>부모, 자식, 형제 요소를 탐색하는 방법을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">➕</div>
+                        <h3>동적 요소 생성</h3>
+                        <p>JavaScript로 새로운 HTML 요소를 생성하고 추가합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🗑️</div>
+                        <h3>요소 삭제</h3>
+                        <p>기존 DOM 요소를 제거하는 방법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🖼️</div>
+                        <h3>이미지 갤러리</h3>
+                        <p>동적 DOM 조작으로 이미지 갤러리를 구현합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. DOM 트리 탐색</h3>
+                        <p>DOM 요소 간의 관계를 이용하여 효율적으로 요소를 찾는 방법을 학습합니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 부모 요소 찾기
+const child = document.getElementById('myChild');
+const parent = child.parentElement;
+const parentNode = child.parentNode;
+
+// 자식 요소 찾기
+const container = document.getElementById('container');
+const firstChild = container.firstElementChild;
+const lastChild = container.lastElementChild;
+const allChildren = container.children; // HTMLCollection
+const childNodes = container.childNodes; // NodeList (텍스트 노드 포함)
+
+// 형제 요소 찾기
+const current = document.getElementById('current');
+const nextSibling = current.nextElementSibling;
+const prevSibling = current.previousElementSibling;
+
+// 요소 확인
+if (element.hasChildNodes()) {
+    console.log('자식 노드가 있습니다');
+}
+
+console.log('자식 요소 개수:', element.children.length);</code></pre>
+                        </div>
+
+                        <h4>실용적인 DOM 탐색 예제</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 모든 버튼에 클릭 이벤트 추가
+const buttons = document.querySelectorAll('.action-btn');
+buttons.forEach((button, index) => {
+    button.addEventListener('click', (e) => {
+        // 클릭된 버튼의 다음 형제 요소 찾기
+        const nextElement = e.target.nextElementSibling;
+        if (nextElement) {
+            nextElement.classList.toggle('hidden');
+        }
+    });
+});
+
+// 부모 요소에 이벤트 위임 사용
+const parentList = document.getElementById('task-list');
+parentList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        // 버튼의 부모 리스트 아이템 삭제
+        const listItem = e.target.closest('li');
+        listItem.remove();
+    }
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 동적 요소 생성과 추가</h3>
+                        <p>JavaScript로 새로운 DOM 요소를 만들고 페이지에 추가하는 방법을 알아봅시다.</p>
+                        
+                        <h4>요소 생성 기본 방법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 새 요소 생성
+const newDiv = document.createElement('div');
+const newParagraph = document.createElement('p');
+const newButton = document.createElement('button');
+
+// 속성 설정
+newDiv.className = 'card';
+newDiv.id = 'dynamic-card';
+newButton.type = 'button';
+newButton.setAttribute('data-action', 'delete');
+
+// 내용 추가
+newParagraph.textContent = '동적으로 생성된 문단입니다.';
+newButton.innerHTML = '<i class="icon-delete"></i> 삭제';
+
+// 요소 추가
+const container = document.getElementById('container');
+container.appendChild(newDiv);         // 마지막에 추가
+container.insertBefore(newDiv, firstChild); // 첫 번째로 추가
+newDiv.appendChild(newParagraph);
+newDiv.appendChild(newButton);</code></pre>
+                        </div>
+
+                        <h4>더 편리한 insertAdjacentHTML 사용</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const container = document.getElementById('container');
+
+// HTML 문자열로 요소 추가
+const cardHTML = `
+    <div class="card">
+        <h3>새로운 카드</h3>
+        <p>동적으로 생성된 카드입니다.</p>
+        <button class="btn delete-btn">삭제</button>
+    </div>
+`;
+
+// 다양한 위치에 추가 가능
+container.insertAdjacentHTML('beforebegin', cardHTML); // 요소 앞
+container.insertAdjacentHTML('afterbegin', cardHTML);  // 요소 내부 첫 번째
+container.insertAdjacentHTML('beforeend', cardHTML);   // 요소 내부 마지막
+container.insertAdjacentHTML('afterend', cardHTML);    // 요소 뒤</code></pre>
+                        </div>
+
+                        <h4>할 일 목록 동적 추가 예제</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">function addTodoItem(text) {
+    // 새 리스트 아이템 생성
+    const li = document.createElement('li');
+    li.className = 'todo-item';
+    
+    // 체크박스 생성
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.addEventListener('change', toggleComplete);
+    
+    // 텍스트 스팬 생성
+    const textSpan = document.createElement('span');
+    textSpan.textContent = text;
+    textSpan.className = 'todo-text';
+    
+    // 삭제 버튼 생성
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '삭제';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.addEventListener('click', deleteTodoItem);
+    
+    // 요소들을 리스트 아이템에 추가
+    li.appendChild(checkbox);
+    li.appendChild(textSpan);
+    li.appendChild(deleteBtn);
+    
+    // 할 일 목록에 추가
+    const todoList = document.getElementById('todo-list');
+    todoList.appendChild(li);
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 요소 삭제와 수정</h3>
+                        <p>DOM에서 요소를 제거하고 수정하는 다양한 방법을 알아봅시다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 요소 삭제
+const elementToDelete = document.getElementById('delete-me');
+elementToDelete.remove(); // 직접 삭제 (최신 방법)
+
+// 부모에서 자식 삭제 (구 방법)
+const parent = elementToDelete.parentNode;
+parent.removeChild(elementToDelete);
+
+// 모든 자식 요소 삭제
+const container = document.getElementById('container');
+container.innerHTML = ''; // 간단하지만 이벤트 리스너도 삭제됨
+
+// 안전한 자식 요소 삭제
+while (container.firstChild) {
+    container.removeChild(container.firstChild);
+}
+
+// 특정 조건의 요소들 삭제
+const itemsToDelete = document.querySelectorAll('.completed');
+itemsToDelete.forEach(item => item.remove());
+
+// 요소 교체
+const oldElement = document.getElementById('old');
+const newElement = document.createElement('div');
+newElement.textContent = '새로운 요소';
+oldElement.parentNode.replaceChild(newElement, oldElement);</code></pre>
+                        </div>
+
+                        <h4>동적 스타일 변경</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 스타일 직접 변경
+element.style.backgroundColor = '#ff6b6b';
+element.style.transform = 'scale(1.1)';
+element.style.transition = 'all 0.3s ease';
+
+// CSS 클래스로 스타일 변경 (권장)
+element.classList.add('highlighted');
+element.classList.remove('hidden');
+element.classList.toggle('active');
+
+// 조건부 클래스 적용
+const isActive = someCondition;
+element.classList.toggle('active', isActive);
+
+// 여러 클래스 한번에 처리
+element.className = 'card active highlighted';
+
+// 계산된 스타일 가져오기
+const computedStyle = window.getComputedStyle(element);
+const currentColor = computedStyle.getPropertyValue('color');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 이미지 갤러리 구현</h3>
+                        <p>동적 DOM 조작을 활용한 실용적인 이미지 갤러리를 만들어봅시다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- HTML 구조 --&gt;
+&lt;div class="gallery-container"&gt;
+    &lt;div class="gallery-grid" id="gallery-grid"&gt;&lt;/div&gt;
+    &lt;div class="modal" id="image-modal"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;span class="close"&gt;&times;&lt;/span&gt;
+            &lt;img id="modal-image" src="" alt=""&gt;
+            &lt;div class="modal-nav"&gt;
+                &lt;button id="prev-btn"&gt;이전&lt;/button&gt;
+                &lt;button id="next-btn"&gt;다음&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 이미지 갤러리 JavaScript
+class ImageGallery {
+    constructor(containerId, images) {
+        this.container = document.getElementById(containerId);
+        this.images = images;
+        this.currentIndex = 0;
+        this.modal = document.getElementById('image-modal');
+        this.modalImage = document.getElementById('modal-image');
+        
+        this.init();
+    }
+    
+    init() {
+        this.renderGallery();
+        this.setupEventListeners();
+    }
+    
+    renderGallery() {
+        this.images.forEach((image, index) => {
+            const imgElement = this.createImageElement(image, index);
+            this.container.appendChild(imgElement);
+        });
+    }
+    
+    createImageElement(image, index) {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = image.thumbnail;
+        img.alt = image.alt;
+        img.loading = 'lazy';
+        img.addEventListener('click', () => this.openModal(index));
+        
+        div.appendChild(img);
+        return div;
+    }
+    
+    openModal(index) {
+        this.currentIndex = index;
+        this.modalImage.src = this.images[index].full;
+        this.modalImage.alt = this.images[index].alt;
+        this.modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    closeModal() {
+        this.modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    nextImage() {
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        this.updateModalImage();
+    }
+    
+    prevImage() {
+        this.currentIndex = this.currentIndex === 0 ? 
+            this.images.length - 1 : this.currentIndex - 1;
+        this.updateModalImage();
+    }
+    
+    updateModalImage() {
+        this.modalImage.src = this.images[this.currentIndex].full;
+        this.modalImage.alt = this.images[this.currentIndex].alt;
+    }
+    
+    setupEventListeners() {
+        // 모달 닫기
+        document.querySelector('.close').addEventListener('click', () => {
+            this.closeModal();
+        });
+        
+        // 배경 클릭으로 닫기
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) {
+                this.closeModal();
+            }
+        });
+        
+        // 네비게이션 버튼
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            this.prevImage();
+        });
+        
+        document.getElementById('next-btn').addEventListener('click', () => {
+            this.nextImage();
+        });
+        
+        // 키보드 네비게이션
+        document.addEventListener('keydown', (e) => {
+            if (this.modal.style.display === 'block') {
+                switch(e.key) {
+                    case 'Escape':
+                        this.closeModal();
+                        break;
+                    case 'ArrowLeft':
+                        this.prevImage();
+                        break;
+                    case 'ArrowRight':
+                        this.nextImage();
+                        break;
+                }
+            }
+        });
+    }
+}
+
+// 갤러리 초기화
+const images = [
+    { thumbnail: 'thumb1.jpg', full: 'full1.jpg', alt: '이미지 1' },
+    { thumbnail: 'thumb2.jpg', full: 'full2.jpg', alt: '이미지 2' },
+    { thumbnail: 'thumb3.jpg', full: 'full3.jpg', alt: '이미지 3' }
+];
+
+const gallery = new ImageGallery('gallery-grid', images);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 동적 카드 생성기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 사용자 입력을 받아 동적으로 카드를 생성하고 관리하는 시스템을 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>제목, 내용, 이미지 URL 입력받기</li>
+                                <li>새 카드 동적 생성 및 추가</li>
+                                <li>각 카드에 수정/삭제 버튼</li>
+                                <li>드래그 앤 드롭으로 순서 변경</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 인터랙티브 이미지 갤러리</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot의 도움으로 풀 기능 이미지 갤러리를 구현합니다.</p>
+                            
+                            <h4>구현 기능:</h4>
+                            <ul>
+                                <li>썸네일 그리드 레이아웃</li>
+                                <li>모달 팝업으로 전체 이미지 보기</li>
+                                <li>키보드/버튼 네비게이션</li>
+                                <li>이미지 로딩 상태 표시</li>
+                                <li>반응형 디자인</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 고급 할 일 관리 앱</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> DOM 조작을 활용한 완전한 할 일 관리 애플리케이션을 제작합니다.</p>
+                            
+                            <h4>주요 기능:</h4>
+                            <ul>
+                                <li>할 일 추가/수정/삭제</li>
+                                <li>완료 상태 토글</li>
+                                <li>카테고리별 필터링</li>
+                                <li>로컬 스토리지 데이터 저장</li>
+                                <li>검색 기능</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>DOM 트리 탐색: parentElement, children, siblings</li>
+                            <li>동적 요소 생성: createElement, appendChild</li>
+                            <li>요소 삭제: remove(), removeChild()</li>
+                            <li>스타일 동적 변경: classList, style 속성</li>
+                            <li>이벤트 위임과 동적 이벤트 처리</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>10주차에서는 JavaScript 배열과 객체를 심화 학습합니다. 배열 메서드(forEach, map, filter), 객체 조작, JSON 데이터 처리를 통해 데이터 관리 능력을 향상시킵니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week8.html" class="btn btn-secondary">← 8주차: 중간고사</a>
+                    <a href="week10.html" class="btn btn-primary">10주차: JavaScript 배열 & 객체 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

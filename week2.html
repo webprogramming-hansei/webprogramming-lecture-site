@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2주차: HTML 시맨틱 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="index.html#curriculum" class="nav-link">커리큘럼</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>2주차: HTML 시맨틱</h1>
+                    <p>의미있는 HTML 구조를 설계하고 접근성을 고려한 마크업을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week1.html" class="btn btn-secondary">← 1주차</a>
+                        <a href="week3.html" class="btn btn-primary">3주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🏗️</div>
+                        <h3>시맨틱 태그 이해</h3>
+                        <p>HTML5 시맨틱 태그의 의미와 올바른 사용법을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">♿</div>
+                        <h3>접근성 기초</h3>
+                        <p>웹 접근성의 중요성과 기본 원칙을 이해합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📋</div>
+                        <h3>목록과 링크</h3>
+                        <p>다양한 목록 태그와 링크 요소의 활용법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🖼️</div>
+                        <h3>미디어 요소</h3>
+                        <p>이미지와 멀티미디어 요소의 적절한 사용법을 배웁니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. HTML5 시맨틱 태그</h3>
+                        <p>시맨틱 태그는 HTML 요소의 의미를 명확하게 정의하여 문서 구조를 더 명확하게 만들고, 검색 엔진과 스크린 리더가 내용을 더 잘 이해할 수 있게 합니다.</p>
+                        
+                        <h4>주요 시맨틱 태그</h4>
+                        <div class="semantic-tags">
+                            <div class="tag-explanation">
+                                <h5>&lt;header&gt;</h5>
+                                <p>페이지나 섹션의 헤더 영역을 나타냅니다. 보통 제목, 로고, 네비게이션 등을 포함합니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;nav&gt;</h5>
+                                <p>네비게이션 링크들을 그룹화하는 영역입니다. 주 메뉴, 사이드바 메뉴 등에 사용됩니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;main&gt;</h5>
+                                <p>페이지의 주요 콘텐츠 영역을 나타냅니다. 한 페이지에 하나만 사용해야 합니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;article&gt;</h5>
+                                <p>독립적인 콘텐츠 블록입니다. 블로그 포스트, 뉴스 기사 등에 사용됩니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;section&gt;</h5>
+                                <p>문서의 구획을 나타냅니다. 주제별로 내용을 그룹화할 때 사용합니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;aside&gt;</h5>
+                                <p>본문과 간접적으로 관련된 내용입니다. 사이드바, 광고, 관련 링크 등에 사용됩니다.</p>
+                            </div>
+                            <div class="tag-explanation">
+                                <h5>&lt;footer&gt;</h5>
+                                <p>페이지나 섹션의 푸터 영역입니다. 저작권 정보, 연락처 등을 포함합니다.</p>
+                            </div>
+                        </div>
+
+                        <h4>시맨틱 HTML 구조 예제</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;시맨틱 웹페이지&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;웹사이트 제목&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;홈&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;소개&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;연락처&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;기사 제목&lt;/h2&gt;
+            &lt;p&gt;기사 내용...&lt;/p&gt;
+        &lt;/article&gt;
+        
+        &lt;section&gt;
+            &lt;h2&gt;추가 정보&lt;/h2&gt;
+            &lt;p&gt;섹션 내용...&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;aside&gt;
+        &lt;h3&gt;관련 링크&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#link1"&gt;링크 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#link2"&gt;링크 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 웹사이트명. 모든 권리 보유.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 목록 태그 (Lists)</h3>
+                        <p>HTML에서는 다양한 형태의 목록을 생성할 수 있습니다.</p>
+                        
+                        <div class="list-types">
+                            <div class="list-type">
+                                <h4>순서가 없는 목록 (Unordered List)</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;첫 번째 항목&lt;/li&gt;
+    &lt;li&gt;두 번째 항목&lt;/li&gt;
+    &lt;li&gt;세 번째 항목&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                                </div>
+                                <div class="preview">
+                                    <ul>
+                                        <li>첫 번째 항목</li>
+                                        <li>두 번째 항목</li>
+                                        <li>세 번째 항목</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="list-type">
+                                <h4>순서가 있는 목록 (Ordered List)</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;첫 번째 단계&lt;/li&gt;
+    &lt;li&gt;두 번째 단계&lt;/li&gt;
+    &lt;li&gt;세 번째 단계&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                                </div>
+                                <div class="preview">
+                                    <ol>
+                                        <li>첫 번째 단계</li>
+                                        <li>두 번째 단계</li>
+                                        <li>세 번째 단계</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="list-type">
+                                <h4>정의 목록 (Description List)</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;웹페이지의 구조를 정의하는 마크업 언어&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;웹페이지의 스타일을 지정하는 스타일시트 언어&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                                </div>
+                                <div class="preview">
+                                    <dl>
+                                        <dt><strong>HTML</strong></dt>
+                                        <dd>웹페이지의 구조를 정의하는 마크업 언어</dd>
+                                        <dt><strong>CSS</strong></dt>
+                                        <dd>웹페이지의 스타일을 지정하는 스타일시트 언어</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 링크와 네비게이션</h3>
+                        <p>웹의 핵심은 하이퍼링크를 통한 연결입니다. 다양한 형태의 링크를 만들 수 있습니다.</p>
+                        
+                        <h4>링크 유형별 사용법</h4>
+                        <div class="link-examples">
+                            <div class="link-example">
+                                <h5>외부 링크</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;a href="https://www.example.com" target="_blank" rel="noopener"&gt;
+    새 창에서 열기
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="link-example">
+                                <h5>내부 링크 (같은 페이지 내)</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;a href="#section1"&gt;섹션 1로 이동&lt;/a&gt;
+
+&lt;section id="section1"&gt;
+    &lt;h2&gt;섹션 1&lt;/h2&gt;
+    &lt;p&gt;내용...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="link-example">
+                                <h5>이메일 링크</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;a href="mailto:example@example.com"&gt;이메일 보내기&lt;/a&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="link-example">
+                                <h5>전화 링크</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;a href="tel:+82-10-1234-5678"&gt;전화걸기&lt;/a&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 이미지와 접근성</h3>
+                        <p>이미지는 웹페이지의 중요한 요소입니다. 접근성을 고려하여 적절한 대체 텍스트를 제공해야 합니다.</p>
+                        
+                        <h4>이미지 태그의 올바른 사용법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- 의미있는 이미지 --&gt;
+&lt;img src="chart.png" alt="2025년 월별 매출 증가 그래프" 
+     width="600" height="400"&gt;
+
+&lt;!-- 장식용 이미지 --&gt;
+&lt;img src="decoration.png" alt="" role="presentation"&gt;
+
+&lt;!-- figure와 figcaption 사용 --&gt;
+&lt;figure&gt;
+    &lt;img src="diagram.png" alt="웹 개발 프로세스 다이어그램"&gt;
+    &lt;figcaption&gt;그림 1: 웹 개발의 주요 단계&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                        </div>
+
+                        <h4>반응형 이미지</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;picture&gt;
+    &lt;source media="(min-width: 800px)" srcset="large-image.jpg"&gt;
+    &lt;source media="(min-width: 400px)" srcset="medium-image.jpg"&gt;
+    &lt;img src="small-image.jpg" alt="반응형 이미지"&gt;
+&lt;/picture&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>5. 웹 접근성 기초</h3>
+                        <p>웹 접근성은 모든 사용자가 웹 콘텐츠를 사용할 수 있도록 하는 것입니다.</p>
+                        
+                        <h4>ARIA 속성</h4>
+                        <div class="aria-examples">
+                            <div class="aria-example">
+                                <h5>aria-label</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;button aria-label="메뉴 열기"&gt;☰&lt;/button&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="aria-example">
+                                <h5>aria-describedby</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;input type="password" aria-describedby="pwd-help"&gt;
+&lt;div id="pwd-help"&gt;비밀번호는 8자 이상이어야 합니다.&lt;/div&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="aria-example">
+                                <h5>role 속성</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;div role="alert"&gt;오류가 발생했습니다!&lt;/div&gt;
+&lt;nav role="navigation" aria-label="주 메뉴"&gt;
+    &lt;ul&gt;...&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 시맨틱 페이지 레이아웃 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 시맨틱 태그를 사용하여 의미있는 웹페이지 구조를 생성합니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>header, nav, main, article, section, aside, footer 태그 사용</li>
+                                <li>네비게이션 메뉴 구현 (ul, li 태그 활용)</li>
+                                <li>최소 2개의 article과 1개의 aside 포함</li>
+                                <li>적절한 제목 태그 (h1-h6) 계층 구조</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-html">&lt;!-- 예시 구조 --&gt;
+&lt;header&gt;
+    &lt;h1&gt;내 블로그&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;홈&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#blog"&gt;블로그&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;소개&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;첫 번째 포스트&lt;/h2&gt;
+        &lt;p&gt;포스트 내용...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: Copilot과 함께 시맨틱 태그 추천받기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> GitHub Copilot을 활용하여 적절한 시맨틱 태그를 추천받고 검증합니다.</p>
+                            
+                            <h4>Copilot 활용 방법:</h4>
+                            <ul>
+                                <li>주석으로 콘텐츠의 의미 설명하기</li>
+                                <li>시맨틱 태그의 적절한 사용 제안 받기</li>
+                                <li>접근성 속성 자동 완성하기</li>
+                            </ul>
+
+                            <div class="copilot-tips">
+                                <h5>💡 Copilot 프롬프트 예시:</h5>
+                                <ul>
+                                    <li>"블로그 포스트를 위한 시맨틱 HTML 구조"</li>
+                                    <li>"접근 가능한 네비게이션 메뉴"</li>
+                                    <li>"이미지에 적절한 alt 텍스트 생성"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 접근 가능한 이미지 갤러리</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 접근성을 고려한 이미지 갤러리를 만듭니다.</p>
+                            
+                            <h4>구현 내용:</h4>
+                            <ul>
+                                <li>figure와 figcaption 태그 활용</li>
+                                <li>의미있는 alt 텍스트 작성</li>
+                                <li>ARIA 속성으로 접근성 향상</li>
+                                <li>키보드 네비게이션 고려</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-html">&lt;section aria-labelledby="gallery-title"&gt;
+    &lt;h2 id="gallery-title"&gt;프로젝트 갤러리&lt;/h2&gt;
+    
+    &lt;figure&gt;
+        &lt;img src="project1.jpg" 
+             alt="React로 만든 Todo 앱 스크린샷, 완료된 할 일 3개와 진행중인 할 일 2개가 표시됨"&gt;
+        &lt;figcaption&gt;프로젝트 1: React Todo 앱&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure&gt;
+        &lt;img src="project2.jpg" 
+             alt="Node.js API 서버 구조 다이어그램, 클라이언트-서버-데이터베이스 연결 관계 표시"&gt;
+        &lt;figcaption&gt;프로젝트 2: REST API 서버&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>시맨틱 태그로 의미있는 HTML 구조 설계</li>
+                            <li>header, nav, main, article, section, aside, footer 활용</li>
+                            <li>목록 태그(ul, ol, dl)의 적절한 사용</li>
+                            <li>접근성을 고려한 이미지와 링크 작성</li>
+                            <li>ARIA 속성으로 접근성 향상</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>3주차에서는 CSS의 기초를 학습합니다. 선택자, 색상, 폰트, 박스 모델 등 기본적인 스타일링 방법을 다룰 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week1.html" class="btn btn-secondary">← 1주차: 웹프로그래밍 & 역사</a>
+                    <a href="week3.html" class="btn btn-primary">3주차: CSS 기초 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

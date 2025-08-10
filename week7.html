@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7주차: JavaScript 이벤트 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>7주차: JavaScript 이벤트</h1>
+                    <p>사용자의 상호작용에 반응하는 동적 웹페이지를 만들기 위한 이벤트 처리를 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week6.html" class="btn btn-secondary">← 6주차</a>
+                        <a href="week8.html" class="btn btn-primary">8주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">👆</div>
+                        <h3>이벤트 리스너</h3>
+                        <p>click, input 등 다양한 이벤트를 처리하는 방법을 배웁니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🌳</div>
+                        <h3>DOM 조작</h3>
+                        <p>getElementById를 사용해 HTML 요소를 조작합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔄</div>
+                        <h3>동적 컨텐츠</h3>
+                        <p>사용자 상호작용에 따라 페이지 내용을 변경합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📝</div>
+                        <h3>폼 처리</h3>
+                        <p>사용자 입력을 받고 처리하는 방법을 익힙니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. DOM과 이벤트 기초</h3>
+                        <p>DOM(Document Object Model)과 이벤트 처리의 기본 개념을 학습합니다.</p>
+                        
+                        <h4>DOM 요소 선택하기</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// ID로 요소 선택
+const title = document.getElementById('title');
+const button = document.getElementById('myButton');
+
+// 클래스로 요소 선택
+const items = document.getElementsByClassName('item');
+const cards = document.querySelectorAll('.card');
+
+// 태그로 요소 선택
+const paragraphs = document.getElementsByTagName('p');
+const allDivs = document.querySelectorAll('div');
+
+// CSS 선택자로 요소 선택
+const firstItem = document.querySelector('.item'); // 첫 번째만
+const navLinks = document.querySelectorAll('nav a'); // 모든 nav a 요소</code></pre>
+                        </div>
+
+                        <h4>이벤트 리스너 추가하기</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 클릭 이벤트
+button.addEventListener('click', function() {
+    alert('버튼이 클릭되었습니다!');
+});
+
+// 화살표 함수 사용
+button.addEventListener('click', () => {
+    console.log('버튼 클릭됨');
+});
+
+// 여러 이벤트 처리
+const input = document.getElementById('textInput');
+
+input.addEventListener('focus', () => {
+    console.log('입력창에 포커스됨');
+});
+
+input.addEventListener('blur', () => {
+    console.log('입력창에서 포커스 해제됨');
+});
+
+input.addEventListener('input', (event) => {
+    console.log('입력된 내용:', event.target.value);
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 주요 이벤트 타입</h3>
+                        <p>웹 개발에서 자주 사용되는 이벤트들을 알아봅시다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 마우스 이벤트
+element.addEventListener('click', handleClick);        // 클릭
+element.addEventListener('dblclick', handleDoubleClick); // 더블클릭
+element.addEventListener('mouseenter', handleMouseEnter); // 마우스 진입
+element.addEventListener('mouseleave', handleMouseLeave); // 마우스 떠남
+element.addEventListener('mouseover', handleMouseOver);  // 마우스 오버
+
+// 키보드 이벤트
+document.addEventListener('keydown', (e) => {
+    console.log('키 눌림:', e.key);
+    if (e.key === 'Enter') {
+        console.log('엔터 키 눌림');
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    console.log('키 떼어짐:', e.key);
+});
+
+// 폼 이벤트
+const form = document.getElementById('myForm');
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // 기본 제출 동작 방지
+    console.log('폼 제출됨');
+});
+
+// 윈도우 이벤트
+window.addEventListener('load', () => {
+    console.log('페이지 완전 로드됨');
+});
+
+window.addEventListener('resize', () => {
+    console.log('윈도우 크기 변경됨');
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. DOM 조작하기</h3>
+                        <p>JavaScript로 HTML 요소의 내용과 스타일을 동적으로 변경하는 방법을 학습합니다.</p>
+                        
+                        <h4>요소 내용 변경</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const title = document.getElementById('title');
+
+// 텍스트 내용 변경
+title.textContent = '새로운 제목';
+
+// HTML 내용 변경
+title.innerHTML = '&lt;strong&gt;굵은 제목&lt;/strong&gt;';
+
+// 속성 변경
+const image = document.getElementById('myImage');
+image.src = 'new-image.jpg';
+image.alt = '새로운 이미지';
+
+// 클래스 조작
+const box = document.getElementById('box');
+box.classList.add('highlight');      // 클래스 추가
+box.classList.remove('old-style');   // 클래스 제거
+box.classList.toggle('active');      // 클래스 토글
+box.classList.contains('highlight'); // 클래스 존재 확인</code></pre>
+                        </div>
+
+                        <h4>스타일 변경</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">const element = document.getElementById('myElement');
+
+// 직접 스타일 변경
+element.style.color = 'red';
+element.style.backgroundColor = 'yellow';
+element.style.fontSize = '20px';
+element.style.display = 'none';
+
+// 스타일 객체로 여러 속성 변경
+Object.assign(element.style, {
+    color: 'blue',
+    fontSize: '18px',
+    padding: '10px',
+    border: '2px solid black'
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 실용적인 이벤트 예제</h3>
+                        <p>실제 웹 개발에서 자주 사용되는 이벤트 처리 패턴들을 살펴봅시다.</p>
+                        
+                        <h4>버튼 클릭으로 내용 변경</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- HTML --&gt;
+&lt;button id="changeButton"&gt;내용 변경&lt;/button&gt;
+&lt;p id="content"&gt;원래 내용&lt;/p&gt;</code></pre>
+                            <pre><code class="language-javascript">// JavaScript
+const button = document.getElementById('changeButton');
+const content = document.getElementById('content');
+
+let isChanged = false;
+
+button.addEventListener('click', () => {
+    if (!isChanged) {
+        content.textContent = '변경된 내용!';
+        button.textContent = '원래대로';
+        isChanged = true;
+    } else {
+        content.textContent = '원래 내용';
+        button.textContent = '내용 변경';
+        isChanged = false;
+    }
+});</code></pre>
+                        </div>
+
+                        <h4>입력값에 따른 실시간 반응</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- HTML --&gt;
+&lt;input type="text" id="nameInput" placeholder="이름을 입력하세요"&gt;
+&lt;p id="greeting"&gt;안녕하세요!&lt;/p&gt;</code></pre>
+                            <pre><code class="language-javascript">// JavaScript
+const nameInput = document.getElementById('nameInput');
+const greeting = document.getElementById('greeting');
+
+nameInput.addEventListener('input', (e) => {
+    const name = e.target.value;
+    if (name.trim() === '') {
+        greeting.textContent = '안녕하세요!';
+    } else {
+        greeting.textContent = `안녕하세요, ${name}님!`;
+    }
+});</code></pre>
+                        </div>
+
+                        <h4>이미지 갤러리 만들기</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- HTML --&gt;
+&lt;div class="thumbnails"&gt;
+    &lt;img src="thumb1.jpg" data-full="full1.jpg" class="thumb"&gt;
+    &lt;img src="thumb2.jpg" data-full="full2.jpg" class="thumb"&gt;
+    &lt;img src="thumb3.jpg" data-full="full3.jpg" class="thumb"&gt;
+&lt;/div&gt;
+&lt;img id="mainImage" src="full1.jpg"&gt;</code></pre>
+                            <pre><code class="language-javascript">// JavaScript
+const thumbnails = document.querySelectorAll('.thumb');
+const mainImage = document.getElementById('mainImage');
+
+thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', (e) => {
+        const fullImageSrc = e.target.dataset.full;
+        mainImage.src = fullImageSrc;
+        
+        // 활성 썸네일 표시
+        thumbnails.forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+    });
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 인터랙티브 카운터 만들기</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 버튼 클릭으로 숫자를 증가/감소시키는 카운터를 만듭니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>+ 버튼: 카운터 증가</li>
+                                <li>- 버튼: 카운터 감소</li>
+                                <li>리셋 버튼: 카운터 0으로 초기화</li>
+                                <li>카운터 값에 따른 색상 변경 (음수: 빨강, 양수: 파랑)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 다크 모드 토글 구현</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 다크/라이트 모드를 전환하는 기능을 구현합니다.</p>
+                            
+                            <h4>구현 사항:</h4>
+                            <ul>
+                                <li>토글 버튼으로 테마 전환</li>
+                                <li>CSS 클래스를 활용한 스타일 변경</li>
+                                <li>현재 테마 상태를 로컬 스토리지에 저장</li>
+                                <li>페이지 로드 시 저장된 테마 적용</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 간단한 할 일 목록</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 사용자가 할 일을 추가하고 관리할 수 있는 목록을 만듭니다.</p>
+                            
+                            <h4>기능:</h4>
+                            <ul>
+                                <li>새 할 일 추가</li>
+                                <li>할 일 완료 체크</li>
+                                <li>할 일 삭제</li>
+                                <li>완료된 할 일 스타일 변경</li>
+                                <li>전체 할 일 개수 표시</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>addEventListener로 이벤트 처리</li>
+                            <li>DOM 요소 선택 및 조작</li>
+                            <li>동적 콘텐츠 변경</li>
+                            <li>사용자 입력 처리</li>
+                            <li>실용적인 인터랙션 패턴</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>8주차는 중간고사입니다. 프로젝트 제안서 작성과 HTML/CSS 프로토타입을 제작하여 최종 프로젝트를 준비합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week6.html" class="btn btn-secondary">← 6주차: JavaScript 기초</a>
+                    <a href="week8.html" class="btn btn-primary">8주차: 중간고사 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

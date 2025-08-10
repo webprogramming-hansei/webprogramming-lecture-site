@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3주차: CSS 기초 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="index.html#curriculum" class="nav-link">커리큘럼</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>3주차: CSS 기초</h1>
+                    <p>CSS를 활용하여 웹페이지에 기본적인 스타일링을 적용하는 방법을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week2.html" class="btn btn-secondary">← 2주차</a>
+                        <a href="week4.html" class="btn btn-primary">4주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🎨</div>
+                        <h3>CSS 선택자</h3>
+                        <p>다양한 CSS 선택자의 종류와 사용법을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🌈</div>
+                        <h3>색상과 폰트</h3>
+                        <p>색상 시스템과 웹 폰트 적용 방법을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📦</div>
+                        <h3>박스 모델</h3>
+                        <p>margin, padding, border의 개념을 이해합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🔗</div>
+                        <h3>CSS 연결</h3>
+                        <p>외부 CSS 파일을 연결하는 방법을 배웁니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. CSS 기초와 선택자</h3>
+                        <p>CSS(Cascading Style Sheets)는 HTML 문서의 스타일을 정의하는 언어입니다.</p>
+                        
+                        <h4>CSS 기본 문법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">선택자 {
+    속성: 값;
+    속성: 값;
+}
+
+/* 예시 */
+h1 {
+    color: blue;
+    font-size: 24px;
+}</code></pre>
+                        </div>
+
+                        <h4>주요 선택자 종류</h4>
+                        <div class="selector-types">
+                            <div class="selector-type">
+                                <h5>태그 선택자</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">p {
+    color: black;
+    line-height: 1.5;
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="selector-type">
+                                <h5>클래스 선택자</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* HTML: &lt;p class="highlight"&gt;강조된 텍스트&lt;/p&gt; */</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="selector-type">
+                                <h5>ID 선택자</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">#header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+/* HTML: &lt;div id="header"&gt;헤더 내용&lt;/div&gt; */</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="selector-type">
+                                <h5>조합 선택자</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">/* 후손 선택자 */
+nav ul {
+    list-style: none;
+}
+
+/* 자식 선택자 */
+article > p {
+    margin-bottom: 15px;
+}
+
+/* 인접 선택자 */
+h2 + p {
+    font-weight: bold;
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 색상과 단위</h3>
+                        <p>CSS에서 색상과 크기를 지정하는 다양한 방법을 알아봅시다.</p>
+                        
+                        <h4>색상 표현 방법</h4>
+                        <div class="color-methods">
+                            <div class="color-method">
+                                <h5>키워드</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">color: red;
+background-color: blue;
+border-color: green;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="color-method">
+                                <h5>HEX 코드</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">color: #ff0000;        /* 빨간색 */
+color: #00ff00;        /* 초록색 */
+color: #0000ff;        /* 파란색 */
+color: #333;           /* 짧은 형태 */</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="color-method">
+                                <h5>RGB / RGBA</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">color: rgb(255, 0, 0);           /* 빨간색 */
+color: rgba(255, 0, 0, 0.5);     /* 반투명 빨간색 */
+background: rgba(0, 0, 0, 0.8);  /* 반투명 검은색 */</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="color-method">
+                                <h5>HSL / HSLA</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-css">color: hsl(0, 100%, 50%);        /* 빨간색 */
+color: hsl(120, 100%, 50%);      /* 초록색 */
+color: hsla(240, 100%, 50%, 0.5); /* 반투명 파란색 */</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>CSS 단위</h4>
+                        <div class="unit-types">
+                            <div class="unit-type">
+                                <h5>절대 단위</h5>
+                                <ul>
+                                    <li><code>px</code> - 픽셀 (가장 일반적)</li>
+                                    <li><code>pt</code> - 포인트 (인쇄용)</li>
+                                    <li><code>cm</code>, <code>mm</code> - 센티미터, 밀리미터</li>
+                                </ul>
+                            </div>
+                            <div class="unit-type">
+                                <h5>상대 단위</h5>
+                                <ul>
+                                    <li><code>%</code> - 부모 요소 대비 백분율</li>
+                                    <li><code>em</code> - 현재 요소의 폰트 크기 기준</li>
+                                    <li><code>rem</code> - 루트 요소의 폰트 크기 기준</li>
+                                    <li><code>vw</code>, <code>vh</code> - 뷰포트 너비/높이의 1%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 폰트와 텍스트</h3>
+                        <p>텍스트의 외관을 제어하는 CSS 속성들을 알아봅시다.</p>
+                        
+                        <h4>폰트 관련 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}</code></pre>
+                        </div>
+
+                        <h4>텍스트 관련 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.text-styling {
+    color: #333;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    text-indent: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.no-decoration {
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.justify-text {
+    text-align: justify;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 박스 모델</h3>
+                        <p>CSS 박스 모델은 모든 HTML 요소를 둘러싸는 박스를 설명합니다.</p>
+                        
+                        <div class="box-model-diagram">
+                            <div class="box-layer margin-layer">
+                                margin
+                                <div class="box-layer border-layer">
+                                    border
+                                    <div class="box-layer padding-layer">
+                                        padding
+                                        <div class="box-layer content-layer">
+                                            content
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>박스 모델 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">.box-example {
+    /* 내용 영역 크기 */
+    width: 300px;
+    height: 200px;
+    
+    /* 안쪽 여백 */
+    padding: 20px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    /* 축약형: padding: 10px 15px; (상하 좌우) */
+    
+    /* 테두리 */
+    border: 2px solid #333;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333;
+    
+    /* 바깥쪽 여백 */
+    margin: 20px;
+    margin: 20px auto; /* 가로 중앙 정렬 */
+    
+    /* 배경색 */
+    background-color: #f0f0f0;
+}</code></pre>
+                        </div>
+
+                        <h4>Box-sizing 속성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 기본값: content-box */
+.content-box {
+    box-sizing: content-box;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #333;
+    /* 실제 너비 = 300px + 40px(padding) + 4px(border) = 344px */
+}
+
+/* 권장: border-box */
+.border-box {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #333;
+    /* 실제 너비 = 300px (padding과 border 포함) */
+}
+
+/* 전체 적용 */
+* {
+    box-sizing: border-box;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>5. CSS 연결 방법</h3>
+                        <p>HTML 문서에 CSS를 적용하는 세 가지 방법이 있습니다.</p>
+                        
+                        <div class="css-methods">
+                            <div class="css-method">
+                                <h4>1. 외부 스타일시트 (권장)</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR"&gt;
+&lt;/head&gt;</code></pre>
+                                </div>
+                                <p><strong>장점:</strong> 여러 페이지에서 재사용 가능, 유지보수 용이, 캐싱 효과</p>
+                            </div>
+
+                            <div class="css-method">
+                                <h4>2. 내부 스타일시트</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;head&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                                </div>
+                                <p><strong>사용 시기:</strong> 단일 페이지 전용 스타일, 특정 페이지만의 고유한 스타일</p>
+                            </div>
+
+                            <div class="css-method">
+                                <h4>3. 인라인 스타일</h4>
+                                <div class="code-example">
+                                    <pre><code class="language-html">&lt;p style="color: red; font-weight: bold;"&gt;
+    이 텍스트는 빨간색이고 굵습니다.
+&lt;/p&gt;
+
+&lt;div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;"&gt;
+    스타일이 직접 적용된 박스
+&lt;/div&gt;</code></pre>
+                                </div>
+                                <p><strong>주의:</strong> 유지보수가 어려우므로 특별한 경우가 아니면 사용 지양</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 기본 HTML 페이지 스타일링</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 2주차에서 만든 HTML 페이지에 기본적인 CSS 스타일을 적용합니다.</p>
+                            
+                            <h4>요구사항:</h4>
+                            <ul>
+                                <li>외부 CSS 파일 생성 및 연결</li>
+                                <li>웹 폰트 적용 (Google Fonts 활용)</li>
+                                <li>색상 체계 설정 (기본색, 강조색 등)</li>
+                                <li>박스 모델을 활용한 여백과 테두리 설정</li>
+                                <li>텍스트 스타일링 (크기, 굵기, 정렬)</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-css">/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffc107;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: Copilot과 함께 CSS 속성 자동완성</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> GitHub Copilot을 활용하여 효율적으로 CSS를 작성합니다.</p>
+                            
+                            <h4>Copilot 활용 팁:</h4>
+                            <ul>
+                                <li>CSS 속성 자동완성 받기</li>
+                                <li>색상 코드 제안받기</li>
+                                <li>반응형 CSS 패턴 생성하기</li>
+                                <li>CSS 변수(Custom Properties) 활용하기</li>
+                            </ul>
+
+                            <div class="copilot-tips">
+                                <h5>💡 Copilot CSS 프롬프트 예시:</h5>
+                                <ul>
+                                    <li>"모던한 버튼 스타일"</li>
+                                    <li>"카드 레이아웃을 위한 CSS"</li>
+                                    <li>"그라데이션 배경 효과"</li>
+                                    <li>"CSS 변수를 활용한 컬러 시스템"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 박스 모델 실험</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 박스 모델의 동작을 직접 확인하고 실험해봅니다.</p>
+                            
+                            <h4>실험 내용:</h4>
+                            <ul>
+                                <li>동일한 width 값으로 content-box와 border-box 비교</li>
+                                <li>margin collapse 현상 관찰</li>
+                                <li>padding과 margin의 차이점 확인</li>
+                                <li>브라우저 개발자 도구로 박스 모델 시각화</li>
+                            </ul>
+
+                            <div class="code-example">
+                                <pre><code class="language-html">&lt;!-- HTML --&gt;
+&lt;div class="box-demo"&gt;
+    &lt;div class="box content-box"&gt;content-box&lt;/div&gt;
+    &lt;div class="box border-box"&gt;border-box&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                <pre><code class="language-css">/* CSS */
+.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #007bff;
+    margin: 20px;
+    background-color: #e9ecef;
+    text-align: center;
+    line-height: 60px;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box {
+    box-sizing: border-box;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>CSS 선택자: 태그, 클래스, ID 선택자</li>
+                            <li>색상 표현: HEX, RGB, HSL</li>
+                            <li>폰트와 텍스트 스타일링</li>
+                            <li>박스 모델: margin, padding, border</li>
+                            <li>외부 CSS 파일 연결 방법</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>4주차에서는 CSS 레이아웃을 학습합니다. Flexbox의 기초, positioning, 그리고 반응형 디자인의 개념을 다룰 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week2.html" class="btn btn-secondary">← 2주차: HTML 시맨틱</a>
+                    <a href="week4.html" class="btn btn-primary">4주차: CSS 레이아웃 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <style>
+    /* 박스 모델 다이어그램 스타일 */
+    .box-model-diagram {
+        max-width: 400px;
+        margin: 30px auto;
+        font-family: monospace;
+        font-size: 14px;
+    }
+
+    .box-layer {
+        border: 2px solid;
+        padding: 15px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .margin-layer {
+        border-color: #e74c3c;
+        background-color: rgba(231, 76, 60, 0.1);
+        color: #e74c3c;
+    }
+
+    .border-layer {
+        border-color: #f39c12;
+        background-color: rgba(243, 156, 18, 0.1);
+        color: #f39c12;
+    }
+
+    .padding-layer {
+        border-color: #27ae60;
+        background-color: rgba(39, 174, 96, 0.1);
+        color: #27ae60;
+    }
+
+    .content-layer {
+        border-color: #3498db;
+        background-color: rgba(52, 152, 219, 0.1);
+        color: #3498db;
+        margin: 0;
+    }
+
+    .selector-types, .color-methods, .unit-types, .css-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .selector-type, .color-method, .unit-type, .css-method {
+        background: var(--bg-light);
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .css-method {
+        border-left-color: var(--secondary-color);
+    }
+
+    .unit-types {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+        .unit-types {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</body>
+</html>

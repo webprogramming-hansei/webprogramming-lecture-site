@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14주차: 최종 프로젝트 발표 준비 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>14주차: 최종 프로젝트 발표 준비</h1>
+                    <p>개발한 웹 애플리케이션을 효과적으로 발표하고 포트폴리오로 활용하는 방법을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week13.html" class="btn btn-secondary">← 13주차</a>
+                        <a href="week15.html" class="btn btn-primary">15주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📊</div>
+                        <h3>발표 자료 제작</h3>
+                        <p>프로젝트의 핵심 내용을 효과적으로 전달하는 발표 자료를 제작합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎤</div>
+                        <h3>발표 기법</h3>
+                        <p>청중의 관심을 끌고 기술적 내용을 명확히 전달하는 발표 스킬을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📝</div>
+                        <h3>기술 문서화</h3>
+                        <p>프로젝트의 README, API 문서, 사용법 등을 체계적으로 문서화합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">💼</div>
+                        <h3>포트폴리오 완성</h3>
+                        <p>취업이나 진학에 활용할 수 있는 전문적인 포트폴리오를 완성합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 효과적인 발표 자료 구성</h3>
+                        <p>기술 프로젝트를 효과적으로 발표하기 위한 체계적인 자료 구성 방법을 학습합니다.</p>
+                        
+                        <h4>발표 구조 및 템플릿</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 웹프로그래밍 최종 프로젝트 발표 구조
+
+## 1. 프로젝트 소개 (2-3분)
+### 슬라이드 1: 제목 슬라이드
+- 프로젝트명
+- 개발자명
+- 개발 기간
+- 주요 기술 스택
+
+### 슬라이드 2: 프로젝트 개요
+- 프로젝트의 목적과 배경
+- 해결하고자 한 문제
+- 타겟 사용자
+
+### 슬라이드 3: 주요 기능 소개
+- 핵심 기능 3-4가지
+- 각 기능의 간단한 설명
+- 기능별 스크린샷
+
+## 2. 기술적 구현 (4-5분)
+### 슬라이드 4: 기술 스택
+- 프론트엔드 기술
+- 사용된 라이브러리/프레임워크
+- 개발 도구 및 환경
+
+### 슬라이드 5: 시스템 아키텍처
+- 전체 시스템 구조도
+- 데이터 흐름
+- 주요 컴포넌트 관계
+
+### 슬라이드 6: 핵심 구현 내용
+- 가장 도전적이었던 기능
+- 사용한 알고리즘이나 패턴
+- 코드 예제 (간단한 것)
+
+### 슬라이드 7: 성능 최적화
+- 적용한 최적화 기법
+- 성능 측정 결과
+- 개선 전후 비교
+
+## 3. 개발 과정 및 학습 경험 (2-3분)
+### 슬라이드 8: 개발 과정
+- 프로젝트 진행 단계
+- 주요 마일스톤
+- 버전 관리 전략
+
+### 슬라이드 9: 어려웠던 점과 해결 방법
+- 개발 중 마주한 주요 문제
+- 문제 해결 과정
+- 학습한 내용
+
+### 슬라이드 10: 협업 도구 활용
+- GitHub 활용법
+- GitHub Copilot 활용 사례
+- 개발 생산성 향상 경험
+
+## 4. 시연 및 결과 (3-4분)
+### 슬라이드 11: 라이브 데모
+- 실제 웹사이트 시연
+- 주요 기능 동작 확인
+- 반응형 디자인 테스트
+
+### 슬라이드 12: 성과 및 결과
+- 완성된 기능 목록
+- 성능 지표 (로딩 속도, 접근성 점수 등)
+- 사용자 피드백 (있다면)
+
+## 5. 향후 계획 (1-2분)
+### 슬라이드 13: 개선 계획
+- 추가 구현 예정 기능
+- 성능 개선 방안
+- 확장 가능성
+
+### 슬라이드 14: 학습 소감 및 마무리
+- 프로젝트를 통해 학습한 내용
+- 개인적 성장 경험
+- 웹개발자로서의 다음 목표
+
+### 슬라이드 15: Q&A
+- 질문 환영 메시지
+- 연락처 정보
+- GitHub 저장소 링크</code></pre>
+                        </div>
+
+                        <h4>시각적 디자인 가이드라인</h4>
+                        <div class="code-example">
+                            <pre><code class="language-css">/* 발표 자료 CSS 스타일 가이드 */
+.presentation-slide {
+    width: 1920px;
+    height: 1080px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.slide-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.slide-content {
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.code-snippet {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.screenshot {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.tech-badge {
+    background: #3182ce;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* 발표자용 노트 스타일 */
+.speaker-notes {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    display: none;
+}
+
+.speaker-notes.visible {
+    display: block;
+}</code></pre>
+                        </div>
+
+                        <h4>발표용 HTML 템플릿</h4>
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!-- 발표 슬라이드 템플릿 --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;개인 포트폴리오 웹사이트 - 최종 프로젝트 발표&lt;/title&gt;
+    &lt;link rel="stylesheet" href="presentation.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="presentation-container"&gt;
+        &lt;!-- 슬라이드 1: 제목 --&gt;
+        &lt;section class="slide active" id="slide-1"&gt;
+            &lt;div class="presentation-slide"&gt;
+                &lt;h1 class="slide-title"&gt;개인 포트폴리오 웹사이트&lt;/h1&gt;
+                &lt;div class="slide-content"&gt;
+                    &lt;p&gt;&lt;strong&gt;웹프로그래밍 최종 프로젝트&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p&gt;개발자: 김철수&lt;/p&gt;
+                    &lt;p&gt;개발 기간: 2024.11 - 2024.12 (4주)&lt;/p&gt;
+                    &lt;div class="tech-stack"&gt;
+                        &lt;span class="tech-badge"&gt;HTML5&lt;/span&gt;
+                        &lt;span class="tech-badge"&gt;CSS3&lt;/span&gt;
+                        &lt;span class="tech-badge"&gt;JavaScript ES6+&lt;/span&gt;
+                        &lt;span class="tech-badge"&gt;GitHub Copilot&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="speaker-notes"&gt;
+                자기소개 후 프로젝트 개요 소개. 개발 기간과 사용 기술 강조.
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- 슬라이드 2: 프로젝트 개요 --&gt;
+        &lt;section class="slide" id="slide-2"&gt;
+            &lt;div class="presentation-slide"&gt;
+                &lt;h2 class="slide-title"&gt;프로젝트 개요&lt;/h2&gt;
+                &lt;div class="slide-content"&gt;
+                    &lt;div class="feature-grid"&gt;
+                        &lt;div class="feature-card"&gt;
+                            &lt;h3&gt;프로젝트 목적&lt;/h3&gt;
+                            &lt;p&gt;개인의 기술과 경험을 효과적으로 소개하는 반응형 웹 포트폴리오 제작&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="feature-card"&gt;
+                            &lt;h3&gt;타겟 사용자&lt;/h3&gt;
+                            &lt;p&gt;잠재적 고용주, 클라이언트, 동료 개발자&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="feature-card"&gt;
+                            &lt;h3&gt;해결하고자 한 문제&lt;/h3&gt;
+                            &lt;p&gt;개발자의 역량을 한눈에 파악할 수 있는 전문적인 온라인 presence 부족&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="feature-card"&gt;
+                            &lt;h3&gt;핵심 가치&lt;/h3&gt;
+                            &lt;p&gt;사용자 경험, 접근성, 성능 최적화에 중점을 둔 현대적인 웹 기술 활용&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="speaker-notes"&gt;
+                프로젝트의 배경과 목적을 명확히 설명. 왜 이 프로젝트를 선택했는지 동기 설명.
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- 네비게이션 컨트롤 --&gt;
+        &lt;div class="slide-controls"&gt;
+            &lt;button id="prev-slide"&gt;이전&lt;/button&gt;
+            &lt;span id="slide-counter"&gt;1 / 15&lt;/span&gt;
+            &lt;button id="next-slide"&gt;다음&lt;/button&gt;
+            &lt;button id="toggle-notes"&gt;발표자 노트&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="presentation.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 발표 기법과 전달 방법</h3>
+                        <p>기술적 내용을 청중에게 효과적으로 전달하는 발표 스킬을 익힙니다.</p>
+                        
+                        <h4>발표 준비 체크리스트</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 발표 준비 체크리스트
+
+## 발표 전 준비 ✅
+### 기술적 준비
+- [ ] 발표용 노트북/데스크톱 준비
+- [ ] 인터넷 연결 확인 (데모용)
+- [ ] 백업 계획 (오프라인 버전, 스크린샷)
+- [ ] 화면 해상도 및 폰트 크기 조정
+- [ ] 브라우저 북마크 정리
+
+### 발표 자료 준비
+- [ ] 슬라이드 최종 검토
+- [ ] 발표자 노트 준비
+- [ ] 타이머 설정 (총 발표 시간 확인)
+- [ ] 질문 예상 답변 준비
+- [ ] 핸드아웃 또는 참고 자료 준비
+
+### 데모 준비
+- [ ] 라이브 데모 시나리오 작성
+- [ ] 주요 기능별 테스트 완료
+- [ ] 데모 실패 시 백업 계획
+- [ ] 다양한 화면 크기에서 테스트
+
+## 발표 중 주의사항 🎤
+### 시작과 마무리
+- 명확한 자기소개
+- 발표 구조 미리 설명
+- 질문 받는 시점 안내
+- 감사 인사 및 연락처 제공
+
+### 음성과 제스처
+- 적절한 속도로 말하기
+- 중요한 부분 강조하기
+- 자연스러운 제스처 사용
+- 청중과 아이컨택
+
+### 기술적 내용 전달
+- 복잡한 개념은 단순화해서 설명
+- 코드는 핵심 부분만 보여주기
+- 실제 동작하는 모습 시연
+- 기술적 용어 설명
+
+## 발표 후 ✅
+- [ ] 질문 답변 시간 효과적 활용
+- [ ] 피드백 수집
+- [ ] 연락처 교환
+- [ ] 후속 조치 계획</code></pre>
+                        </div>
+
+                        <h4>발표 스크립트 예제</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 발표 스크립트 예제
+
+## 오프닝 (30초)
+"안녕하세요, 웹프로그래밍 수강생 김철수입니다. 
+오늘 15분 동안 제가 개발한 '개인 포트폴리오 웹사이트' 프로젝트를 소개하겠습니다.
+발표는 프로젝트 소개, 기술적 구현, 개발 경험, 그리고 라이브 데모 순으로 진행되며,
+마지막에 질문 시간을 갖겠습니다."
+
+## 프로젝트 소개 (2분)
+"이 프로젝트는 개발자로서 제 역량을 효과적으로 보여줄 수 있는 온라인 포트폴리오를 만드는 것이 목표였습니다.
+
+특히 세 가지 핵심 가치에 중점을 두었습니다:
+1. **사용자 경험** - 직관적인 네비게이션과 깔끔한 디자인
+2. **접근성** - 모든 사용자가 정보에 쉽게 접근할 수 있도록
+3. **성능** - 빠른 로딩과 반응형 디자인
+
+주요 기능으로는 개인 소개, 프로젝트 갤러리, 기술 스택 시각화, 그리고 연락 양식이 있습니다."
+
+## 기술적 구현 (4분)
+"기술 스택은 모던 웹 표준을 준수하여 구성했습니다.
+- HTML5의 시맨틱 태그로 의미 있는 구조 구축
+- CSS3 플렉스박스와 그리드를 활용한 반응형 레이아웃
+- 바닐라 JavaScript ES6+로 인터랙티브 기능 구현
+
+가장 도전적이었던 부분은 이미지 최적화와 지연 로딩 구현이었습니다.
+(코드 예제를 보여주며) Intersection Observer API를 사용하여 뷰포트에 들어올 때만 이미지를 로드하도록 했습니다.
+
+성능 면에서는 Lighthouse 점수 90점 이상을 달성했으며, 
+첫 화면 로딩 시간을 2초 이내로 단축했습니다."
+
+## 개발 경험 (2분)
+"개발 과정에서 GitHub Copilot을 적극 활용했습니다.
+특히 반복적인 코드 작성과 함수 자동 완성에서 생산성이 크게 향상되었습니다.
+
+가장 어려웠던 점은 브라우저 호환성 이슈였는데,
+Stack Overflow와 MDN 문서를 참고하여 폴리필을 적용해 해결했습니다.
+
+Git을 통한 버전 관리도 체계적으로 진행하여,
+기능별 브랜치를 만들고 의미 있는 커밋 메시지를 작성하는 습관을 기를 수 있었습니다."
+
+## 데모 소개 (3분)
+"이제 실제 웹사이트를 보여드리겠습니다.
+먼저 메인 페이지에서 반응형 디자인을 확인해보겠습니다.
+(화면 크기를 조절하며) 모바일, 태블릿, 데스크톱에서 모두 최적화된 모습을 보실 수 있습니다.
+
+프로젝트 갤러리에서는 필터링 기능을 구현했습니다.
+(클릭하며) JavaScript로 카테고리별 필터링과 부드러운 애니메이션을 적용했습니다.
+
+연락 양식은 실제로 작동하며, 입력 검증과 사용자 피드백을 제공합니다."
+
+## 마무리 (1분)
+"이 프로젝트를 통해 웹 개발의 전체 과정을 경험할 수 있었습니다.
+앞으로는 React와 같은 프레임워크를 학습하여 더 복잡한 애플리케이션을 개발해보고 싶습니다.
+
+발표를 들어주셔서 감사합니다. 
+프로젝트는 github.com/username/portfolio에서 확인하실 수 있으며,
+질문이 있으시면 언제든지 말씀해 주세요."</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 기술 문서화와 README 작성</h3>
+                        <p>프로젝트의 가치를 높이는 체계적인 문서화 방법을 학습합니다.</p>
+                        
+                        <h4>완성도 높은 README.md 템플릿</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 개인 포트폴리오 웹사이트 🌟
+
+> 현대적이고 반응형인 개인 포트폴리오 웹사이트
+
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://username.github.io/portfolio)
+[![GitHub Pages](https://img.shields.io/badge/deployed-github%20pages-blue.svg)](https://username.github.io/portfolio)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+## 📋 목차
+- [프로젝트 소개](#프로젝트-소개)
+- [주요 기능](#주요-기능)
+- [기술 스택](#기술-스택)
+- [설치 및 실행](#설치-및-실행)
+- [프로젝트 구조](#프로젝트-구조)
+- [개발 과정](#개발-과정)
+- [성능 최적화](#성능-최적화)
+- [배포](#배포)
+- [기여하기](#기여하기)
+- [라이센스](#라이센스)
+- [연락처](#연락처)
+
+## 🚀 프로젝트 소개
+
+개발자로서의 역량과 경험을 효과적으로 보여주는 개인 포트폴리오 웹사이트입니다.
+사용자 경험, 접근성, 성능을 중심으로 현대적인 웹 기술을 활용하여 구현했습니다.
+
+### 🎯 개발 목표
+- **사용자 중심 디자인**: 직관적이고 깔끔한 인터페이스
+- **완전 반응형**: 모든 디바이스에서 최적화된 경험
+- **뛰어난 성능**: 빠른 로딩과 부드러운 애니메이션
+- **웹 접근성**: 모든 사용자가 사용할 수 있는 웹사이트
+
+## ✨ 주요 기능
+
+### 🏠 메인 페이지
+- 매력적인 히어로 섹션
+- 개인 소개 및 경력 요약
+- 다크/라이트 테마 토글
+- 부드러운 스크롤 애니메이션
+
+### 💼 프로젝트 갤러리
+- 프로젝트 카드 그리드 레이아웃
+- 카테고리별 필터링 기능
+- 모달을 통한 상세 정보 표시
+- 라이브 데모 및 소스 코드 링크
+
+### 🛠️ 기술 스택 시각화
+- 기술별 숙련도 표시
+- 인터랙티브 프로그레스 바
+- 카테고리별 그룹화
+
+### 📧 연락처 양식
+- 실시간 입력 검증
+- 성공/오류 메시지 표시
+- Netlify Forms 연동
+
+## 🔧 기술 스택
+
+### Frontend
+- **HTML5**: 시맨틱 마크업
+- **CSS3**: 플렉스박스, 그리드, 애니메이션
+- **JavaScript ES6+**: 모듈, 클래스, async/await
+- **Web APIs**: Intersection Observer, Fetch API
+
+### 개발 도구
+- **Git**: 버전 관리
+- **GitHub**: 코드 저장소 및 협업
+- **GitHub Copilot**: AI 코딩 어시스턴트
+- **VS Code**: 통합 개발 환경
+
+### 배포 및 호스팅
+- **GitHub Pages**: 정적 사이트 호스팅
+- **Netlify**: 대안 호스팅 (폼 처리 포함)
+
+## 🚀 설치 및 실행
+
+### 요구사항
+- 모던 웹 브라우저 (Chrome, Firefox, Safari, Edge)
+- Git
+- 선택사항: Node.js (개발 서버 사용 시)
+
+### 로컬 개발 환경 설정
+
+1. **저장소 클론**
+   ```bash
+   git clone https://github.com/username/portfolio.git
+   cd portfolio
+   ```
+
+2. **라이브 서버 실행** (선택사항)
+   ```bash
+   # Python 내장 서버 사용
+   python -m http.server 8000
+   
+   # 또는 Node.js 서버
+   npx serve .
+   
+   # 또는 VS Code Live Server 확장 사용
+   ```
+
+3. **브라우저에서 확인**
+   ```
+   http://localhost:8000
+   ```
+
+## 📁 프로젝트 구조
+
+```
+portfolio/
+├── index.html              # 메인 페이지
+├── css/
+│   ├── styles.css          # 메인 스타일시트
+│   ├── components/         # 컴포넌트별 스타일
+│   └── utilities/          # 유틸리티 클래스
+├── js/
+│   ├── main.js             # 메인 JavaScript
+│   ├── components/         # 컴포넌트 모듈
+│   └── utils/              # 유틸리티 함수
+├── images/
+│   ├── projects/           # 프로젝트 이미지
+│   ├── icons/              # 아이콘 파일
+│   └── optimized/          # 최적화된 이미지
+├── data/
+│   └── projects.json       # 프로젝트 데이터
+├── docs/                   # 문서
+├── .github/
+│   └── workflows/          # GitHub Actions
+└── README.md               # 프로젝트 문서
+```
+
+## 💡 개발 과정
+
+### 1단계: 기획 및 설계 (1주)
+- 와이어프레임 제작
+- 디자인 시스템 구축
+- 기술 스택 선정
+
+### 2단계: UI/UX 구현 (1주)
+- HTML 구조 작성
+- CSS 스타일링
+- 반응형 디자인 적용
+
+### 3단계: JavaScript 기능 개발 (1.5주)
+- 인터랙티브 요소 구현
+- API 통신 기능
+- 성능 최적화
+
+### 4단계: 테스트 및 배포 (0.5주)
+- 크로스 브라우저 테스트
+- 성능 최적화
+- GitHub Pages 배포
+
+## ⚡ 성능 최적화
+
+### 구현된 최적화 기법
+- **이미지 지연 로딩**: Intersection Observer 활용
+- **코드 분할**: 모듈별 동적 import
+- **리소스 최적화**: 이미지 압축, CSS/JS 최소화
+- **캐싱 전략**: Service Worker (선택적 구현)
+
+### 성능 지표
+- **Lighthouse 점수**: 90+ (모든 카테고리)
+- **First Contentful Paint**: 1.5초 이하
+- **Largest Contentful Paint**: 2.5초 이하
+- **Cumulative Layout Shift**: 0.1 이하
+
+## 🚀 배포
+
+### GitHub Pages 자동 배포
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+```
+
+### 커스텀 도메인 설정
+```bash
+# CNAME 파일 생성
+echo "your-domain.com" > CNAME
+```
+
+## 🤝 기여하기
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 라이센스
+
+이 프로젝트는 MIT 라이센스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## 📧 연락처
+
+**김철수** - Frontend Developer
+- 이메일: kim@example.com
+- LinkedIn: [linkedin.com/in/kimchulsu](https://linkedin.com/in/kimchulsu)
+- 포트폴리오: [kimchulsu.dev](https://kimchulsu.dev)
+
+**프로젝트 링크**: [https://github.com/username/portfolio](https://github.com/username/portfolio)
+
+---
+
+⭐️ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 포트폴리오 완성과 취업 준비</h3>
+                        <p>완성된 프로젝트를 효과적으로 포트폴리오로 활용하는 전략을 학습합니다.</p>
+                        
+                        <h4>이력서에 프로젝트 기재하는 법</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 이력서 프로젝트 섹션 작성 예시
+
+## 프로젝트 경험
+
+### 개인 포트폴리오 웹사이트 (2024.11 - 2024.12)
+**역할**: Full-Stack Developer (개인 프로젝트)  
+**기술 스택**: HTML5, CSS3, JavaScript ES6+, GitHub Pages  
+**프로젝트 링크**: [kimchulsu.dev](https://kimchulsu.dev) | [GitHub](https://github.com/username/portfolio)
+
+#### 주요 성과
+- **성능 최적화**: Lighthouse 점수 90+ 달성, 첫 화면 로딩 시간 2초 이내로 최적화
+- **반응형 디자인**: 모바일-퍼스트 접근법으로 모든 디바이스에서 일관된 사용자 경험 제공
+- **웹 접근성**: WCAG 2.1 가이드라인 준수, 스크린 리더 호환성 확보
+- **자동화된 배포**: GitHub Actions를 통한 CI/CD 파이프라인 구축
+
+#### 기술적 구현 내용
+- Intersection Observer API를 활용한 이미지 지연 로딩으로 초기 로딩 속도 40% 향상
+- CSS Grid와 Flexbox를 조합한 복잡한 레이아웃 구현
+- Vanilla JavaScript로 SPA와 유사한 부드러운 네비게이션 경험 제공
+- Progressive Enhancement 원칙 적용으로 브라우저 호환성 확보
+
+#### 개발 도구 활용
+- **GitHub Copilot**: 코딩 생산성 30% 향상, 반복 작업 자동화
+- **Git**: 기능별 브랜치 전략과 의미 있는 커밋 메시지로 체계적 버전 관리
+- **웹 표준**: Semantic HTML, BEM CSS 방법론, ES6+ 모던 JavaScript 활용
+
+---
+
+## 추가 프로젝트 아이디어 (향후 개발 예정)
+
+### 온라인 쇼핑몰 프론트엔드 (예정)
+- React.js 기반 SPA 구현
+- Redux를 통한 상태 관리
+- RESTful API 연동
+
+### 실시간 채팅 애플리케이션 (예정)  
+- Node.js + Socket.io 백엔드
+- WebSocket을 통한 실시간 통신
+- MongoDB 데이터베이스 연동</code></pre>
+                        </div>
+
+                        <h4>GitHub 프로필 최적화</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># GitHub 프로필 README.md 최적화
+
+## 👋 안녕하세요! 프론트엔드 개발자 김철수입니다
+
+### 🚀 현재 진행 중인 프로젝트
+- 🌐 개인 포트폴리오 웹사이트 (HTML5, CSS3, JavaScript)
+- 📚 React.js 학습 중
+- 🎯 알고리즘 문제 해결 (매일 1문제씩)
+
+### 💻 기술 스택
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+
+### 📊 GitHub 통계
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=username&show_icons=true&theme=radical)
+
+### 🔥 최근 활동
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=username&theme=radical)
+
+### 📫 연락처
+- 📧 이메일: kim@example.com  
+- 💼 LinkedIn: [김철수](https://linkedin.com/in/kimchulsu)
+- 🌐 포트폴리오: [kimchulsu.dev](https://kimchulsu.dev)</code></pre>
+                        </div>
+
+                        <h4>면접 준비용 기술 질문 대답</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 기술 면접 대비 질문과 답변
+
+## 프로젝트 관련 질문
+
+### Q: 이 프로젝트에서 가장 어려웠던 부분은 무엇이었나요?
+**A**: "이미지 최적화와 성능 개선이 가장 도전적이었습니다. 
+초기에는 모든 이미지를 한 번에 로드해서 첫 화면 로딩이 5초 이상 걸렸습니다. 
+이를 해결하기 위해 Intersection Observer API를 사용한 지연 로딩을 구현했고, 
+이미지 포맷을 WebP로 변환하여 파일 크기를 60% 줄였습니다. 
+결과적으로 로딩 시간을 2초 이내로 단축할 수 있었습니다."
+
+### Q: 왜 React나 Vue 같은 프레임워크를 사용하지 않았나요?
+**A**: "이 프로젝트는 웹 개발의 기본기를 탄탄히 하기 위해 의도적으로 Vanilla JavaScript를 선택했습니다. 
+DOM 조작, 이벤트 처리, 비동기 프로그래밍 등의 핵심 개념을 직접 구현해보며 깊이 있게 이해할 수 있었습니다. 
+다음 프로젝트에서는 React를 활용하여 더 복잡한 상태 관리와 컴포넌트 재사용성을 경험해볼 계획입니다."
+
+### Q: GitHub Copilot을 어떻게 활용했나요?
+**A**: "GitHub Copilot을 코드 자동완성과 반복 작업 최적화에 활용했습니다. 
+특히 CSS 스타일링이나 유사한 함수 구조를 만들 때 생산성이 크게 향상되었습니다. 
+하지만 단순히 제안된 코드를 그대로 사용하지 않고, 코드를 이해하고 프로젝트 맥락에 맞게 수정했습니다. 
+이 과정에서 다양한 구현 방법을 학습할 수 있었고, 코딩 패턴에 대한 이해도가 높아졌습니다."
+
+## 기술적 질문
+
+### Q: 웹 접근성을 어떻게 고려했나요?
+**A**: "시맨틱 HTML 태그 사용, 적절한 대비 색상 선택, 키보드 네비게이션 지원, 
+이미지에 대체 텍스트 제공 등을 구현했습니다. 
+특히 스크린 리더 사용자를 위해 ARIA 속성을 적절히 사용했고, 
+색상에만 의존하지 않는 정보 전달 방식을 채택했습니다."
+
+### Q: 성능 최적화를 위해 어떤 기법을 사용했나요?
+**A**: "이미지 지연 로딩, CSS/JavaScript 파일 압축, 불필요한 리소스 제거, 
+효율적인 CSS 선택자 사용 등을 적용했습니다. 
+Lighthouse를 통해 성능을 측정하며 지속적으로 개선했고, 
+Core Web Vitals 지표를 모두 양호 수준으로 달성했습니다."</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 발표 자료 제작</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 개인 프로젝트에 대한 15분 발표 자료를 완성합니다.</p>
+                            
+                            <h4>제작 내용:</h4>
+                            <ul>
+                                <li>PPT 또는 HTML 기반 슬라이드 15매</li>
+                                <li>발표자 노트 및 스크립트</li>
+                                <li>라이브 데모 시나리오</li>
+                                <li>예상 질문과 답변 준비</li>
+                                <li>백업 계획 수립</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 포트폴리오 최종 완성</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 전문적인 포트폴리오를 완성합니다.</p>
+                            
+                            <h4>완성 요소:</h4>
+                            <ul>
+                                <li>완벽한 README.md 문서</li>
+                                <li>GitHub 프로필 최적화</li>
+                                <li>라이브 데모 사이트</li>
+                                <li>기술 문서화</li>
+                                <li>이력서용 프로젝트 설명</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 모의 기술 면접</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 프로젝트를 바탕으로 한 기술 면접을 시뮬레이션합니다.</p>
+                            
+                            <h4>면접 준비:</h4>
+                            <ul>
+                                <li>프로젝트 기술적 설명</li>
+                                <li>문제 해결 과정 설명</li>
+                                <li>코드 리뷰 및 개선점</li>
+                                <li>향후 개발 계획</li>
+                                <li>팀워크와 협업 경험</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>효과적인 기술 발표 자료 구성과 전달</li>
+                            <li>프로젝트의 가치를 높이는 문서화</li>
+                            <li>GitHub을 활용한 전문적 포트폴리오</li>
+                            <li>취업과 진학을 위한 실무 준비</li>
+                            <li>지속적인 학습과 성장 계획</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>15주차는 최종 발표 주간입니다. 개발한 프로젝트를 실제로 발표하고, 동료들의 프로젝트를 감상하며 피드백을 나누는 시간을 가집니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week13.html" class="btn btn-secondary">← 13주차: 프로젝트 완성 & 배포</a>
+                    <a href="week15.html" class="btn btn-primary">15주차: 최종 발표 & 과정 마무리 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

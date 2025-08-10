@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13주차: 프로젝트 완성 & 배포 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">학습 목표</a>
+                    <a href="#content" class="nav-link">강의 내용</a>
+                    <a href="#activities" class="nav-link">실습 활동</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>13주차: 프로젝트 완성 & 배포</h1>
+                    <p>웹 애플리케이션을 완성하고 실제 서비스로 배포하는 전체 과정을 학습합니다</p>
+                    <div class="week-navigation">
+                        <a href="week12.html" class="btn btn-secondary">← 12주차</a>
+                        <a href="week14.html" class="btn btn-primary">14주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>학습 목표</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">🔧</div>
+                        <h3>프로젝트 마무리</h3>
+                        <p>개발 중인 웹 애플리케이션의 모든 기능을 완성합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🌐</div>
+                        <h3>배포 프로세스</h3>
+                        <p>GitHub Pages, Netlify 등을 활용한 웹 배포 과정을 익힙니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🐛</div>
+                        <h3>테스팅 & 디버깅</h3>
+                        <p>웹 애플리케이션의 품질을 보장하는 테스트 방법을 학습합니다</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">📊</div>
+                        <h3>성능 분석</h3>
+                        <p>배포된 애플리케이션의 성능을 측정하고 최적화합니다</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>강의 내용</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. Git을 활용한 버전 관리</h3>
+                        <p>협업과 배포를 위한 효율적인 Git 워크플로우를 학습합니다.</p>
+                        
+                        <h4>Git 기본 워크플로우</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># Git 저장소 초기화
+git init
+
+# 프로젝트 파일들을 스테이징 영역에 추가
+git add .
+
+# 초기 커밋
+git commit -m "Initial commit: Basic portfolio structure"
+
+# GitHub 원격 저장소 연결
+git remote add origin https://github.com/username/portfolio.git
+
+# 메인 브랜치로 푸시
+git push -u origin main
+
+# 새로운 기능을 위한 브랜치 생성
+git checkout -b feature/contact-form
+
+# 기능 개발 후 커밋
+git add src/components/ContactForm.js
+git commit -m "feat: Add contact form validation"
+
+# 메인 브랜치로 병합
+git checkout main
+git merge feature/contact-form
+
+# 브랜치 삭제
+git branch -d feature/contact-form</code></pre>
+                        </div>
+
+                        <h4>.gitignore 파일 설정</h4>
+                        <div class="code-example">
+                            <pre><code class="language-gitignore"># 의존성 모듈
+node_modules/
+bower_components/
+
+# 빌드 결과물
+dist/
+build/
+.cache/
+
+# 로그 파일
+*.log
+logs/
+
+# 운영체제 파일
+.DS_Store
+Thumbs.db
+
+# 에디터 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 환경 변수 파일
+.env
+.env.local
+.env.production
+
+# 임시 파일
+*.tmp
+*.temp
+
+# 커버리지 리포트
+coverage/
+
+# 백업 파일
+*.bak
+*.backup</code></pre>
+                        </div>
+
+                        <h4>효과적인 커밋 메시지 작성</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># 좋은 커밋 메시지 예제
+git commit -m "feat: Add dark mode toggle functionality"
+git commit -m "fix: Resolve mobile navigation menu overlap issue"
+git commit -m "style: Improve responsive design for tablet devices"
+git commit -m "docs: Update README with deployment instructions"
+git commit -m "refactor: Reorganize component structure"
+git commit -m "perf: Optimize image loading with lazy loading"
+
+# 커밋 타입별 분류
+# feat: 새로운 기능
+# fix: 버그 수정
+# docs: 문서 수정
+# style: 코드 스타일 변경 (기능 변경 없음)
+# refactor: 코드 리팩토링
+# perf: 성능 개선
+# test: 테스트 추가
+# chore: 빌드 과정 또는 보조 도구 변경
+
+# 상세한 커밋 메시지
+git commit -m "feat: Add project filtering functionality
+
+- Add filter buttons for different project categories
+- Implement smooth animations for filtered results
+- Update project data structure to include categories
+- Add accessibility support for keyboard navigation
+
+Closes #15"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 테스팅과 품질 보증</h3>
+                        <p>배포 전 웹 애플리케이션의 품질을 검증하는 다양한 테스트 방법을 학습합니다.</p>
+                        
+                        <h4>수동 테스팅 체크리스트</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 웹 애플리케이션 테스팅 체크리스트
+
+## 기능성 테스트 ✅
+- [ ] 모든 링크가 올바르게 작동하는가?
+- [ ] 양식 제출이 정상적으로 처리되는가?
+- [ ] 이미지가 모두 로드되는가?
+- [ ] JavaScript 기능이 모든 브라우저에서 작동하는가?
+- [ ] 에러 처리가 적절히 구현되어 있는가?
+
+## 사용성 테스트 📱
+- [ ] 네비게이션이 직관적인가?
+- [ ] 로딩 시간이 적절한가?
+- [ ] 텍스트가 읽기 쉬운가?
+- [ ] 버튼과 링크가 클릭하기 쉬운가?
+- [ ] 피드백(성공/오류 메시지)이 명확한가?
+
+## 반응형 디자인 테스트 💻📱
+- [ ] 모바일 디바이스에서 정상 작동하는가?
+- [ ] 태블릿에서 레이아웃이 적절한가?
+- [ ] 데스크톱에서 모든 요소가 보이는가?
+- [ ] 다양한 화면 크기에서 텍스트가 읽히는가?
+
+## 성능 테스트 ⚡
+- [ ] 페이지 로딩 속도가 3초 이내인가?
+- [ ] 이미지 최적화가 되어 있는가?
+- [ ] CSS/JS 파일이 압축되어 있는가?
+- [ ] 불필요한 리소스가 로드되지 않는가?
+
+## 접근성 테스트 ♿
+- [ ] 키보드로 모든 기능에 접근 가능한가?
+- [ ] 대체 텍스트가 이미지에 포함되어 있는가?
+- [ ] 색상 대비가 충분한가?
+- [ ] 스크린 리더 사용자를 위한 구조가 적절한가?
+
+## 보안 테스트 🔒
+- [ ] 사용자 입력에 대한 검증이 있는가?
+- [ ] XSS 공격에 대한 방어가 있는가?
+- [ ] 민감한 정보가 노출되지 않는가?
+- [ ] HTTPS를 사용하고 있는가?</code></pre>
+                        </div>
+
+                        <h4>브라우저 개발자 도구 활용</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 성능 측정을 위한 유틸리티
+class TestingUtils {
+    // 페이지 로딩 성능 측정
+    static measurePagePerformance() {
+        const perfData = performance.getEntriesByType("navigation")[0];
+        const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+        const domReady = perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart;
+        
+        console.log(`페이지 로딩 시간: ${loadTime}ms`);
+        console.log(`DOM 준비 시간: ${domReady}ms`);
+        
+        return { loadTime, domReady };
+    }
+    
+    // 메모리 사용량 체크
+    static checkMemoryUsage() {
+        if (performance.memory) {
+            const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = performance.memory;
+            console.log(`사용된 메모리: ${(usedJSHeapSize / 1048576).toFixed(2)} MB`);
+            console.log(`전체 메모리: ${(totalJSHeapSize / 1048576).toFixed(2)} MB`);
+            console.log(`메모리 한계: ${(jsHeapSizeLimit / 1048576).toFixed(2)} MB`);
+        }
+    }
+    
+    // 리소스 로딩 시간 분석
+    static analyzeResourceLoadingTimes() {
+        const resources = performance.getEntriesByType("resource");
+        const resourceTimes = resources.map(resource => ({
+            name: resource.name,
+            duration: resource.duration,
+            type: resource.initiatorType
+        }));
+        
+        console.table(resourceTimes.sort((a, b) => b.duration - a.duration));
+        return resourceTimes;
+    }
+    
+    // 접근성 검사
+    static checkAccessibility() {
+        const issues = [];
+        
+        // alt 속성이 없는 이미지 검사
+        const imagesWithoutAlt = document.querySelectorAll('img:not([alt])');
+        if (imagesWithoutAlt.length > 0) {
+            issues.push(`${imagesWithoutAlt.length}개의 이미지에 alt 속성이 없습니다.`);
+        }
+        
+        // 제목 태그 구조 검사
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        let previousLevel = 0;
+        headings.forEach(heading => {
+            const currentLevel = parseInt(heading.tagName.substring(1));
+            if (currentLevel - previousLevel > 1) {
+                issues.push(`제목 레벨이 건너뛰어짐: ${heading.tagName} after H${previousLevel}`);
+            }
+            previousLevel = currentLevel;
+        });
+        
+        // 버튼과 링크의 접근 가능성 검사
+        const buttonsWithoutText = document.querySelectorAll('button:empty, a:empty');
+        if (buttonsWithoutText.length > 0) {
+            issues.push(`${buttonsWithoutText.length}개의 버튼/링크에 텍스트가 없습니다.`);
+        }
+        
+        if (issues.length === 0) {
+            console.log('✅ 접근성 검사 통과');
+        } else {
+            console.warn('⚠️ 접근성 이슈 발견:');
+            issues.forEach(issue => console.warn(issue));
+        }
+        
+        return issues;
+    }
+    
+    // 반응형 디자인 테스트
+    static testResponsiveDesign() {
+        const breakpoints = [
+            { name: 'Mobile', width: 375, height: 667 },
+            { name: 'Tablet', width: 768, height: 1024 },
+            { name: 'Desktop', width: 1440, height: 900 }
+        ];
+        
+        console.log('반응형 디자인 테스트 (수동으로 확인하세요):');
+        breakpoints.forEach(bp => {
+            console.log(`${bp.name}: ${bp.width}x${bp.height}px에서 테스트`);
+        });
+    }
+}
+
+// 개발 모드에서만 테스팅 유틸리티 활성화
+if (process.env.NODE_ENV === 'development') {
+    window.TestingUtils = TestingUtils;
+    
+    // 페이지 로드 후 자동으로 성능 측정
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            TestingUtils.measurePagePerformance();
+            TestingUtils.checkAccessibility();
+        }, 1000);
+    });
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. 배포 플랫폼과 과정</h3>
+                        <p>다양한 배포 플랫폼을 활용하여 웹 애플리케이션을 실제 서비스로 출시하는 방법을 학습합니다.</p>
+                        
+                        <h4>GitHub Pages 배포</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># GitHub Pages를 위한 저장소 설정
+# 1. GitHub에서 새 저장소 생성 (public)
+# 2. 로컬 프로젝트와 연결
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/username/portfolio.git
+git push -u origin main
+
+# GitHub Pages 활성화
+# GitHub 저장소 > Settings > Pages
+# Source: Deploy from a branch
+# Branch: main / (root) 또는 docs/
+
+# 커스텀 도메인 설정 (선택사항)
+echo "www.yourname.com" > CNAME
+git add CNAME
+git commit -m "Add custom domain"
+git push
+
+# GitHub Actions를 사용한 자동 배포
+# .github/workflows/deploy.yml 파일 생성</code></pre>
+                        </div>
+
+                        <h4>GitHub Actions 자동 배포 설정</h4>
+                        <div class="code-example">
+                            <pre><code class="language-yaml"># .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+
+    - name: Build project
+      run: |
+        # 빌드 과정이 있다면 실행
+        # npm run build
+        
+        # HTML/CSS/JS 파일 최적화
+        echo "Building project..."
+        
+    - name: Run tests
+      run: |
+        # 테스트가 있다면 실행
+        # npm test
+        echo "Running tests..."
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        # 빌드 결과물이 있다면 해당 디렉토리 지정
+        # publish_dir: ./dist</code></pre>
+                        </div>
+
+                        <h4>Netlify 배포</h4>
+                        <div class="code-example">
+                            <pre><code class="language-toml"># netlify.toml - Netlify 설정 파일
+[build]
+  # 빌드 명령어 (필요한 경우)
+  command = "npm run build"
+  # 배포할 디렉토리
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# 리다이렉트 설정 (SPA를 위한)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 헤더 설정 (보안 및 성능)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "max-age=31536000"
+
+# 양식 처리 (Netlify Forms)
+[[forms]]
+  path = "/contact"
+  template = "contact-success"</code></pre>
+                        </div>
+
+                        <h4>배포 전 체크리스트</h4>
+                        <div class="code-example">
+                            <pre><code class="language-markdown"># 배포 전 체크리스트
+
+## 코드 준비 ✅
+- [ ] 모든 기능이 정상 작동하는가?
+- [ ] 테스트를 통과했는가?
+- [ ] 코드가 최적화되어 있는가?
+- [ ] 불필요한 파일이 제거되었는가?
+- [ ] API 키 등 민감한 정보가 제거되었는가?
+
+## 성능 최적화 ⚡
+- [ ] 이미지가 압축되어 있는가?
+- [ ] CSS/JS 파일이 최소화되어 있는가?
+- [ ] 지연 로딩이 구현되어 있는가?
+- [ ] 캐싱 전략이 설정되어 있는가?
+
+## SEO 및 메타데이터 📊
+- [ ] 페이지 제목이 적절한가?
+- [ ] 메타 설명이 포함되어 있는가?
+- [ ] OpenGraph 태그가 설정되어 있는가?
+- [ ] robots.txt 파일이 있는가?
+- [ ] sitemap.xml이 생성되어 있는가?
+
+## 보안 🔒
+- [ ] HTTPS가 설정되어 있는가?
+- [ ] 보안 헤더가 구성되어 있는가?
+- [ ] 입력 검증이 구현되어 있는가?
+- [ ] CORS 설정이 적절한가?
+
+## 모니터링 📈
+- [ ] Google Analytics가 설정되어 있는가?
+- [ ] 에러 추적 도구가 구성되어 있는가?
+- [ ] 성능 모니터링 도구가 있는가?</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. 배포 후 모니터링과 유지보수</h3>
+                        <p>배포된 웹 애플리케이션의 성능을 모니터링하고 지속적으로 개선하는 방법을 학습합니다.</p>
+                        
+                        <h4>성능 모니터링 도구들</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// Google Analytics 설정
+class AnalyticsTracker {
+    constructor(trackingId) {
+        this.trackingId = trackingId;
+        this.init();
+    }
+    
+    init() {
+        // Google Analytics 4 설정
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${this.trackingId}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', this.trackingId);
+        
+        window.gtag = gtag;
+    }
+    
+    // 커스텀 이벤트 추적
+    trackEvent(eventName, parameters = {}) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, parameters);
+        }
+    }
+    
+    // 페이지 뷰 추적
+    trackPageView(pagePath, pageTitle) {
+        if (typeof gtag !== 'undefined') {
+            gtag('config', this.trackingId, {
+                page_path: pagePath,
+                page_title: pageTitle
+            });
+        }
+    }
+    
+    // 사용자 상호작용 추적
+    trackUserInteraction(element, action) {
+        element.addEventListener(action, (e) => {
+            this.trackEvent('user_interaction', {
+                element_type: element.tagName.toLowerCase(),
+                element_id: element.id || 'unknown',
+                action: action,
+                page_location: window.location.href
+            });
+        });
+    }
+}
+
+// 에러 추적 시스템
+class ErrorTracker {
+    constructor() {
+        this.errorLog = [];
+        this.init();
+    }
+    
+    init() {
+        // 전역 에러 처리
+        window.addEventListener('error', this.handleError.bind(this));
+        window.addEventListener('unhandledrejection', this.handlePromiseRejection.bind(this));
+        
+        // 리소스 로딩 에러
+        document.addEventListener('error', this.handleResourceError.bind(this), true);
+    }
+    
+    handleError(event) {
+        const errorInfo = {
+            message: event.message,
+            filename: event.filename,
+            lineno: event.lineno,
+            colno: event.colno,
+            stack: event.error?.stack,
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            url: window.location.href
+        };
+        
+        this.logError(errorInfo);
+    }
+    
+    handlePromiseRejection(event) {
+        const errorInfo = {
+            type: 'unhandledrejection',
+            reason: event.reason,
+            promise: event.promise,
+            timestamp: new Date().toISOString(),
+            url: window.location.href
+        };
+        
+        this.logError(errorInfo);
+    }
+    
+    handleResourceError(event) {
+        if (event.target !== window) {
+            const errorInfo = {
+                type: 'resource_error',
+                element: event.target.tagName,
+                source: event.target.src || event.target.href,
+                timestamp: new Date().toISOString(),
+                url: window.location.href
+            };
+            
+            this.logError(errorInfo);
+        }
+    }
+    
+    logError(errorInfo) {
+        this.errorLog.push(errorInfo);
+        console.error('Error logged:', errorInfo);
+        
+        // 서버로 에러 정보 전송 (실제 구현에서는 에러 추적 서비스 사용)
+        this.sendErrorToServer(errorInfo);
+    }
+    
+    async sendErrorToServer(errorInfo) {
+        try {
+            // 실제로는 Sentry, LogRocket 등의 서비스 사용
+            await fetch('/api/errors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(errorInfo)
+            });
+        } catch (err) {
+            console.error('Failed to send error to server:', err);
+        }
+    }
+    
+    getErrorReport() {
+        return {
+            totalErrors: this.errorLog.length,
+            recentErrors: this.errorLog.slice(-10),
+            errorTypes: this.groupErrorsByType()
+        };
+    }
+    
+    groupErrorsByType() {
+        const types = {};
+        this.errorLog.forEach(error => {
+            const type = error.type || 'javascript_error';
+            types[type] = (types[type] || 0) + 1;
+        });
+        return types;
+    }
+}
+
+// 실시간 성능 모니터링
+class PerformanceMonitor {
+    constructor() {
+        this.metrics = {};
+        this.init();
+    }
+    
+    init() {
+        this.observeWebVitals();
+        this.monitorNetworkRequests();
+        this.trackUserTimings();
+    }
+    
+    observeWebVitals() {
+        // Core Web Vitals 측정
+        if ('web-vital' in window) {
+            // 실제로는 web-vitals 라이브러리 사용
+            this.measureLCP();
+            this.measureFID();
+            this.measureCLS();
+        }
+    }
+    
+    measureLCP() {
+        const observer = new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            this.metrics.lcp = lastEntry.startTime;
+            this.reportMetric('LCP', lastEntry.startTime);
+        });
+        
+        observer.observe({ entryTypes: ['largest-contentful-paint'] });
+    }
+    
+    monitorNetworkRequests() {
+        const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach(entry => {
+                if (entry.duration > 3000) { // 3초 이상 걸린 요청
+                    console.warn('Slow network request:', entry.name, entry.duration);
+                    this.reportMetric('slow_request', {
+                        url: entry.name,
+                        duration: entry.duration
+                    });
+                }
+            });
+        });
+        
+        observer.observe({ entryTypes: ['navigation', 'resource'] });
+    }
+    
+    trackUserTimings() {
+        // 커스텀 성능 마크 생성
+        performance.mark('app-init-start');
+        
+        // 앱 초기화 완료 후
+        setTimeout(() => {
+            performance.mark('app-init-end');
+            performance.measure('app-init-duration', 'app-init-start', 'app-init-end');
+            
+            const measure = performance.getEntriesByName('app-init-duration')[0];
+            this.reportMetric('app_init_time', measure.duration);
+        }, 1000);
+    }
+    
+    reportMetric(name, value) {
+        // Google Analytics로 성능 메트릭 전송
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'performance_metric', {
+                metric_name: name,
+                value: Math.round(typeof value === 'object' ? value.duration : value),
+                custom_parameter: window.location.pathname
+            });
+        }
+    }
+}
+
+// 모니터링 시스템 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    const analytics = new AnalyticsTracker('GA_TRACKING_ID');
+    const errorTracker = new ErrorTracker();
+    const performanceMonitor = new PerformanceMonitor();
+    
+    // 사용자 상호작용 추적
+    document.querySelectorAll('button, a').forEach(element => {
+        analytics.trackUserInteraction(element, 'click');
+    });
+});</code></pre>
+                        </div>
+
+                        <h4>A/B 테스팅 구현</h4>
+                        <div class="code-example">
+                            <pre><code class="language-javascript">// 간단한 A/B 테스트 시스템
+class ABTestManager {
+    constructor() {
+        this.tests = new Map();
+        this.userVariant = this.getUserVariant();
+    }
+    
+    getUserVariant() {
+        // 사용자 ID 또는 세션 기반으로 variant 결정
+        const userId = this.getUserId();
+        const hash = this.hashString(userId);
+        return hash % 2 === 0 ? 'A' : 'B';
+    }
+    
+    getUserId() {
+        // localStorage에서 사용자 ID 가져오기 또는 생성
+        let userId = localStorage.getItem('user_id');
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('user_id', userId);
+        }
+        return userId;
+    }
+    
+    hashString(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // 32bit 정수로 변환
+        }
+        return Math.abs(hash);
+    }
+    
+    createTest(testName, variants) {
+        this.tests.set(testName, {
+            variants,
+            userVariant: this.userVariant
+        });
+    }
+    
+    getVariant(testName) {
+        const test = this.tests.get(testName);
+        if (!test) return null;
+        
+        const variantKey = test.userVariant;
+        return test.variants[variantKey];
+    }
+    
+    trackConversion(testName, conversionType) {
+        const variant = this.userVariant;
+        
+        // Google Analytics로 전환 추적
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'ab_test_conversion', {
+                test_name: testName,
+                variant: variant,
+                conversion_type: conversionType
+            });
+        }
+    }
+}
+
+// A/B 테스트 사용 예제
+const abTest = new ABTestManager();
+
+// 버튼 색상 테스트
+abTest.createTest('button_color', {
+    A: { color: '#007bff', text: '지금 시작하기' },
+    B: { color: '#28a745', text: '무료로 시작하기' }
+});
+
+// 테스트 적용
+const ctaButton = document.getElementById('cta-button');
+const buttonVariant = abTest.getVariant('button_color');
+
+if (buttonVariant && ctaButton) {
+    ctaButton.style.backgroundColor = buttonVariant.color;
+    ctaButton.textContent = buttonVariant.text;
+    
+    // 클릭 시 전환 추적
+    ctaButton.addEventListener('click', () => {
+        abTest.trackConversion('button_color', 'cta_click');
+    });
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>실습 활동</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>실습 1: 개인 포트폴리오 배포</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 완성된 개인 포트폴리오를 GitHub Pages를 통해 배포합니다.</p>
+                            
+                            <h4>진행 과정:</h4>
+                            <ul>
+                                <li>Git 저장소 설정 및 커밋</li>
+                                <li>GitHub Pages 설정</li>
+                                <li>커스텀 도메인 설정 (선택)</li>
+                                <li>Google Analytics 연동</li>
+                                <li>성능 측정 및 최적화</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>실습 2: 프로젝트 CI/CD 파이프라인</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> Copilot과 함께 GitHub Actions를 활용한 자동 배포 시스템을 구축합니다.</p>
+                            
+                            <h4>구현 기능:</h4>
+                            <ul>
+                                <li>자동 코드 검사 (ESLint, Prettier)</li>
+                                <li>자동 테스트 실행</li>
+                                <li>빌드 및 최적화 과정</li>
+                                <li>자동 배포 및 알림</li>
+                                <li>롤백 전략</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>실습 3: 성능 모니터링 대시보드</h3>
+                        <div class="activity-content">
+                            <p><strong>목표:</strong> 배포된 웹사이트의 성능을 실시간으로 모니터링하는 시스템을 구현합니다.</p>
+                            
+                            <h4>주요 기능:</h4>
+                            <ul>
+                                <li>Core Web Vitals 추적</li>
+                                <li>사용자 행동 분석</li>
+                                <li>에러 로깅 및 알림</li>
+                                <li>A/B 테스트 구현</li>
+                                <li>성능 리포트 생성</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>주차 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>핵심 포인트</h3>
+                        <ul>
+                            <li>Git을 활용한 효율적인 버전 관리</li>
+                            <li>체계적인 테스팅과 품질 보증</li>
+                            <li>다양한 플랫폼을 통한 웹 배포</li>
+                            <li>성능 모니터링과 사용자 분석</li>
+                            <li>지속적인 개선을 위한 A/B 테스팅</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>14주차에서는 최종 프로젝트 발표를 준비합니다. 개발한 웹 애플리케이션의 기술적 특징, 개발 과정, 성과를 효과적으로 전달하는 발표 기법을 학습합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week12.html" class="btn btn-secondary">← 12주차: 웹 애플리케이션 개발</a>
+                    <a href="week14.html" class="btn btn-primary">14주차: 최종 프로젝트 발표 준비 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

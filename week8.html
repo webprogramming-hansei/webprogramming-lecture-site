@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8주차: 중간고사 - 프로젝트 제안 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="week-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"><h1>웹프로그래밍 강의</h1></a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">홈</a>
+                    <a href="#objectives" class="nav-link">평가 기준</a>
+                    <a href="#content" class="nav-link">제안서 가이드</a>
+                    <a href="#activities" class="nav-link">과제 안내</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-hero">
+            <div class="container">
+                <div class="week-header">
+                    <h1>8주차: 중간고사 - 프로젝트 제안</h1>
+                    <p>최종 프로젝트를 위한 주제 선정, 제안서 작성 및 프로토타입 제작을 진행합니다</p>
+                    <div class="week-navigation">
+                        <a href="week7.html" class="btn btn-secondary">← 7주차</a>
+                        <a href="week9.html" class="btn btn-primary">9주차 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectives" class="week-content">
+            <div class="container">
+                <h2>평가 기준 (총 20%)</h2>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-icon">📋</div>
+                        <h3>제안서 (10%)</h3>
+                        <p>프로젝트 계획과 구조가 명확하게 작성된 제안서</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎨</div>
+                        <h3>프로토타입 (10%)</h3>
+                        <p>HTML/CSS로 구현된 기본 프로토타입</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">🎯</div>
+                        <h3>실현 가능성</h3>
+                        <p>학습한 기술로 구현 가능한 적절한 수준의 프로젝트</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-icon">💡</div>
+                        <h3>창의성</h3>
+                        <p>독창적이고 의미있는 아이디어와 접근법</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content" class="week-content">
+            <div class="container">
+                <h2>프로젝트 제안서 가이드</h2>
+                <div class="content-sections">
+                    
+                    <div class="content-section">
+                        <h3>1. 프로젝트 주제 선정</h3>
+                        <p>실현 가능하면서도 의미있는 프로젝트 주제를 선택합니다.</p>
+                        
+                        <h4>추천 프로젝트 아이디어</h4>
+                        <div class="project-ideas">
+                            <div class="idea-category">
+                                <h5>개인 웹사이트</h5>
+                                <ul>
+                                    <li>포트폴리오 사이트</li>
+                                    <li>개인 블로그</li>
+                                    <li>취미 소개 사이트</li>
+                                    <li>이력서 웹사이트</li>
+                                </ul>
+                            </div>
+                            <div class="idea-category">
+                                <h5>정보 제공 사이트</h5>
+                                <ul>
+                                    <li>지역 맛집 안내</li>
+                                    <li>여행지 정보</li>
+                                    <li>학습 자료 모음</li>
+                                    <li>책/영화 리뷰</li>
+                                </ul>
+                            </div>
+                            <div class="idea-category">
+                                <h5>실용 도구</h5>
+                                <ul>
+                                    <li>할 일 관리 앱</li>
+                                    <li>간단한 계산기</li>
+                                    <li>날씨 정보 앱</li>
+                                    <li>메모 앱</li>
+                                </ul>
+                            </div>
+                            <div class="idea-category">
+                                <h5>게임 & 엔터테인먼트</h5>
+                                <ul>
+                                    <li>퀴즈 게임</li>
+                                    <li>메모리 카드 게임</li>
+                                    <li>간단한 퍼즐</li>
+                                    <li>랜덤 추천기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>2. 제안서 작성 양식</h3>
+                        <p>아래 양식을 참고하여 상세한 제안서를 작성하세요.</p>
+                        
+                        <div class="proposal-template">
+                            <div class="template-section">
+                                <h4>프로젝트 개요</h4>
+                                <ul>
+                                    <li><strong>프로젝트명:</strong> 웹사이트/앱의 이름</li>
+                                    <li><strong>목적:</strong> 프로젝트를 만드는 이유와 목표</li>
+                                    <li><strong>대상 사용자:</strong> 누구를 위한 서비스인지</li>
+                                    <li><strong>주요 기능:</strong> 핵심 기능 3-5개</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="template-section">
+                                <h4>기술적 요구사항</h4>
+                                <ul>
+                                    <li><strong>사용 기술:</strong> HTML, CSS, JavaScript</li>
+                                    <li><strong>페이지 구성:</strong> 메인 페이지, 서브 페이지 등</li>
+                                    <li><strong>반응형 지원:</strong> 모바일, 태블릿, 데스크톱</li>
+                                    <li><strong>브라우저 호환성:</strong> 최신 브라우저 지원</li>
+                                </ul>
+                            </div>
+
+                            <div class="template-section">
+                                <h4>사이트맵 및 와이어프레임</h4>
+                                <ul>
+                                    <li>페이지 구조도 (사이트맵)</li>
+                                    <li>각 페이지의 레이아웃 스케치</li>
+                                    <li>네비게이션 구조</li>
+                                    <li>주요 컴포넌트 위치</li>
+                                </ul>
+                            </div>
+
+                            <div class="template-section">
+                                <h4>개발 일정</h4>
+                                <ul>
+                                    <li><strong>9-10주차:</strong> HTML 구조 및 기본 CSS</li>
+                                    <li><strong>11-12주차:</strong> JavaScript 기능 구현</li>
+                                    <li><strong>13-14주차:</strong> 세부 기능 완성 및 테스트</li>
+                                    <li><strong>15주차:</strong> 최종 검토 및 발표 준비</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>3. HTML/CSS 프로토타입 요구사항</h3>
+                        <p>제안서와 함께 제출할 기본 프로토타입의 요구사항입니다.</p>
+                        
+                        <h4>필수 포함 사항</h4>
+                        <div class="prototype-requirements">
+                            <div class="requirement-item">
+                                <h5>✅ HTML 구조</h5>
+                                <ul>
+                                    <li>시맨틱 태그 사용 (header, nav, main, footer)</li>
+                                    <li>적절한 제목 태그 계층 구조</li>
+                                    <li>최소 3개 페이지 (메인 + 서브페이지 2개)</li>
+                                </ul>
+                            </div>
+
+                            <div class="requirement-item">
+                                <h5>✅ CSS 스타일링</h5>
+                                <ul>
+                                    <li>외부 CSS 파일 사용</li>
+                                    <li>일관된 색상 체계 및 폰트</li>
+                                    <li>기본적인 레이아웃 (Flexbox 사용)</li>
+                                    <li>반응형 디자인 (모바일/데스크톱)</li>
+                                </ul>
+                            </div>
+
+                            <div class="requirement-item">
+                                <h5>✅ 사용성</h5>
+                                <ul>
+                                    <li>명확한 네비게이션</li>
+                                    <li>읽기 쉬운 텍스트</li>
+                                    <li>접근 가능한 색상 대비</li>
+                                    <li>일관된 UI 패턴</li>
+                                </ul>
+                            </div>
+
+                            <div class="requirement-item">
+                                <h5>✅ 코드 품질</h5>
+                                <ul>
+                                    <li>들여쓰기와 주석</li>
+                                    <li>의미있는 클래스명</li>
+                                    <li>HTML 유효성 검사 통과</li>
+                                    <li>CSS 구조화</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>4. GitHub 저장소 설정</h3>
+                        <p>프로젝트 관리를 위한 GitHub 저장소 설정 방법입니다.</p>
+                        
+                        <div class="github-setup">
+                            <div class="setup-step">
+                                <h4>1단계: 저장소 생성</h4>
+                                <ul>
+                                    <li>GitHub에서 새 저장소 생성</li>
+                                    <li>저장소명: [이름]-web-project</li>
+                                    <li>Public 저장소로 설정</li>
+                                    <li>README.md 파일 포함</li>
+                                </ul>
+                            </div>
+
+                            <div class="setup-step">
+                                <h4>2단계: 폴더 구조</h4>
+                                <div class="code-example">
+                                    <pre><code>my-web-project/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── images/
+│   └── (이미지 파일들)
+├── pages/
+│   ├── about.html
+│   └── contact.html
+└── README.md</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="setup-step">
+                                <h4>3단계: README.md 작성</h4>
+                                <ul>
+                                    <li>프로젝트 설명</li>
+                                    <li>주요 기능</li>
+                                    <li>사용 기술</li>
+                                    <li>실행 방법</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="week-content">
+            <div class="container">
+                <h2>중간고사 과제 안내</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>과제 1: 프로젝트 제안서 작성</h3>
+                        <div class="activity-content">
+                            <p><strong>제출 기한:</strong> 8주차 금요일 자정</p>
+                            <p><strong>제출 방법:</strong> 과제 제출 시스템 업로드</p>
+                            
+                            <h4>제출 파일:</h4>
+                            <ul>
+                                <li>제안서 문서 (PDF 또는 Word)</li>
+                                <li>와이어프레임 이미지</li>
+                                <li>사이트맵 다이어그램</li>
+                            </ul>
+
+                            <h4>평가 기준:</h4>
+                            <ul>
+                                <li>아이디어의 명확성과 실현 가능성</li>
+                                <li>기술적 요구사항 명시</li>
+                                <li>개발 계획의 구체성</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="copilot-badge">GitHub Copilot</div>
+                        <h3>과제 2: HTML/CSS 프로토타입</h3>
+                        <div class="activity-content">
+                            <p><strong>제출 기한:</strong> 8주차 금요일 자정</p>
+                            <p><strong>제출 방법:</strong> GitHub 저장소 링크 제출</p>
+                            
+                            <h4>구현 사항:</h4>
+                            <ul>
+                                <li>메인 페이지 + 서브페이지 2개</li>
+                                <li>반응형 네비게이션</li>
+                                <li>기본 스타일링 완료</li>
+                                <li>GitHub Pages로 배포</li>
+                            </ul>
+
+                            <h4>Copilot 활용:</h4>
+                            <ul>
+                                <li>HTML 구조 자동완성</li>
+                                <li>CSS 스타일 제안</li>
+                                <li>반응형 코드 생성</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <h3>선택 과제: 프로젝트 발표</h3>
+                        <div class="activity-content">
+                            <p><strong>발표 일정:</strong> 8주차 수업 시간</p>
+                            <p><strong>발표 시간:</strong> 학생당 3-5분</p>
+                            
+                            <h4>발표 내용:</h4>
+                            <ul>
+                                <li>프로젝트 아이디어 소개</li>
+                                <li>주요 기능 설명</li>
+                                <li>프로토타입 시연</li>
+                                <li>향후 개발 계획</li>
+                            </ul>
+
+                            <h4>평가 혜택:</h4>
+                            <ul>
+                                <li>발표 참여시 가산점</li>
+                                <li>동료 피드백 수집</li>
+                                <li>프로젝트 개선 아이디어</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-summary">
+            <div class="container">
+                <h2>중간고사 요약</h2>
+                <div class="summary-content">
+                    <div class="summary-points">
+                        <h3>평가 요소</h3>
+                        <ul>
+                            <li>프로젝트 제안서의 완성도와 실현 가능성</li>
+                            <li>HTML/CSS 프로토타입의 기술적 구현</li>
+                            <li>코드 품질 및 구조화</li>
+                            <li>창의적 아이디어와 사용자 경험 고려</li>
+                            <li>GitHub 활용 및 문서화</li>
+                        </ul>
+                    </div>
+                    <div class="next-week-preview">
+                        <h3>다음 주 미리보기</h3>
+                        <p>9주차부터는 고급 JavaScript DOM 조작을 학습합니다. 동적 요소 생성과 삭제, 스타일 변경 등을 통해 더욱 인터랙티브한 웹페이지를 만들어봅니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="week-navigation-bottom">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="week7.html" class="btn btn-secondary">← 7주차: JavaScript 이벤트</a>
+                    <a href="week9.html" class="btn btn-primary">9주차: 고급 JavaScript DOM →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <style>
+    .project-ideas, .prototype-requirements, .github-setup {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .idea-category, .requirement-item, .setup-step {
+        background: var(--bg-light);
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .idea-category h5, .requirement-item h5, .setup-step h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    .proposal-template {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        margin: 20px 0;
+    }
+
+    .template-section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .template-section:last-child {
+        border-bottom: none;
+    }
+
+    .template-section h4 {
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+    }
+    </style>
+</body>
+</html>
