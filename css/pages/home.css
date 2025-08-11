@@ -38,52 +38,6 @@
     gap: 20px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: var(--secondary-color);
-    color: white;
-    border-color: var(--secondary-color);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    border-color: var(--secondary-color);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: white;
-    border-color: white;
-}
-
-.btn-secondary:hover {
-    background-color: white;
-    color: var(--primary-color);
-}
-
-.btn-small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 20px;
-}
-
-.btn-small:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
 /* 코드 애니메이션 */
 .hero-image {
     display: flex;
@@ -125,10 +79,7 @@
     }
 }
 
-/* 섹션 공통 스타일 */
-section {
-    padding: 80px 0;
-}
+/* 섹션 공통 스타일 (패딩은 layout.css에서 관리) */
 
 section:nth-child(even) {
     background-color: var(--bg-light);
@@ -551,38 +502,7 @@ footer::before {
 
 /* 반응형 디자인 */
 @media screen and (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--bg-color);
-        width: 100%;
-        text-align: center;
-        transition: var(--transition);
-        box-shadow: var(--shadow);
-        padding: 20px 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    /* 네비게이션 반응형 규칙은 components.css에서 관리 */
 
     .hero-content {
         grid-template-columns: 1fr;
@@ -659,10 +579,6 @@ footer::before {
         padding: 0 15px;
     }
 
-    .nav-container {
-        padding: 0 15px;
-    }
-
     .hero {
         padding: 100px 0 60px;
     }
@@ -675,20 +591,13 @@ footer::before {
         font-size: 2rem;
     }
 
-    section {
-        padding: 60px 0;
-    }
-
     .overview-grid,
     .evaluation-grid,
     .tools-grid {
         grid-template-columns: 1fr;
     }
 
-    .btn {
-        padding: 10px 25px;
-        font-size: 0.9rem;
-    }
+    /* 버튼 크기 조정은 components.css에서 관리 */
 }
 
 /* 스크롤 애니메이션 */
@@ -1075,7 +984,7 @@ footer::before {
         align-items: center;
     }
     
-    .btn {
+    .hero-buttons .btn {
         width: 250px;
     }
 }

@@ -12,3 +12,7 @@ section { padding: 72px 0; }
   .tools .tools-grid { grid-template-columns: repeat(3, 1fr); }
   .references .references-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+@media (max-width: 480px) {
+  section { padding: 60px 0; }
+}
