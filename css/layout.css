@@ -1,0 +1,14 @@
+/* Layout: sections, grids, responsive */
+section { padding: 72px 0; }
+
+/* Common grids (can be extended) */
+.overview .overview-grid,
+.evaluation .evaluation-grid,
+.tools .tools-grid,
+.references .references-grid { display: grid; gap: 24px; }
+
+@media (min-width: 768px) {
+  .overview .overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .tools .tools-grid { grid-template-columns: repeat(3, 1fr); }
+  .references .references-grid { grid-template-columns: repeat(3, 1fr); }
+}
