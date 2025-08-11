@@ -1,15 +1,16 @@
 // Navbar 모듈
 export async function loadNavbar() {
   try {
-  // Resolve correct navbar path based on current page location
+  // Resolve correct navbar partial path based on current page location
   const pageType = getCurrentPageType();
-  const navbarPath = pageType === 'week' ? '../navbar.html' : 'navbar.html';
+  const basePrefix = pageType === 'week' ? '..' : '.';
+  const navbarPath = `${basePrefix}/partials/navbar.html`;
   const response = await fetch(navbarPath);
     const navbarHTML = await response.text();
     const header = document.querySelector('header');
     if (header) {
       header.innerHTML = navbarHTML;
-  // After injecting HTML, normalize logo paths based on page depth
+  // After injecting HTML, normalize logo paths and links based on page depth
   updateNavLogoForPage();
       customizeNavbarForPage();
       initializeNavbar();
@@ -48,11 +49,11 @@ function updateNavLogoForPage() {
   if (!logoLink || !logoImg) return;
 
   if (pageType === 'week') {
-    logoLink.setAttribute('href', '../index.html');
-    logoImg.setAttribute('src', '../logo.svg');
+  logoLink.setAttribute('href', '../index.html');
+  logoImg.setAttribute('src', '../assets/img/logo.svg');
   } else {
-    logoLink.setAttribute('href', 'index.html');
-    logoImg.setAttribute('src', 'logo.svg');
+  logoLink.setAttribute('href', 'index.html');
+  logoImg.setAttribute('src', 'assets/img/logo.svg');
   }
 }
 
