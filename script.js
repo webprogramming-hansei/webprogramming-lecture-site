@@ -160,4 +160,109 @@ document.addEventListener('DOMContentLoaded', function() {
     highlightCurrentSection();
 
     console.log('웹프로그래밍 강의 웹사이트가 성공적으로 로드되었습니다.');
+
+    // 인라인 스크립트에서 이동: 파티클 애니메이션 및 카운터 초기화
+    initParticleAnimation();
+    animateCounters();
 });
+
+// 인라인 스크립트에서 이동: 파티클 애니메이션
+function initParticleAnimation() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const particleCount = 150;
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 2;
+            this.vy = (Math.random() - 0.5) * 2;
+            this.radius = Math.random() * 2 + 1;
+            this.opacity = Math.random();
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(79, 172, 254, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+
+        // 파티클 간 연결선 그리기
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(79, 172, 254, ${0.3 - distance / 300})`;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+// 인라인 스크립트에서 이동: 카운터 애니메이션
+function animateCounters() {
+    const counters = [
+        { element: document.getElementById('students-counter'), target: 0, suffix: '+' },
+        { element: document.getElementById('projects-counter'), target: 0, suffix: '+' },
+        { element: document.getElementById('hours-counter'), target: 0, suffix: 'h' }
+    ];
+
+    counters.forEach(({ element, target, suffix }) => {
+        if (!element) return;
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current) + suffix;
+        }, 50);
+    });
+}
