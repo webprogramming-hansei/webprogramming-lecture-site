@@ -1,23 +1,5 @@
-// 모바일 네비게이션 토글 기능
+// 전역 기능들
 document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // 햄버거 메뉴 토글
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // 네비게이션 링크 클릭시 메뉴 닫기
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
     // 부드러운 스크롤 기능
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
@@ -39,12 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 스크롤에 따른 네비게이션 스타일 변경
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else {
-            navbar.style.backgroundColor = 'var(--bg-color)';
-            navbar.style.backdropFilter = 'none';
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.backgroundColor = 'var(--bg-color)';
+                navbar.style.backdropFilter = 'none';
+            }
         }
     });
 

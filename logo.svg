@@ -1,0 +1,7 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="웹프로그래밍 로고 마크">
+  <title>웹프로그래밍 로고 마크</title>
+  <rect x="6" y="6" width="180" height="180" rx="28" ry="28" stroke="#79e7b6" stroke-width="12"/>
+  <path d="M72 48 L32 96 L72 144" stroke="#7cdcff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 48 L88 144" stroke="#7cdcff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M120 48 L160 96 L120 144" stroke="#7cdcff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
