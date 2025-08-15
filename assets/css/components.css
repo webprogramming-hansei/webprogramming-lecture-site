@@ -55,3 +55,40 @@ footer { margin-top: 80px; background: rgba(255,255,255,0.03); border-top: 1px s
   .nav-container { padding: 0 15px; }
   .btn { padding: 10px 25px; font-size: 0.9rem; }
 }
+
+/* === Global Footer (moved from home page for reuse) === */
+footer, footer.gradient-footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 50px 0 20px;
+  position: relative;
+}
+footer::before, footer.gradient-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--primary-color),transparent); }
+.footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-bottom:2rem; }
+.footer-section h3 { font-size:1.1rem; margin-bottom:1rem; color: var(--secondary-color); font-weight:600; }
+.footer-section p { opacity:0.8; line-height:1.6; margin-bottom:1rem; }
+.footer-links { display:flex; flex-direction:column; gap:.5rem; }
+.footer-links a { color:rgba(255,255,255,0.8); text-decoration:none; padding:.5rem 0; transition:var(--transition); display:flex; align-items:center; gap:.5rem; }
+.footer-links a:hover { color:var(--secondary-color); transform:translateX(5px); }
+.github-link { background:rgba(255,255,255,0.1); padding:.7rem 1rem !important; border-radius:8px; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.2); margin-bottom:.5rem; }
+.github-link:hover { background:rgba(255,255,255,0.2); transform:translateY(-2px); }
+.license-link { color: var(--secondary-color); text-decoration:underline; }
+.license-link:hover { color:#fff; }
+.open-source-badge { display:flex; align-items:center; gap:8px; background:linear-gradient(135deg,#10b981,#059669); color:#fff; padding:8px 12px; border-radius:20px; margin:10px 0; font-weight:600; font-size:.9em; box-shadow:0 2px 10px rgba(16,185,129,0.3); transition:var(--transition); }
+.open-source-badge:hover { transform:translateY(-2px); box-shadow:0 4px 15px rgba(16,185,129,0.4); }
+.license-info { background:rgba(255,255,255,0.05); padding:1rem; border-radius:8px; border-left:3px solid var(--secondary-color); margin-top:1rem; }
+.license-permissions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:15px 0; }
+.permission { display:flex; align-items:center; gap:8px; padding:8px; border-radius:8px; font-size:.85em; transition:all .3s ease; }
+.permission.allowed { background:rgba(34,197,94,0.1); color:#22c55e; border-left:3px solid #22c55e; }
+.permission.restricted { background:rgba(239,68,68,0.1); color:#ef4444; border-left:3px solid #ef4444; }
+.permission:hover { transform:translateX(5px); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { margin:0; opacity:.7; }
+.footer-badges { display:flex; gap:.5rem; flex-wrap:wrap; }
+.badge { background: var(--primary-color); color:#fff; padding:.3rem .8rem; border-radius:15px; font-size:.8rem; font-weight:500; transition:var(--transition); }
+.badge:hover { transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,0.2); }
+.badge.cc-license { background:linear-gradient(45deg,#f59e0b,#d97706); }
+.badge.open-source { background:linear-gradient(45deg,#10b981,#059669); }
+.badge.educational { background:linear-gradient(45deg,#667eea,#764ba2); }
+.badge.non-commercial { background:linear-gradient(45deg,#6366f1,#4f46e5); }
+@media (max-width:768px){ .footer-content { grid-template-columns:1fr; gap:1.5rem; } .footer-bottom { flex-direction:column; text-align:center; gap:1rem; } }
