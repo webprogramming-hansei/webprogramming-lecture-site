@@ -1,14 +1,8 @@
 /* AI 프롬프트 페이지 전용 스타일 (기존 week/home 페이지와 톤 통일) */
 
-/* Hero: week-hero / home hero 와 유사한 패딩 & 그라데이션 */
-.prompts-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
-  padding: 120px 0 80px;
-  text-align: center;
-}
-.prompts-hero h1 { font-size: 2.5rem; font-weight:700; margin:0 0 20px; line-height:1.2; }
-.prompts-hero .subtitle { font-size:1.15rem; opacity:.9; max-width:880px; margin:0 auto; line-height:1.6; }
+/* Hero: week-hero 재사용 (week.css) - prompts 전용 미세 조정 */
+.prompts-hero.week-hero { padding: 120px 0 80px; }
+.prompts-hero .week-header p { font-size:1.15rem; opacity:.9; max-width:880px; margin:0 auto 30px; line-height:1.6; }
 
 /* Section wrapper (layout.css 기본 padding 72px 사용, 추가 정밀 조정) */
 .prompts-section { padding: 72px 0; }
