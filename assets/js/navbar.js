@@ -35,6 +35,7 @@ function customizeNavbarForPage() {
     navMenu.innerHTML = `
       <a href="../index.html" class="nav-link">홈</a>
       <a href="../index.html#curriculum" class="nav-link">커리큘럼</a>
+  <a href="../prompts.html" class="nav-link">AI 프롬프트</a>
       <a href="#objectives" class="nav-link">학습 목표</a>
       <a href="#content" class="nav-link">강의 내용</a>
       <a href="#activities" class="nav-link">실습 활동</a>

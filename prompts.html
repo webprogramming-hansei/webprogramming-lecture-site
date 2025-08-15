@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 활용 프롬프트 모음 - 웹프로그래밍 강의</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/pages/prompts.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main class="prompts-page">
+      <section class="prompts-hero">
+        <div class="container">
+          <h1>AI 활용 프롬프트 모음</h1>
+          <p class="subtitle">
+            AI 테스트 & 학습 시 바로 활용할 수 있는 고효율 프롬프트 패턴을
+            정리했습니다.
+          </p>
+          <div class="hero-actions">
+            <a href="index.html" class="btn btn-secondary">← 홈으로</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="guidelines" class="prompts-section">
+        <div class="container">
+          <h2>🧭 기본 원칙</h2>
+          <div class="principles-grid">
+            <div class="principle-card">
+              <h3>🎯 목적 명확화</h3>
+              <p>
+                무엇(What)을 원하는지와 왜(Why) 필요한지를 함께 작성하면 AI가 더
+                정확하게 응답합니다.
+              </p>
+            </div>
+            <div class="principle-card">
+              <h3>🧱 문맥 제공</h3>
+              <p>
+                현재 코드 일부, 에러 메시지, 기대 동작 등을 함께 제공하세요.
+              </p>
+            </div>
+            <div class="principle-card">
+              <h3>🔁 점진적 개선</h3>
+              <p>한 번에 완벽한 답을 기대하지 말고 후속 질문으로 다듬으세요.</p>
+            </div>
+            <div class="principle-card">
+              <h3>✅ 출력 형식 지정</h3>
+              <p>
+                예: "표 형태로", "JSON으로", "단계 목록" 등 원하는 포맷을
+                명시합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="patterns" class="prompts-section">
+        <div class="container">
+          <h2>📦 핵심 프롬프트 패턴</h2>
+          <div class="prompt-category">
+            <h3>1. 오류 디버깅</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>역할: 당신은 경험 많은 JavaScript 디버거입니다.
+문맥: 아래 코드는 버튼 클릭 시 카운터가 증가해야 하지만 동작하지 않습니다.
+코드:
+---
+// index.js
+let count = 0;
+document.getElementById('btn').addEventListener('click', () => {
+  count++
+  document.querySelector('#value').innerText = count
+})
+---
+문제: 클릭해도 숫자가 안 바뀜.
+요청: 1) 가능한 원인 3가지 2) 각 해결 방법 3) 개선된 코드 제시.
+출력 형식: 마크다운 표 & 코드블록.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+          <div class="prompt-category">
+            <h3>2. 코드 리팩터링</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>역할: 성능과 가독성 개선을 돕는 시니어 프론트엔드 개발자.
+대상 코드 목적: 배열에서 짝수만 골라 제곱하여 합산.
+제한: ES6 이상, 사이드이펙트 금지.
+코드:
+---
+function calc(arr){
+  let s = 0;
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]%2===0){
+      s+=arr[i]*arr[i];
+    }
+  }
+  return s;
+}
+---
+요청: 1) 문제점 지적 2) 개선안 3) 리팩터링 버전 2가지 (가독성/고급 함수형) 4) Big-O 분석.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+          <div class="prompt-category">
+            <h3>3. 학습 & 개념 정리</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>목표: 초보자가 '이벤트 버블링'을 이해.
+요청: 1) 한 문장 정의 2) 단계별 동작 흐름 3) 간단한 비유 4) 잘못된 오해 2가지 5) 15줄 이하 예제 코드 6) 스스로 점검 퀴즈 3문항 (정답 포함).</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+          <div class="prompt-category">
+            <h3>4. 기능 설계 → 코드</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>역할: 요구사항을 명확한 컴포넌트 설계와 코드로 변환하는 도우미.
+요구사항(자연어): 사용자가 Todo 입력 → 목록 추가, 완료 토글, 삭제.
+제약: 순수 JS (프레임워크 X), 로컬스토리지 저장, 접근성 고려.
+요청: 1) 기능 목록 2) 상태 구조 3) 이벤트 흐름 4) HTML 골격 5) JS 구현 (모듈화) 6) 추가 개선 아이디어.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+          <div class="prompt-category">
+            <h3>5. 성능 최적화 조언</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>역할: 웹 성능 컨설턴트.
+문맥: 이미지 많은 랜딩 페이지 초기 로딩이 느림.
+환경: 정적 호스팅, 빌드 도구 없음.
+요청: 1) 체크리스트 (Critical Rendering Path 기준) 2) 적용 우선순위 3) 예시 코드 (지연 로딩/이미지 포맷) 4) 개선 전/후 기대 영향 (정성적).</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+          <div class="prompt-category">
+            <h3>6. 시험 대비 연습문항 생성</h3>
+            <div class="prompt-card" data-prompt>
+              <pre><code>목표: JavaScript 비동기 관련 5문제 생성.
+범위: Promise, async/await, fetch 에러 처리.
+난이도: 쉬움2 / 중간2 / 약간어려움1.
+출력: 번호, 문제, 선택지 4개, 정답 & 해설.
+추가: 각 난이도별 학습 포인트 한 줄.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 유용한 프롬프트 섹션 추가 -->
+      <section id="useful" class="prompts-section">
+        <div class="container">
+          <h2>🔧 유용한 AI 실험 프롬프트</h2>
+          <p
+            style="
+              text-align: center;
+              max-width: 820px;
+              margin: 0 auto 40px;
+              color: var(--text-light);
+              font-size: 0.95rem;
+            "
+          >
+            아래 예시는 영감을 제공하고 AI를 테스트 할 수 있는 프롬프트 입니다.
+          </p>
+          <div class="useful-prompts-grid">
+            <!-- 예시 1: 다목적 코드 리뷰 프롬프트 -->
+            <div class="prompt-card" data-prompt>
+              <pre><code>Create html, css, and javascript code where a ball bounces inside a spinning hexagon. the ball must be affected by gravity and friction, and bounce realistically off the rotating walls.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Write html, css, and javascript to display 20 balls bouncing inside a spinning heptagon. each ball should have a unique color, a number label, gravity, and collision detection with the walls. all code in one file.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Create html/css/js where a fountain emits colorful particles from the bottom center of the canvas. particles should follow gravity, fade over time, and be removed when they leave the screen.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Create html/css/js for a pong game where the left paddle is user-controlled with arrow keys and the right paddle is controlled by a basic ai following the ball.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Write html/css/js where a dvd logo moves around the screen, bouncing off the edges, and changes color on each bounce.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Make html/css/js that simulates a rotating 3d starfield as if moving through space. stars closer to the viewer should appear larger and move faster.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Write html/css/js that draws a fractal tree using recursion. allow tree angle and depth to be adjustable with sliders in the browser.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Create html/css/js for a snake game controlled by arrow keys. snake grows when it eats food, and game ends when snake hits itself or the wall.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+            <div class="prompt-card" data-prompt>
+              <pre><code>Write html/css/js where the shape itself changes between triangle, square, pentagon, hexagon, and octagon every 5 seconds, with a ball bouncing inside it under gravity and friction.</code></pre>
+              <button class="copy-btn" data-copy>복사</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tips" class="prompts-section">
+        <div class="container">
+          <h2>💡 프롬프트 작성 체크리스트</h2>
+          <ul class="checklist">
+            <li><strong>역할(Role)</strong>을 지정했는가?</li>
+            <li><strong>문맥(Context)</strong>을 충분히 제공했는가?</li>
+            <li><strong>요청(Task)</strong>을 번호로 구조화했는가?</li>
+            <li><strong>출력 형식(Output Format)</strong>을 구체화했는가?</li>
+            <li><strong>제약조건(Constraints)</strong>을 명시했는가?</li>
+            <li>
+              <strong>후속 활용</strong>을 염두에 두고 복사/재사용이 쉬운가?
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="practice" class="prompts-section">
+        <div class="container">
+          <h2>🛠 실습: 나만의 프롬프트 작성</h2>
+          <p>
+            아래 템플릿을 복사해 자신만의 학습/테스트용 프롬프트를 만들어보세요.
+          </p>
+          <div class="prompt-card" data-prompt>
+            <pre><code>역할(Role): 
+목표(Goal): 
+문맥(Context): 
+제약(Constraints): 
+요청(Tasks): 1)  2)  3)  
+출력 형식(Format): 
+추가 개선(Improve Next): 내가 더 명확히 정의해야 할 부분은?</code></pre>
+            <button class="copy-btn" data-copy>복사</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 웹프로그래밍 강의. GitHub Copilot으로 제작되었습니다.</p>
+      </div>
+    </footer>
+    <script type="module" src="assets/js/prompts.js"></script>
+  </body>
+</html>
