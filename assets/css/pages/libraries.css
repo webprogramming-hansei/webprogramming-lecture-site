@@ -24,6 +24,16 @@
 .thumb-axios::before { content:'AXIOS'; letter-spacing:2px; }
 .thumb-zustand { background:#1a1a1a; font-size:1.3rem; font-weight:600; }
 .thumb-zustand::before { content:'🐻'; }
+.thumb-redux { background:#764abc url('https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png') center/70px no-repeat; }
+.thumb-next { background:#000 url('https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png') center/70px no-repeat; }
+.thumb-astro { background:#1b1b26 url('https://raw.githubusercontent.com/withastro/astro/main/.github/assets/astro-logo-dark.svg') center/90px no-repeat; }
+.thumb-lit { background:#202124 url('https://raw.githubusercontent.com/lit/lit/main/packages/lit-dev-content/site/images/logo.svg') center/90px no-repeat; }
+.thumb-alpine { background:#2d3748 url('https://raw.githubusercontent.com/alpinejs/alpine/master/packages/alpinejs/logo.svg') center/90px no-repeat; }
+.thumb-framer { background:#000 url('https://raw.githubusercontent.com/framer/motion/main/.github/assets/motion.png') center/90px no-repeat; }
+.thumb-radix { background:#111 url('https://www.radix-ui.com/favicon.svg') center/70px no-repeat; }
+.thumb-query { background:#171923 url('https://raw.githubusercontent.com/TanStack/query/main/media/emblem-light.svg') center/70px no-repeat; }
+.thumb-vitest { background:#1e293b url('https://vitest.dev/logo.svg') center/80px no-repeat; }
+.thumb-cypress { background:#24292e url('https://raw.githubusercontent.com/cypress-io/cypress/develop/assets/cypress-logo-dark.png') center/120px no-repeat; }
 
 .library-body { padding:22px 22px 20px; display:flex; flex-direction:column; gap:12px; flex:1; }
 .library-body h3 { margin:0; font-size:1.25rem; color:var(--primary-color); }
