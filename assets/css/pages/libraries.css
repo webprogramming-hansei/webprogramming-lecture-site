@@ -34,6 +34,17 @@
 .thumb-query { background:#171923 url('https://raw.githubusercontent.com/TanStack/query/main/media/emblem-light.svg') center/70px no-repeat; }
 .thumb-vitest { background:#1e293b url('https://vitest.dev/logo.svg') center/80px no-repeat; }
 .thumb-cypress { background:#24292e url('https://raw.githubusercontent.com/cypress-io/cypress/develop/assets/cypress-logo-dark.png') center/120px no-repeat; }
+.thumb-preact { background:#673ab8 url('https://raw.githubusercontent.com/preactjs/preact/master/assets/preact-logo.svg') center/80px no-repeat; }
+.thumb-solid { background:#2c4f7c url('https://www.solidjs.com/assets/logo-123b04bc.svg') center/80px no-repeat; }
+.thumb-emotion { background:#1e293b; font-size:1.1rem; font-weight:600; }
+.thumb-emotion::before { content:'emotion'; letter-spacing:1px; }
+.thumb-styled { background:#302d41; font-size:0.9rem; font-weight:600; }
+.thumb-styled::before { content:'styled'; }
+.thumb-swr { background:#000 url('https://raw.githubusercontent.com/vercel/swr/main/.github/swr-logo.png') center/120px no-repeat; }
+.thumb-pinia { background:#ffdd57 url('https://pinia.vuejs.org/logo.svg') center/75px no-repeat; }
+.thumb-unocss { background:#111827 url('https://raw.githubusercontent.com/unocss/unocss/main/playground/public/icon-gray.svg') center/80px no-repeat; }
+.thumb-partytown { background:#5b21b6 url('https://partytown.builder.io/img/partytown-icon.png') center/80px no-repeat; }
+.thumb-shoelace { background:#1e1e2d url('https://shoelace.style/assets/images/logo/shoelace-logo.svg') center/120px no-repeat; }
 
 .library-body { padding:22px 22px 20px; display:flex; flex-direction:column; gap:12px; flex:1; }
 .library-body h3 { margin:0; font-size:1.25rem; color:var(--primary-color); }
