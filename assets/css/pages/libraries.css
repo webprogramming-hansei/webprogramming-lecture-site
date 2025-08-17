@@ -1,0 +1,55 @@
+/* Libraries page specific styles */
+.libraries-hero.week-hero { padding:120px 0 80px; }
+.libraries-section { padding:60px 0; }
+.libraries-section:nth-of-type(even) { background: var(--bg-light); }
+.libraries-section h2 { font-size:2.2rem; text-align:center; margin:0 0 50px; position:relative; font-weight:700; }
+.libraries-section h2::after { content:''; position:absolute; width:90px; height:4px; background:linear-gradient(to right,var(--primary-color),var(--secondary-color)); bottom:-14px; left:50%; transform:translateX(-50%); border-radius:2px; }
+
+.library-grid { display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+.library-card { background:#fff; border-radius:16px; box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; transition:var(--transition); border:1px solid var(--border-color); }
+.library-card:hover { transform:translateY(-6px); box-shadow:0 10px 28px rgba(0,0,0,0.12); }
+.thumb { height:120px; background:#2d3748; display:flex; align-items:center; justify-content:center; font-size:2rem; color:#fff; font-weight:600; position:relative; }
+.thumb::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,0.08)); }
+.thumb-react { background:#20232a url('https://raw.githubusercontent.com/facebook/react/main/fixtures/dom/public/react-logo.svg') center/60px no-repeat; }
+.thumb-vue { background:#2c3e50 url('https://vuejs.org/images/logo.png') center/60px no-repeat; }
+.thumb-svelte { background:#ff3e00 url('https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg') center/70px no-repeat; }
+.thumb-angular { background:#b52e31 url('https://angular.io/assets/images/logos/angular/angular.svg') center/70px no-repeat; }
+.thumb-bootstrap { background:#563d7c url('https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png') center/70px no-repeat; }
+.thumb-tailwind { background:#0f172a url('https://tailwindcss.com/_next/static/media/tailwindcss-logotype.7c090530.svg') center/160px no-repeat; }
+.thumb-d3 { background:#f9f9f9 url('https://raw.githubusercontent.com/d3/d3-logo/master/d3.png') center/80px no-repeat; }
+.thumb-three { background:#000 url('https://threejs.org/files/favicon_white.ico') center/64px no-repeat; }
+.thumb-gsap { background:#111 url('https://greensock.com/uploads/monthly_2020_03/gsap-logo.svg') center/140px no-repeat; }
+.thumb-chartjs { background:#fff url('https://www.chartjs.org/media/logo-title.svg') center/150px no-repeat; }
+.thumb-axios { background:#0A192F; display:flex; font-size:1.4rem; font-weight:700; font-family:monospace; }
+.thumb-axios::before { content:'AXIOS'; letter-spacing:2px; }
+.thumb-zustand { background:#1a1a1a; font-size:1.3rem; font-weight:600; }
+.thumb-zustand::before { content:'🐻'; }
+
+.library-body { padding:22px 22px 20px; display:flex; flex-direction:column; gap:12px; flex:1; }
+.library-body h3 { margin:0; font-size:1.25rem; color:var(--primary-color); }
+.library-body .summary { margin:0; color:var(--text-light); font-size:0.9rem; line-height:1.55; flex:1; }
+.meta { display:flex; gap:14px; flex-wrap:wrap; }
+.meta a { font-size:0.75rem; background:var(--primary-color); color:#fff; padding:6px 12px; border-radius:20px; text-decoration:none; font-weight:500; letter-spacing:0.5px; transition:var(--transition); }
+.meta a.github { background:#24292e; }
+.meta a:hover { transform:translateY(-3px); box-shadow:0 4px 12px rgba(0,0,0,0.18); }
+
+/* Tools section */
+.tool-grid { display:grid; gap:28px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+.tool-item { background:#fff; border:1px solid var(--border-color); border-radius:14px; padding:20px 18px 18px; position:relative; box-shadow:var(--shadow); transition:var(--transition); }
+.tool-item:hover { transform:translateY(-5px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+.tool-item h4 { margin:0 0 10px; font-size:1.05rem; color:var(--secondary-color); }
+.tool-item p { margin:0 0 14px; font-size:0.85rem; line-height:1.5; color:var(--text-light); }
+.meta.small a { font-size:0.65rem; padding:5px 10px; }
+
+@media (max-width: 768px) {
+  .libraries-hero.week-hero { padding:100px 0 60px; }
+  .libraries-section { padding:50px 0; }
+  .libraries-section h2 { font-size:2rem; }
+  .library-grid { gap:24px; }
+  .tool-grid { gap:22px; }
+}
+@media (max-width: 480px) {
+  .libraries-section h2 { font-size:1.8rem; }
+  .library-body h3 { font-size:1.15rem; }
+  .library-body .summary { font-size:0.85rem; }
+}
