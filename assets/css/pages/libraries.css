@@ -74,3 +74,36 @@
   .library-body h3 { font-size:1.15rem; }
   .library-body .summary { font-size:0.85rem; }
 }
+
+/* =============================
+   Frontend Roadmap Section
+   ============================= */
+.roadmap-section { padding:60px 0 70px; }
+.roadmap-section .container { max-width:1400px; }
+.roadmap-intro { margin:0 0 22px; font-size:0.95rem; color:var(--text-light); text-align:center; }
+.roadmap-intro a { color:var(--primary-color); font-weight:600; }
+.roadmap-grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+.roadmap-card { background:#fff; border:1px solid var(--border-color); border-radius:14px; padding:16px 16px 18px; box-shadow:var(--shadow-sm,0 2px 4px rgba(0,0,0,0.05)); display:flex; flex-direction:column; gap:10px; position:relative; overflow:hidden; }
+.roadmap-card::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0),rgba(0,0,0,0.04)); pointer-events:none; }
+.roadmap-card h3 { margin:0; font-size:0.95rem; font-weight:600; letter-spacing:-0.25px; color:var(--secondary-color); }
+.roadmap-card ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.roadmap-card li { font-size:0.7rem; line-height:1.25; color:var(--text-light); }
+.roadmap-note { margin-top:28px; font-size:0.8rem; color:var(--text-light); background:linear-gradient(90deg,#f7f7f7,#fcfcfc); border:1px solid var(--border-color); padding:14px 16px; border-radius:12px; text-align:center; }
+
+@media (min-width: 1200px) {
+  .roadmap-card h3 { font-size:1.05rem; }
+  .roadmap-card li { font-size:0.72rem; }
+}
+@media (max-width: 640px) {
+  .roadmap-grid { gap:14px; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+  .roadmap-card { padding:14px 14px 16px; }
+  .roadmap-card h3 { font-size:0.9rem; }
+  .roadmap-card li { font-size:0.68rem; }
+}
+@media (prefers-color-scheme: dark) {
+  .roadmap-card { background:#1d1f23; border-color:#2b2f36; box-shadow:0 2px 6px rgba(0,0,0,0.55); }
+  .roadmap-card::before { background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0)); }
+  .roadmap-card h3 { color:#e6e8ea; }
+  .roadmap-card li, .roadmap-intro, .roadmap-note { color:#b5bcc3; }
+  .roadmap-note { background:linear-gradient(90deg,#1e2024,#23252a); border-color:#2b2f36; }
+}

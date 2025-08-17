@@ -502,6 +502,146 @@
       </div>
     </div>
   </section>
+
+  <section class="libraries-section roadmap-section" id="frontend-roadmap">
+    <div class="container">
+      <h2>🗺 프론트엔드 학습 로드맵 (요약)</h2>
+      <p class="roadmap-intro">roadmap.sh의 <a href="https://roadmap.sh/frontend" target="_blank" rel="noopener">Frontend Roadmap</a>을 기반으로 핵심 단계를 요약했습니다. (저작권 보호를 위해 전체 원문이 아닌 구조적 개요만 제공합니다.)</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-card">
+          <h3>1. 웹 & 인터넷 기초</h3>
+          <ul>
+            <li>인터넷 / HTTP 동작 원리 (Request/Response, Methods, Status Codes)</li>
+            <li>DNS, 호스팅, 도메인, CDN 개념</li>
+            <li>브라우저 동작 (Parsing, Rendering Pipeline)</li>
+            <li>기초 터미널/CLI 사용</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>2. HTML 마크업</h3>
+          <ul>
+            <li>시맨틱 태그 & 문서 구조</li>
+            <li>폼 & 접근성 속성 (label, aria-*)</li>
+            <li>미디어 (img, video, picture, source)</li>
+            <li>SEO 기초 (메타 태그, 구조화)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>3. CSS 기본 → 심화</h3>
+          <ul>
+            <li>선택자, 박스모델, Positioning, Display</li>
+            <li>Flexbox / Grid 레이아웃</li>
+            <li>반응형 (미디어쿼리, Mobile-first)</li>
+            <li>CSS 아키텍처 (BEM, Utility-first, Design System)</li>
+            <li>전처리 & PostCSS (선택적)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+            <h3>4. JavaScript 핵심</h3>
+            <ul>
+              <li>문법 & 자료형, Scope & Closure</li>
+              <li>비동기: Promise / async-await / Event Loop</li>
+              <li>DOM 조작, 이벤트, Fetch API</li>
+              <li>모듈 시스템 (ES Modules)</li>
+              <li>에러 처리 & 디버깅</li>
+            </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>5. 버전관리 & 패키지</h3>
+          <ul>
+            <li>Git 기본/브랜치 전략</li>
+            <li>npm / pnpm / yarn</li>
+            <li>Semver & Lock 파일 이해</li>
+            <li>패키지 스크립트 활용</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>6. 빌드 & 번들링</h3>
+          <ul>
+            <li>번들러: Vite, Webpack, Rollup, Parcel</li>
+            <li>Transpiling (Babel, SWC, ESBuild)</li>
+            <li>Lint/Format 자동화 (ESLint, Prettier)</li>
+            <li>환경변수 & 구성 (.env)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>7. 프레임워크 선택</h3>
+          <ul>
+            <li>React / Vue / Svelte / Solid / Angular / Next.js</li>
+            <li>SSR / SSG / CSR 차이</li>
+            <li>파일 기반 라우팅 개념</li>
+            <li>상태관리 기본 (Context / Store)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>8. 상태 & 데이터</h3>
+          <ul>
+            <li>전역 상태 (Redux Toolkit, Zustand, Pinia)</li>
+            <li>서버 상태 (TanStack Query, SWR)</li>
+            <li>캐싱 전략 & Optimistic Update</li>
+            <li>GraphQL 기초 (선택)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>9. 스타일링 전략</h3>
+          <ul>
+            <li>CSS Modules / CSS-in-JS (Emotion, Styled)</li>
+            <li>Utility & Atomic (Tailwind, UnoCSS)</li>
+            <li>Design Token / Theme / Dark mode</li>
+            <li>컴포넌트 라이브러리 (Radix UI, Headless UI)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>10. 테스트</h3>
+          <ul>
+            <li>단위: Vitest / Jest</li>
+            <li>컴포넌트: Testing Library</li>
+            <li>E2E: Cypress / Playwright</li>
+            <li>비주얼 회귀 (Storybook + 애드온)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>11. 품질 & 퍼포먼스</h3>
+          <ul>
+            <li>Lighthouse / Web Vitals</li>
+            <li>Code Splitting / Lazy Loading</li>
+            <li>이미지/폰트 최적화</li>
+            <li>메모리 & Re-render 분석</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>12. 접근성 & 보안</h3>
+          <ul>
+            <li>WCAG 기본, ARIA 역할</li>
+            <li>키보드 내비게이션</li>
+            <li>XSS / CSRF / CSP 개념</li>
+            <li>보안 헤더 & 의존성 점검</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>13. 배포 & 운영</h3>
+          <ul>
+            <li>CI/CD (GitHub Actions)</li>
+            <li>호스팅: Vercel / Netlify / Cloudflare</li>
+            <li>캐시 전략 (CDN, SW)</li>
+            <li>모니터링 & 로깅 (Sentry 등)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <h3>14. 확장 영역</h3>
+          <ul>
+            <li>PWA / Service Worker</li>
+            <li>Web Assembly / Web Workers</li>
+            <li>WebGL / Three.js / 3D & Canvas</li>
+            <li>실시간 (WebSocket, SSE, WebRTC)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-note">
+        <strong>Tip:</strong> 한 번에 모두 학습하기보다 "기초 → 활용 → 심화" 3 레이어로 반복 순환하며 프로젝트에 적용하세요.
+      </div>
+    </div>
+  </section>
 </main>
 <footer></footer>
 </body>
