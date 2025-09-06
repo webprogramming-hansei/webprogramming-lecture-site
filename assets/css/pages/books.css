@@ -16,6 +16,7 @@
 .book-body h3 .en-title { display:block; font-size:.65rem; font-weight:500; letter-spacing:.5px; margin-top:4px; color:var(--text-light); text-transform:uppercase; }
 .book-body .desc { margin:0; color:var(--text-light); font-size:0.9rem; line-height:1.55; }
 .book-meta { margin:0; font-size:0.65rem; letter-spacing:.5px; color:var(--text-light); font-weight:600; opacity:.85; }
+.why-read { margin:0 0 .8rem; font-size:0.75rem; color:var(--secondary-color); font-weight:600; }
 .bullets { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
 .bullets li { font-size:0.7rem; letter-spacing:.25px; color:var(--text-light); position:relative; padding-left:14px; line-height:1.3; }
 .bullets li::before { content:'•'; position:absolute; left:0; top:0; color:var(--secondary-color); }
