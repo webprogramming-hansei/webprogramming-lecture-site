@@ -37,6 +37,7 @@ function customizeNavbarForPage() {
       <a href="../index.html#curriculum" class="nav-link">커리큘럼</a>
       <a href="../prompts.html" class="nav-link">AI 프롬프트</a>
       <a href="../libraries.html" class="nav-link">라이브러리</a>
+  <a href="../books.html" class="nav-link">추천도서</a>
       <a href="#objectives" class="nav-link">학습 목표</a>
       <a href="#content" class="nav-link">강의 내용</a>
       <a href="#activities" class="nav-link">실습 활동</a>
