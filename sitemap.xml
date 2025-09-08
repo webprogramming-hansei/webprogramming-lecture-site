@@ -20,6 +20,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- 데모 갤러리 페이지 -->
+  <url>
+    <loc>https://webprogramming-hansei.github.io/demos.html</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 주차별 강의 페이지들 -->
   <url>
     <loc>https://webprogramming-hansei.github.io/week/week1.html</loc>

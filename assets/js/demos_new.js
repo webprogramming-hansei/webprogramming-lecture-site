@@ -16,7 +16,6 @@ class DemoGallery {
                     description: '클래식 틱택토 게임. JavaScript로 구현된 간단한 턴 기반 게임입니다.',
                     tech: ['JavaScript', 'HTML5', 'CSS3'],
                     difficulty: '초급',
-                    coverImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     init: (container) => GameDemos.initTicTacToe(container)
                 },
                 {
@@ -25,7 +24,6 @@ class DemoGallery {
                     description: 'Canvas를 활용한 고전적인 스네이크 게임. 키보드 컨트롤로 뱀을 조종하세요.',
                     tech: ['Canvas', 'JavaScript', '게임 루프'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                     init: (container) => GameDemos.initSnakeGame(container)
                 },
                 {
@@ -34,7 +32,6 @@ class DemoGallery {
                     description: '두 명이서 즐기는 클래식 퐁 게임. 패들과 공의 물리 엔진 구현.',
                     tech: ['Canvas', '물리 엔진', '실시간 게임'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                     init: (container) => GameDemos.initPongGame(container)
                 }
             ],
@@ -45,7 +42,6 @@ class DemoGallery {
                     description: 'Three.js를 활용한 3D 큐브 애니메이션. WebGL 기반 3D 그래픽스.',
                     tech: ['Three.js', 'WebGL', '3D 그래픽스'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
                     init: (container) => ThreeDemos.initRotatingCube(container)
                 },
                 {
@@ -54,16 +50,14 @@ class DemoGallery {
                     description: '수천 개의 파티클로 구성된 입자 효과. GPU 가속 3D 렌더링.',
                     tech: ['Three.js', 'Shaders', 'GPU 컴퓨팅'],
                     difficulty: '고급',
-                    coverImage: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
                     init: (container) => ThreeDemos.initParticleSystem(container)
                 },
                 {
                     id: '3d-model-viewer',
-                    title: '3D 기하학적 도형 갤러리',
-                    description: '다양한 3D 기하학적 도형들을 인터랙티브하게 탐색할 수 있는 갤러리.',
-                    tech: ['Three.js', '기하학적 도형', '마우스 인터랙션'],
-                    difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+                    title: '3D 모델 뷰어',
+                    description: 'GLTF 포맷의 3D 모델을 로드하고 조작할 수 있는 뷰어.',
+                    tech: ['Three.js', 'GLTF', '3D 모델링'],
+                    difficulty: '고급',
                     init: (container) => ThreeDemos.initModelViewer(container)
                 }
             ],
@@ -74,7 +68,6 @@ class DemoGallery {
                     description: 'D3.js를 활용한 인터랙티브 막대 차트. 데이터 시각화의 기초.',
                     tech: ['D3.js', 'SVG', '데이터 시각화'],
                     difficulty: '초급',
-                    coverImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     init: (container) => D3Demos.initBarChart(container)
                 },
                 {
@@ -83,7 +76,6 @@ class DemoGallery {
                     description: '시간에 따른 데이터 변화를 보여주는 선 그래프. 애니메이션 효과 포함.',
                     tech: ['D3.js', 'SVG', '애니메이션'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                     init: (container) => D3Demos.initLineChart(container)
                 },
                 {
@@ -92,7 +84,6 @@ class DemoGallery {
                     description: '노드와 링크로 구성된 네트워크 그래프. 물리 시뮬레이션 기반.',
                     tech: ['D3.js', '포스 레이아웃', '네트워크 그래프'],
                     difficulty: '고급',
-                    coverImage: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                     init: (container) => D3Demos.initForceDirected(container)
                 }
             ],
@@ -103,7 +94,6 @@ class DemoGallery {
                     description: '마우스로 그림을 그릴 수 있는 캔버스 기반 드로잉 애플리케이션.',
                     tech: ['Canvas 2D', '마우스 이벤트', '색상 피커'],
                     difficulty: '초급',
-                    coverImage: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
                     init: (container) => CanvasDemos.initDrawingApp(container)
                 },
                 {
@@ -112,7 +102,6 @@ class DemoGallery {
                     description: 'Canvas를 활용한 이미지 필터와 효과 적용. 픽셀 단위 조작.',
                     tech: ['Canvas 2D', '이미지 프로세싱', '필터'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
                     init: (container) => CanvasDemos.initImageManipulation(container)
                 }
             ],
@@ -123,7 +112,6 @@ class DemoGallery {
                     description: 'CSS keyframes를 활용한 다양한 애니메이션 효과들.',
                     tech: ['CSS3', 'Keyframes', '애니메이션'],
                     difficulty: '초급',
-                    coverImage: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
                     init: (container) => AnimationDemos.initCssAnimations(container)
                 },
                 {
@@ -132,7 +120,6 @@ class DemoGallery {
                     description: 'JavaScript Web Animations API를 활용한 고성능 애니메이션.',
                     tech: ['Web Animations API', 'JavaScript', '성능 최적화'],
                     difficulty: '중급',
-                    coverImage: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
                     init: (container) => AnimationDemos.initWebAnimations(container)
                 },
                 {
@@ -141,7 +128,6 @@ class DemoGallery {
                     description: 'Canvas 기반 파티클 시스템으로 생성되는 동적 애니메이션 효과.',
                     tech: ['Canvas 2D', '파티클 시스템', '물리 시뮬레이션'],
                     difficulty: '고급',
-                    coverImage: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
                     init: (container) => AnimationDemos.initParticleSystem(container)
                 }
             ]
@@ -152,23 +138,15 @@ class DemoGallery {
 
     init() {
         this.setupEventListeners();
-        this.renderAllSections();
+        this.renderDemos();
     }
 
     setupEventListeners() {
-        // 내비게이션 링크 이벤트
-        document.querySelectorAll('.category-nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                this.scrollToSection(targetId);
-                this.updateActiveNavLink(targetId);
+        // 카테고리 탭 이벤트
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                this.switchCategory(e.target.dataset.category);
             });
-        });
-
-        // 스크롤 이벤트로 내비게이션 활성화 상태 업데이트
-        window.addEventListener('scroll', () => {
-            this.updateActiveNavOnScroll();
         });
 
         // 모달 닫기 이벤트
@@ -183,59 +161,25 @@ class DemoGallery {
         });
     }
 
-    scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            const offsetTop = section.offsetTop - 100; // 헤더 높이 고려
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    }
+    switchCategory(category) {
+        this.currentCategory = category;
 
-    updateActiveNavLink(activeSectionId) {
-        document.querySelectorAll('.category-nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${activeSectionId}`) {
-                link.classList.add('active');
-            }
+        // 탭 활성화 상태 변경
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.category === category);
         });
+
+        this.renderDemos();
     }
 
-    updateActiveNavOnScroll() {
-        const sections = document.querySelectorAll('.category-section');
-        const scrollPosition = window.scrollY + 150; // 약간의 오프셋
+    renderDemos() {
+        const grid = document.getElementById('demos-grid');
+        const categoryDemos = this.demos[this.currentCategory];
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                this.updateActiveNavLink(sectionId);
-            }
-        });
-    }
-
-    renderAllSections() {
-        // 각 카테고리의 데모들을 해당 섹션에 렌더링
-        Object.keys(this.demos).forEach(category => {
-            this.renderSection(category);
-        });
-    }
-
-    renderSection(category) {
-        const section = document.querySelector(`[data-category="${category}"]`);
-        if (!section) return;
-
-        const categoryDemos = this.demos[category];
-
-        section.innerHTML = categoryDemos.map(demo => `
+        grid.innerHTML = categoryDemos.map(demo => `
             <div class="demo-card" data-demo-id="${demo.id}">
-                <div class="demo-preview" style="background: ${demo.coverImage};">
-                    <div class="demo-icon">${this.getCategoryIcon(category)}</div>
-                    <div class="demo-overlay"></div>
+                <div class="demo-preview">
+                    <div class="demo-icon">${this.getCategoryIcon(this.currentCategory)}</div>
                 </div>
                 <div class="demo-info">
                     <h3 class="demo-title">${demo.title}</h3>
@@ -249,16 +193,13 @@ class DemoGallery {
                         </div>
                     </div>
                 </div>
+                <div class="demo-actions">
+                    <button class="demo-btn primary" onclick="window.demoGallery.openDemo('${demo.id}')">
+                        체험하기
+                    </button>
+                </div>
             </div>
         `).join('');
-
-        // 카드 클릭 이벤트 추가
-        section.querySelectorAll('.demo-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                const demoId = card.dataset.demoId;
-                this.openDemo(demoId);
-            });
-        });
     }
 
     getCategoryIcon(category) {
@@ -277,26 +218,22 @@ class DemoGallery {
         if (!demo) return;
 
         const modal = document.getElementById('demo-modal');
-        const title = document.getElementById('modal-title');
+        const title = document.getElementById('demo-title');
         const container = document.getElementById('demo-container');
-        const description = document.getElementById('demo-description');
-        const techStack = document.getElementById('demo-tech-stack');
 
         title.textContent = demo.title;
-        description.textContent = demo.description;
-        techStack.innerHTML = demo.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
         container.innerHTML = '';
 
         // 데모 초기화
         demo.init(container);
 
-        modal.classList.add('show');
+        modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 
     closeModal() {
         const modal = document.getElementById('demo-modal');
-        modal.classList.remove('show');
+        modal.style.display = 'none';
         document.body.style.overflow = 'auto';
 
         // 데모 정리 (필요한 경우)
@@ -333,16 +270,6 @@ window.clearParticles = () => AnimationDemos.clearParticleCanvas();
 window.clearDrawing = () => CanvasDemos.clearDrawing();
 window.applyFilter = (filter) => CanvasDemos.applyFilter(filter);
 window.resetImage = () => CanvasDemos.resetImage();
-
-// 틱택토 게임 함수
-window.resetTicTacToe = () => GameDemos.resetTicTacToeGame();
-window.resetTicTacToeScore = () => GameDemos.resetTicTacToeScore();
-
-// 스네이크 게임 함수
-window.resetSnakeGame = () => GameDemos.resetSnakeGame();
-
-// 퐁 게임 함수
-window.resetPongGame = () => GameDemos.resetPongGame();
 
 // 초기화
 document.addEventListener('DOMContentLoaded', () => {

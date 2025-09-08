@@ -29,9 +29,57 @@
     <link rel="stylesheet" href="assets/css/pages/demos.css">
     <script type="module" src="assets/js/main.js"></script>
     <script type="module" src="assets/js/demos.js"></script>
+    <script>
+        // Navbar 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </head>
 <body class="demos-page">
-<header></header>
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="assets/img/logo.svg" alt="웹프로그래밍 강의" class="logo-img">
+                    <h1>웹프로그래밍</h1>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="index.html#overview" class="nav-link">강의 개요</a>
+                <a href="index.html#evaluation" class="nav-link">평가 방법</a>
+                <a href="index.html#tools" class="nav-link">사용 도구</a>
+                <a href="index.html#references" class="nav-link">참고 자료</a>
+                <a href="index.html#curriculum" class="nav-link">커리큘럼</a>
+                <a href="prompts.html" class="nav-link">AI 프롬프트</a>
+                <a href="libraries.html" class="nav-link">라이브러리</a>
+                <a href="books.html" class="nav-link">추천도서</a>
+                <a href="demos.html" class="nav-link active">데모 갤러리</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
 <main>
     <section class="demos-hero">
         <div class="container">
@@ -58,17 +106,71 @@
 
     <section class="demos-section">
         <div class="container">
-            <div class="category-tabs">
-                <button class="tab-btn active" data-category="games">🎮 웹 게임</button>
-                <button class="tab-btn" data-category="3d">🎨 3D 그래픽</button>
-                <button class="tab-btn" data-category="d3">📊 데이터 시각화</button>
-                <button class="tab-btn" data-category="canvas">🎭 Canvas</button>
-                <button class="tab-btn" data-category="animation">✨ 애니메이션</button>
-            </div>
+            <!-- 내비게이션 메뉴 -->
+            <nav class="category-nav">
+                <div class="category-nav-container">
+                    <a href="#games-section" class="category-nav-link active">🎮 웹 게임</a>
+                    <a href="#3d-section" class="category-nav-link">🎨 3D 그래픽</a>
+                    <a href="#d3-section" class="category-nav-link">📊 데이터 시각화</a>
+                    <a href="#canvas-section" class="category-nav-link">🎭 Canvas</a>
+                    <a href="#animation-section" class="category-nav-link">✨ 애니메이션</a>
+                </div>
+            </nav>
 
-            <div id="demos-grid" class="demos-grid">
-                <!-- 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
-            </div>
+            <!-- 웹 게임 섹션 -->
+            <section id="games-section" class="category-section">
+                <div class="section-header">
+                    <h2>🎮 웹 게임</h2>
+                    <p>브라우저에서 즐길 수 있는 다양한 게임들을 체험해보세요</p>
+                </div>
+                <div class="demos-grid" data-category="games">
+                    <!-- 게임 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+                </div>
+            </section>
+
+            <!-- 3D 그래픽 섹션 -->
+            <section id="3d-section" class="category-section">
+                <div class="section-header">
+                    <h2>🎨 3D 그래픽</h2>
+                    <p>WebGL과 Three.js를 활용한 3D 그래픽 데모들</p>
+                </div>
+                <div class="demos-grid" data-category="3d">
+                    <!-- 3D 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+                </div>
+            </section>
+
+            <!-- 데이터 시각화 섹션 -->
+            <section id="d3-section" class="category-section">
+                <div class="section-header">
+                    <h2>📊 데이터 시각화</h2>
+                    <p>D3.js를 활용한 인터랙티브한 데이터 시각화</p>
+                </div>
+                <div class="demos-grid" data-category="d3">
+                    <!-- D3 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+                </div>
+            </section>
+
+            <!-- Canvas 섹션 -->
+            <section id="canvas-section" class="category-section">
+                <div class="section-header">
+                    <h2>🎭 Canvas</h2>
+                    <p>HTML5 Canvas를 활용한 드로잉과 이미지 처리</p>
+                </div>
+                <div class="demos-grid" data-category="canvas">
+                    <!-- Canvas 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+                </div>
+            </section>
+
+            <!-- 애니메이션 섹션 -->
+            <section id="animation-section" class="category-section">
+                <div class="section-header">
+                    <h2>✨ 애니메이션</h2>
+                    <p>CSS와 JavaScript를 활용한 다양한 애니메이션 효과</p>
+                </div>
+                <div class="demos-grid" data-category="animation">
+                    <!-- 애니메이션 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+                </div>
+            </section>
         </div>
     </section>
 
