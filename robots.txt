@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://webprogramming-hansei.github.io/sitemap.xml
+
+# Crawl-delay (선택사항)
+Crawl-delay: 1
