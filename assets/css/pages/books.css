@@ -9,7 +9,7 @@
 .book-grid { display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); }
 .book-card { background:#fff; border-radius:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; overflow:hidden; border:1px solid var(--border-color); transition:var(--transition); position:relative; }
 .book-card:hover { transform:translateY(-6px); box-shadow:0 12px 28px rgba(0,0,0,0.12); }
-/* Cover 제거에 따라 관련 스타일 삭제됨 */
+.book-cover { width:100%; height:200px; object-fit:contain; border-bottom:1px solid var(--border-color); }
 
 .book-body { padding:22px 22px 20px; display:flex; flex-direction:column; gap:14px; flex:1; }
 .book-body h3 { margin:0; font-size:1.15rem; color:var(--primary-color); letter-spacing:-.5px; }
