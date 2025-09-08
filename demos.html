@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 데모 갤러리 - 웹프로그래밍 강의</title>
+    <meta name="description" content="웹프로그래밍 강의를 위한 인터랙티브 데모 갤러리. 웹 게임, 3D 그래픽, 데이터 시각화 등 다양한 웹 기술 데모를 체험해보세요." />
+    <meta name="keywords" content="웹 데모, 웹 게임, 3D 그래픽, D3.js, Three.js, 인터랙티브 데모, 웹프로그래밍" />
+    <meta name="author" content="웹프로그래밍 강의팀" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webprogramming-hansei.github.io/demos.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webprogramming-hansei.github.io/demos.html" />
+    <meta property="og:title" content="웹 데모 갤러리 - 웹프로그래밍 강의" />
+    <meta property="og:description" content="웹프로그래밍 강의를 위한 인터랙티브 데모 갤러리. 웹 게임, 3D 그래픽, 데이터 시각화 등 다양한 웹 기술 데모를 체험해보세요." />
+    <meta property="og:image" content="https://webprogramming-hansei.github.io/assets/img/logo.svg" />
+
+    <!-- 외부 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/demos.css">
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/demos.js"></script>
+</head>
+<body class="demos-page">
+<header></header>
+<main>
+    <section class="demos-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🎮 웹 데모 갤러리</h1>
+                <p>웹 기술의 무한한 가능성을 체험해보세요. 게임부터 3D 그래픽, 데이터 시각화까지!</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="number">15+</span>
+                        <span class="label">인터랙티브 데모</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">5</span>
+                        <span class="label">기술 카테고리</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">∞</span>
+                        <span class="label">학습 영감</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demos-section">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="games">🎮 웹 게임</button>
+                <button class="tab-btn" data-category="3d">🎨 3D 그래픽</button>
+                <button class="tab-btn" data-category="d3">📊 데이터 시각화</button>
+                <button class="tab-btn" data-category="canvas">🎭 Canvas</button>
+                <button class="tab-btn" data-category="animation">✨ 애니메이션</button>
+            </div>
+
+            <div id="demos-grid" class="demos-grid">
+                <!-- 데모 카드들이 JavaScript로 동적으로 생성됩니다 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 데모 모달 -->
+    <div id="demo-modal" class="demo-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="demo-container"></div>
+                <div class="demo-info">
+                    <div class="demo-description" id="demo-description"></div>
+                    <div class="demo-tech">
+                        <h4>사용 기술:</h4>
+                        <div id="demo-tech-stack"></div>
+                    </div>
+                    <div class="demo-controls" id="demo-controls"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer></footer>
+</body>
+</html>
